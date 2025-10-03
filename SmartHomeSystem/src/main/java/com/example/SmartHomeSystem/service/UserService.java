@@ -18,11 +18,6 @@ public class UserService {
 
     private final List<User> users = new ArrayList<>();
 
-    // @PostConstruct
-    // public void init() {
-    // create(new User(null, "", 123));
-    // }
-
     public List<User> getAll() {
         return userRepository.findAll();
 

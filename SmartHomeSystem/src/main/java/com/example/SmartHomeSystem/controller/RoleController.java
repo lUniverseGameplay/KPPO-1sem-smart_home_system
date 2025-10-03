@@ -12,51 +12,51 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.SmartHomeSystem.model.User;
-import com.example.SmartHomeSystem.service.UserService;
+import com.example.SmartHomeSystem.model.Role;
+import com.example.SmartHomeSystem.service.RoleService;
 
 import jakarta.validation.Valid;
 
 
 
 @RestController
-public class UserController {
-    private final UserService userService;
+public class RoleController {
+    private final RoleService roleService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public RoleController(RoleService roleService) {
+        this.roleService = roleService;
     }
 
-    @GetMapping("/users")
-    public List<User> getUsers() {
-        return userService.getAll();
+    @GetMapping("/roles")
+    public List<Role> getRoles() {
+        return roleService.getAll();
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
-        return ResponseEntity.ok().body(userService.getById(id));
+    @GetMapping("/roles/{id}")
+    public ResponseEntity<Role> getRole(@PathVariable Long id) {
+        return ResponseEntity.ok().body(roleService.getById(id));
     }
     
-    @PutMapping("/users/{id}")
-    public ResponseEntity<User> edit(@PathVariable Long id, @RequestBody User user) {
-        User updated = userService.update(id, user);
+    @PutMapping("/roles/{id}")
+    public ResponseEntity<Role> edit(@PathVariable Long id, @RequestBody Role role) {
+        Role updated = roleService.update(id, role);
         if(updated != null){
             return ResponseEntity.ok(updated);
         }
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/roles/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
-        if(userService.deleteById(id)){
+        if(roleService.deleteById(id)){
             return ResponseEntity.noContent().build();
         }
          return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/users")
-    public ResponseEntity<User> addUser(@RequestBody @Valid User user) {
-        User newUser = userService.create(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+    @PostMapping("/roles")
+    public ResponseEntity<Role> addRole(@RequestBody @Valid Role role) {
+        Role newRole = roleService.create(role);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newRole);
     }
 }
