@@ -26,10 +26,6 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    // private List<User> users = new ArrayList<>(Arrays.asList(
-    //     new User(1l, "smth", 100),
-    //     new User(2l, "smth2", 200)
-    // ));
 
     @GetMapping("/users")
     public List<User> getUsers() {
@@ -38,11 +34,6 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        // for (User user : users) {
-        //     if (user.getId().equals(id)) {
-        //         return ResponseEntity.ok(user);
-        //     }
-        // }
         return ResponseEntity.ok().body(userService.getById(id));
     }
     

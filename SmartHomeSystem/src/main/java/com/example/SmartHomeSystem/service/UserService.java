@@ -28,8 +28,8 @@ public class UserService {
 
     }
 
-    public List<User> getAllByTitle(String title) {
-        return userRepository.findAllByTitle(title);
+    public List<User> getAllByUsername(String username) {
+        return userRepository.findAllByUsername(username);
     }
 
     public User create(User user) {

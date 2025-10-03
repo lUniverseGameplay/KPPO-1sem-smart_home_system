@@ -10,6 +10,6 @@ import com.example.SmartHomeSystem.model.User;
 @Repository
 public interface UserRepository extends 
         JpaRepository<User, Long> {
-        List<User> findByTitleStartingWithIgnoreCase(String title);
-        List<User> findAllByTitle(String title);
+        List<User> findByUsernameStartingWithIgnoreCase(String username);
+        List<User> findAllByUsername(String username);
 }
