@@ -1,0 +1,30 @@
+spring:
+    profiles:
+        active: dev
+    application:
+        name: "Demo"
+        version: "0.1"
+---
+spring:
+    config:
+        activate:
+            on profile: dev
+    datasource:
+        url: jdbc:postgresql://localhost:5432/product
+        username: postgres
+        password: 123456
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+server:
+    port: 8080
+---
+spring:
+    config:
+        activate:
+            on profile: production
+server:
+    port: 9001
+---
