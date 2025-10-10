@@ -25,7 +25,6 @@ public class Role {
     @NotBlank
     @Size(min=2, max=150, message="Неправильное наименование роли. Наименование должно иметь не меньше 2 и не больше 150 символов")
     private String title;
-    @NotBlank
     @OneToMany
     private Set<Permission> permissions;
 }

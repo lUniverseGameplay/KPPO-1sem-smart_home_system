@@ -30,9 +30,7 @@ public class User {
     @NotBlank
     @Size(min=4, max=150, message="Неправильный пароль. Требуется не меньше 4 и не больше 150 символов")
     private String password;
-    @NotBlank
     private boolean enabled;
-    @NotBlank
     @OneToMany
     private Set<Role> roles;
 }

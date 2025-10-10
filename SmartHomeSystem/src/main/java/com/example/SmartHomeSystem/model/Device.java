@@ -24,12 +24,8 @@ public class Device {
     @NotBlank
     @Size(min=2, max=150, message="Неправильное наименование устройства. Наименование должно содержать не менее 2 и не более 150 символов")
     private String title;
-    @NotBlank
     private Room room;
-    @NotBlank
     private DeviceType type;
-    @NotBlank
     private Double power;
-    @NotBlank
     private boolean isActive;
 }

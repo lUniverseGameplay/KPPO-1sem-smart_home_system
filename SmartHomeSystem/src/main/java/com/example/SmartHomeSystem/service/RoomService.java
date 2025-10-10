@@ -23,8 +23,8 @@ public class RoomService {
 
     }
 
-    public List<Room> getAllByLocation(String roomname) {
-        return roomRepository.findAllByLocation(roomname);
+    public List<Room> getAllByLocation(String location) {
+        return roomRepository.findAllByLocation(location);
     }
 
     public Room create(Room room) {
