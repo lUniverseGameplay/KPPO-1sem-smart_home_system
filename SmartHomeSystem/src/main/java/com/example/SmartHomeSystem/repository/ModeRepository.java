@@ -11,6 +11,6 @@ import com.example.SmartHomeSystem.model.Mode;
 @Repository
 public interface ModeRepository extends 
     JpaRepository<Mode, Long>{
-        List<Mode> findByTypeStartingWithIgnoreCase(ModeType type);
+        Mode findByType(ModeType type);
         List<Mode> findAllByType(ModeType type);
 }

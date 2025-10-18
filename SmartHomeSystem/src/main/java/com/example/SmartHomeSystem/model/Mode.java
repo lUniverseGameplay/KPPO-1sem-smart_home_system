@@ -26,7 +26,7 @@ public class Mode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true ,length = 100)
+    // @Column(nullable = false, unique = true ,length = 100)
     private ModeType type;
     @OneToMany(mappedBy = "mode", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Device> devices;

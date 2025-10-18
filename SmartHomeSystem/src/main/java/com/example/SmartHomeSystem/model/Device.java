@@ -25,17 +25,19 @@ public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    
     @NotBlank
     @Size(min=2, max=150, message="Неправильное наименование устройства. Наименование должно содержать не менее 2 и не более 150 символов")
     @Column(nullable = false, length = 100)
     private String title;
-    @Column(nullable = false, length = 100)
+    @ManyToOne
     private Room room;
-    @Column(nullable = false, length = 100)
+    // @Column(nullable = false, length = 100)
     private DeviceType type;
     @Column(nullable = false, length = 100)
     private Double power;
     @Column(nullable = false, length = 100)
     private boolean isActive;
+    @ManyToOne
+    private Mode mode;
 }
