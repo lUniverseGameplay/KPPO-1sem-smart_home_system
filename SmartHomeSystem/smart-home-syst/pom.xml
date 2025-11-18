@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>smart-home-system</artifactId>
+	<artifactId>smart-home-syst</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>smart-home-system</name>
-	<description>Lab 4 for KPPO</description>
+	<name>smart-home-syst</name>
+	<description>4 lab KPPO</description>
 	<url/>
 	<licenses>
 		<license/>
