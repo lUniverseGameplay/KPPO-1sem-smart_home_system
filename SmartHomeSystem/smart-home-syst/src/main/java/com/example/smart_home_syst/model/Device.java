@@ -31,5 +31,5 @@ public class Device {
     //@Column(columnDefinition = "double default 0.0")
     private Double power;
     //@Column(columnDefinition = "boolean default false")
-    private boolean isActive;
+    private boolean active;
 }

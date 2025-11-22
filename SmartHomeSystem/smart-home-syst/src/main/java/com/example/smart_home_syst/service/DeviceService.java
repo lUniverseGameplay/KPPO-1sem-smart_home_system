@@ -40,7 +40,7 @@ public class DeviceService {
         return deviceRepository.findById(id).map(existingDevice -> {
             existingDevice.setTitle(device.getTitle());
             existingDevice.setPower(device.getPower());
-            //existingDevice.setIsActive(device.getIsActive());
+            existingDevice.setActive(device.isActive());
             return deviceRepository.save(existingDevice);
         }).orElseThrow(null);
     }
@@ -53,5 +53,7 @@ public class DeviceService {
         return false;
     }
 
-    
+    public Device create (Device device) {
+        return deviceRepository.save(device);
+    }
 }
