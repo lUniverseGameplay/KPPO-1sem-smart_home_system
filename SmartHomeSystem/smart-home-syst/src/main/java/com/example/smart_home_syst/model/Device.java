@@ -28,8 +28,6 @@ public class Device {
     //private Room room;
     //private DeviceType type;
 
-    //@Column(columnDefinition = "double default 0.0")
     private Double power;
-    //@Column(columnDefinition = "boolean default false")
     private boolean active;
 }
