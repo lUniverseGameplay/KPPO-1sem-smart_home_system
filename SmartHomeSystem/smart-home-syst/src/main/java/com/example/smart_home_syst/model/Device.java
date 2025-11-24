@@ -1,5 +1,7 @@
 package com.example.smart_home_syst.model;
 
+import com.example.smart_home_syst.enumerator.DeviceType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +28,7 @@ public class Device {
     private String title;
 
     //private Room room;
-    //private DeviceType type;
+    private DeviceType type; // Придумать как добавить в БД
 
     private Double power;
     private boolean active;

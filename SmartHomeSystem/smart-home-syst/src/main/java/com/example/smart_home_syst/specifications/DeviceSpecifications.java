@@ -2,6 +2,7 @@ package com.example.smart_home_syst.specifications;
 
 import org.springframework.data.jpa.domain.Specification;
 
+import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.model.Device;
 
 public class DeviceSpecifications {
@@ -40,8 +41,18 @@ public class DeviceSpecifications {
             return criterialBuilder.equal(root.get("active"), activity);
         };
     }
+    
+    private static Specification<Device> definiteType(DeviceType type) {
+        return (root, query, criterialBuilder) -> {
+            if (type==null || type.name().trim().isEmpty()) {
+                return null;
+            }
+            return criterialBuilder.like(criterialBuilder.lower(root.get("title")), 
+            "%"+type.name().trim().toLowerCase()+"%");
+        };
+    }
 
-    public static Specification<Device> filter (String title, Double min_power, Double max_power, Boolean activity) {
-        return Specification.allOf(titleLike(title), powerGreater(min_power), priceLower(max_power), sameActivity(activity));
+    public static Specification<Device> filter (String title, Double min_power, Double max_power, Boolean activity, DeviceType type) {
+        return Specification.allOf(titleLike(title), powerGreater(min_power), priceLower(max_power), sameActivity(activity), definiteType(type));
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.repository.DeviceRepository;
 import com.example.smart_home_syst.specifications.DeviceSpecifications;
@@ -75,7 +76,7 @@ public class DeviceService {
         return deviceRepository.save(device);
     }
 
-    public Page<Device> getByFilter (String title, Double min_power, Double max_power, Boolean activity, Pageable pageable) {
-        return deviceRepository.findAll(DeviceSpecifications.filter(title, min_power, max_power, activity), pageable);
+    public Page<Device> getByFilter (String title, Double min_power, Double max_power, Boolean activity, DeviceType type, Pageable pageable) {
+        return deviceRepository.findAll(DeviceSpecifications.filter(title, min_power, max_power, activity, type), pageable);
     }
 }

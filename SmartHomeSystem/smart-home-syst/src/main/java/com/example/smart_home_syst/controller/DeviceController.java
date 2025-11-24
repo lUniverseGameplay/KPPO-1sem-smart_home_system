@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.service.DeviceService;
 
@@ -67,7 +68,7 @@ public class DeviceController {
 
     @GetMapping("/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title,
-    Double min_power, Double max_power, Boolean activity, @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
-        return ResponseEntity.ok(deviceService.getByFilter(title, min_power, max_power, activity, pageable));
+    Double min_power, Double max_power, Boolean activity, DeviceType type, @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
+        return ResponseEntity.ok(deviceService.getByFilter(title, min_power, max_power, activity, type, pageable));
     }
 }
