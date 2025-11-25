@@ -47,7 +47,7 @@ public class DeviceSpecifications {
             if (type==null || type.name().trim().isEmpty()) {
                 return null;
             }
-            return criterialBuilder.like(criterialBuilder.lower(root.get("title")), 
+            return criterialBuilder.like(criterialBuilder.lower(root.get("type")), 
             "%"+type.name().trim().toLowerCase()+"%");
         };
     }

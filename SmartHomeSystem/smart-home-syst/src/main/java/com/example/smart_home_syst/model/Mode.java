@@ -1,14 +1,16 @@
 package com.example.smart_home_syst.model;
 
-import com.example.smart_home_syst.enumerator.DeviceType;
+import java.util.List;
 
+import com.example.smart_home_syst.enumerator.ModeType;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -20,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 
 @Entity
-public class Device {
+public class Mode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,14 +30,8 @@ public class Device {
     @Size(min=1, max=150)
     @Column(nullable = false, unique = true, length = 150)
     private String title;
-
-    //private Room room;
-    @ManyToOne
-    @JoinColumn(name = "mode_id")
-    private Mode mode;
     
-    private DeviceType type; // Придумать как добавить в БД
-
-    private Double power;
-    private boolean active;
+    private ModeType type; // Придумать как добавить в БД
+    @OneToMany(mappedBy="mode", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Device> devices;
 }
