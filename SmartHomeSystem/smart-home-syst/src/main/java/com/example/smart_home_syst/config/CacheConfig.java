@@ -19,7 +19,9 @@ public class CacheConfig {
         SimpleCacheManager scm = new SimpleCacheManager();
         scm.setCaches(Arrays.asList(
             new ConcurrentMapCache("devices"),
-            new ConcurrentMapCache("device")
+            new ConcurrentMapCache("device"),
+            new ConcurrentMapCache("modes"),
+            new ConcurrentMapCache("mode")            
         ));
         return scm;
     }

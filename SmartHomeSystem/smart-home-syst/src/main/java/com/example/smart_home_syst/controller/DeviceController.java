@@ -66,7 +66,7 @@ public class DeviceController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/filter")
+    @GetMapping("/devices/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title,
     Double min_power, Double max_power, Boolean activity, DeviceType type, @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
         return ResponseEntity.ok(deviceService.getByFilter(title, min_power, max_power, activity, type, pageable));

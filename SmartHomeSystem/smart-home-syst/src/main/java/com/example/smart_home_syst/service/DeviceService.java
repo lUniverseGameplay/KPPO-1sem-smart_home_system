@@ -38,7 +38,7 @@ public class DeviceService {
     }
 
     @Transactional(readOnly = true)
-    @Cacheable(value="product", key="#id")
+    @Cacheable(value="device", key="#id")
     public Device getById(Long id) {
         for (Device device : devices) {
             if (device.getId().equals(id)) {
@@ -53,6 +53,7 @@ public class DeviceService {
             existingDevice.setTitle(device.getTitle());
             existingDevice.setPower(device.getPower());
             existingDevice.setActive(device.isActive());
+            existingDevice.setMode(device.getMode());
             return deviceRepository.save(existingDevice);
         }).orElseThrow(null);
     }
