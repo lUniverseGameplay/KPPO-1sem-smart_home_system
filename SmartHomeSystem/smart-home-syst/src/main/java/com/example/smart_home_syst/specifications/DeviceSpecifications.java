@@ -44,11 +44,10 @@ public class DeviceSpecifications {
     
     private static Specification<Device> definiteType(DeviceType type) {
         return (root, query, criterialBuilder) -> {
-            if (type==null || type.name().trim().isEmpty()) {
+            if (type == null) {
                 return null;
             }
-            return criterialBuilder.like(criterialBuilder.lower(root.get("type")), 
-            "%"+type.name().trim().toLowerCase()+"%");
+            return criterialBuilder.equal(root.get("type"), type);
         };
     }
 
