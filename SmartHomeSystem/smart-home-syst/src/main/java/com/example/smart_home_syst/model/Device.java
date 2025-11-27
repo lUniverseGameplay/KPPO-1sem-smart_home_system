@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -30,8 +29,9 @@ public class Device {
     private String title;
 
     //private Room room;
+    
     @ManyToOne
-    @JoinColumn(name = "mode_id")
+    //@JoinColumn(name = "mode_id")
     private Mode mode;
     
     private DeviceType type; // Придумать как добавить в БД

@@ -38,7 +38,7 @@ public class DeviceController {
 
     @GetMapping("/devices/{id}")
     public ResponseEntity<Device> getDevice(@PathVariable Long id) {
-        return ResponseEntity.ok().body(deviceService.getById(id));
+        return ResponseEntity.ok().body(deviceService.getById(id)); // -
     }
 
     @PostMapping("/devices")

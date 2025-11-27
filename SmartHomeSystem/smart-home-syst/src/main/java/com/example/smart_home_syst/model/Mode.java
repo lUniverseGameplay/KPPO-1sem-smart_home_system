@@ -3,6 +3,7 @@ package com.example.smart_home_syst.model;
 import java.util.List;
 
 import com.example.smart_home_syst.enumerator.ModeType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -33,6 +34,21 @@ public class Mode {
     
     private ModeType type; // Придумать как добавить в БД
     
+    //@JsonIgnore
+    /*@OneToMany(mappedBy="mode", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Device> devices;*/
+
+    @JsonIgnore
     @OneToMany(mappedBy="mode", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Device> devices;
+    /*
+    @JsonProperty("devices")
+    public List<String> getDeviceTitles() {
+        if (devices == null) {
+            return List.of();
+        }
+        return devices.stream()
+                .map(Device::getTitle)
+                .collect(Collectors.toList());
+    }*/
 }
