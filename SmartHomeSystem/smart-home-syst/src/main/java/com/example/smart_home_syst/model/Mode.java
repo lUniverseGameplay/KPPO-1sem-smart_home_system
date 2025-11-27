@@ -32,6 +32,7 @@ public class Mode {
     private String title;
     
     private ModeType type; // Придумать как добавить в БД
+    
     @OneToMany(mappedBy="mode", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Device> devices;
 }

@@ -3,285 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Умный дом - Управление устройствами</title>
+    <title>Smart Home System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
+        .tab-content {
             padding: 20px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
         }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 0;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        .device-card {
-            transition: transform 0.3s;
-            margin-bottom: 20px;
-        }
-        .device-card:hover {
-            transform: translateY(-5px);
-        }
-        .device-active {
-            border-left: 5px solid #28a745;
-        }
-        .device-inactive {
-            border-left: 5px solid #dc3545;
-        }
-        .action-buttons {
+        .table-actions {
             white-space: nowrap;
         }
-        .status-badge {
-            font-size: 0.8em;
+        .device-active {
+            color: #198754;
         }
-        .table-responsive {
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
+        .device-inactive {
+            color: #dc3545;
         }
-        .power-consumption {
-            font-weight: bold;
-            color: #e83e8c;
-        }
-        .id-input-group {
-            max-width: 150px;
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Заголовок -->
-        <div class="header text-center">
-            <h1><i class="fas fa-home me-2"></i>Система умного дома</h1>
-            <p class="lead">Управление устройствами</p>
-        </div>
+    <div class="container-fluid py-4">
+        <h1 class="text-center mb-4">🏠 Smart Home System</h1>
+        
+        <!-- Навигационные вкладки -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="devices-tab" data-bs-toggle="tab" data-bs-target="#devices" type="button" role="tab">Устройства</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="modes-tab" data-bs-toggle="tab" data-bs-target="#modes" type="button" role="tab">Режимы</button>
+            </li>
+        </ul>
 
-        <!-- Форма добавления/редактирования устройства -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5 id="form-title">Добавить новое устройство</h5>
-            </div>
-            <div class="card-body">
-                <form id="device-form">
-                    <input type="hidden" id="edit-mode" value="false">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="mb-3">
-                                <label for="id" class="form-label">ID устройства</label>
-                                <input type="number" class="form-control" id="id" min="1" step="1">
-                                <div class="form-text">Оставьте пустым для авто-ID</div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Название устройства *</label>
-                                <input type="text" class="form-control" id="title" required maxlength="150">
-                                <div class="form-text">Максимум 150 символов</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label for="power" class="form-label">Потребляемая мощность (Вт)</label>
-                                <input type="number" class="form-control" id="power" step="0.1" min="0">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="mb-3">
-                                <label class="form-label">Статус</label>
-                                <div class="form-check mt-2">
-                                    <input class="form-check-input" type="checkbox" id="active">
-                                    <label class="form-check-label" for="active">
-                                        Активное устройство
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-1 d-flex align-items-end">
-                            <div class="mb-3 w-100">
-                                <button type="submit" class="btn btn-success w-100" id="submit-btn">
-                                    <i class="fas fa-plus me-1"></i> Добавить
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="alert alert-info mb-0">
-                                <small>
-                                    <i class="fas fa-info-circle me-1"></i>
-                                    <strong>Примечание:</strong> При создании устройства вы можете указать свой ID. 
-                                    Если ID не указан или уже существует, система автоматически сгенерирует новый ID.
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Поиск и фильтры -->
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="search-input" placeholder="Поиск по названию...">
-                            <button class="btn btn-outline-secondary" type="button" onclick="searchDevices()">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <select class="form-select" id="status-filter" onchange="filterDevices()">
-                            <option value="all">Все статусы</option>
-                            <option value="active">Только активные</option>
-                            <option value="inactive">Только неактивные</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="btn btn-outline-secondary w-100" onclick="resetFilters()">
-                            <i class="fas fa-refresh me-1"></i> Сбросить фильтры
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Таблица устройств -->
-        <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h5>Список устройств <span id="devices-count" class="badge bg-primary ms-2">0</span></h5>
-                <div>
-                    <button class="btn btn-outline-primary me-2" onclick="loadDevices()">
-                        <i class="fas fa-sync-alt me-1"></i> Обновить
-                    </button>
-                    <button class="btn btn-outline-success" onclick="resetForm()">
-                        <i class="fas fa-plus me-1"></i> Новое устройство
+        <!-- Содержимое вкладок -->
+        <div class="tab-content" id="myTabContent">
+            
+            <!-- Вкладка устройств -->
+            <div class="tab-pane fade show active" id="devices" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>Управление устройствами</h3>
+                    <button class="btn btn-primary" onclick="showDeviceModal()">
+                        <i class="fas fa-plus"></i> Добавить устройство
                     </button>
                 </div>
-            </div>
-            <div class="card-body">
+                
+                <!-- Фильтры устройств -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Фильтры</h5>
+                        <div class="row g-3">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="filterDeviceTitle" placeholder="Название">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="filterMinPower" placeholder="Мин. мощность">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="filterMaxPower" placeholder="Макс. мощность">
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-select" id="filterActivity">
+                                    <option value="">Все статусы</option>
+                                    <option value="true">Активные</option>
+                                    <option value="false">Неактивные</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-select" id="filterDeviceType">
+                                    <option value="">Все типы</option>
+                                    <option value="light">Light</option>
+                                    <option value="coffee_machine">Coffee Machine</option>
+                                    <option value="speakers">Speakers</option>
+                                    <option value="kettle">Kettle</option>
+                                    <option value="microwave">Microwave</option>
+                                    <option value="door">Door</option>
+                                    <option value="conditioner">Conditioner</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-primary w-100" onclick="loadDevices()">Применить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-striped table-hover">
                         <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
                                 <th>Название</th>
-                                <th>Мощность (Вт)</th>
+                                <th>Тип</th>
+                                <th>Мощность</th>
                                 <th>Статус</th>
+                                <th>Режим</th>
                                 <th>Действия</th>
                             </tr>
                         </thead>
-                        <tbody id="devices-table-body">
-                            <!-- Данные будут загружены через JavaScript -->
+                        <tbody id="devicesTableBody">
+                            <!-- Данные устройств будут здесь -->
                         </tbody>
                     </table>
                 </div>
-                <div id="loading-message" class="text-center py-4">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Загрузка...</span>
-                    </div>
-                    <p class="mt-2">Загрузка устройств...</p>
-                </div>
-                <div id="no-devices-message" class="text-center py-4" style="display: none;">
-                    <p>Устройства не найдены. Добавьте первое устройство!</p>
-                </div>
-                <div id="filter-no-results" class="text-center py-4" style="display: none;">
-                    <p>По вашему запросу ничего не найдено.</p>
-                </div>
             </div>
-        </div>
 
-        <!-- Статистика -->
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class="card text-white bg-primary">
+            <!-- Вкладка режимов -->
+            <div class="tab-pane fade" id="modes" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>Управление режимами</h3>
+                    <button class="btn btn-primary" onclick="showModeModal()">
+                        <i class="fas fa-plus"></i> Добавить режим
+                    </button>
+                </div>
+                
+                <!-- Фильтры режимов -->
+                <div class="card mb-3">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h4 id="total-devices">0</h4>
-                                <p>Всего устройств</p>
+                        <h5 class="card-title">Фильтры</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="filterModeTitle" placeholder="Название">
                             </div>
-                            <div class="align-self-center">
-                                <i class="fas fa-plug fa-2x"></i>
+                            <div class="col-md-4">
+                                <select class="form-select" id="filterModeType">
+                                    <option value="">Все типы</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="morning">Morning</option>
+                                    <option value="study">Study</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-outline-primary w-100" onclick="loadModes()">Применить</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-success">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h4 id="active-devices">0</h4>
-                                <p>Активных устройств</p>
-                            </div>
-                            <div class="align-self-center">
-                                <i class="fas fa-bolt fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-warning">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h4 id="inactive-devices">0</h4>
-                                <p>Неактивных устройств</p>
-                            </div>
-                            <div class="align-self-center">
-                                <i class="fas fa-power-off fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-info">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h4 id="total-power">0</h4>
-                                <p>Общая мощность (Вт)</p>
-                            </div>
-                            <div class="align-self-center">
-                                <i class="fas fa-chart-line fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Тип</th>
+                                <th>Кол-во устройств</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modesTableBody">
+                            <!-- Данные режимов будут здесь -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно подтверждения удаления -->
-    <div class="modal fade" id="deleteModal" tabindex="-1">
+    <!-- Модальное окно для устройств -->
+    <div class="modal fade" id="deviceModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Подтверждение удаления</h5>
+                    <h5 class="modal-title" id="deviceModalTitle">Добавить устройство</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы уверены, что хотите удалить устройство "<span id="device-to-delete-title"></span>" (ID: <span id="device-to-delete-id"></span>)?</p>
-                    <div class="alert alert-warning mt-2">
-                        <small>
-                            <i class="fas fa-exclamation-triangle me-1"></i>
-                            Это действие нельзя отменить.
-                        </small>
-                    </div>
+                    <form id="deviceForm">
+                        <input type="hidden" id="deviceId">
+                        <div class="mb-3">
+                            <label class="form-label">ID (ручной ввод)</label>
+                            <input type="number" class="form-control" id="deviceIdInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Название *</label>
+                            <input type="text" class="form-control" id="deviceTitle" required maxlength="150">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Тип</label>
+                            <select class="form-select" id="deviceType">
+                                <option value="light">Light</option>
+                                <option value="coffee_machine">Coffee Machine</option>
+                                <option value="speakers">Speakers</option>
+                                <option value="kettle">Kettle</option>
+                                <option value="microwave">Microwave</option>
+                                <option value="door">Door</option>
+                                <option value="conditioner">Conditioner</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Мощность</label>
+                            <input type="number" step="0.1" class="form-control" id="devicePower">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Режим (ID)</label>
+                            <input type="number" class="form-control" id="deviceModeId">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="deviceActive">
+                            <label class="form-check-label">Активное</label>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger" id="confirm-delete">
-                        <i class="fas fa-trash me-1"></i> Удалить
-                    </button>
+                    <button type="button" class="btn btn-primary" onclick="saveDevice()">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для режимов -->
+    <div class="modal fade" id="modeModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modeModalTitle">Добавить режим</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modeForm">
+                        <input type="hidden" id="modeId">
+                        <div class="mb-3">
+                            <label class="form-label">ID (ручной ввод)</label>
+                            <input type="number" class="form-control" id="modeIdInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Название *</label>
+                            <input type="text" class="form-control" id="modeTitle" required maxlength="150">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Тип</label>
+                            <select class="form-select" id="modeType">
+                                <option value="dinner">Dinner</option>
+                                <option value="morning">Morning</option>
+                                <option value="study">Study</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" onclick="saveMode()">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -289,110 +258,75 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Базовый URL вашего Spring Boot приложения
-        const API_BASE_URL = 'http://localhost:8080';
-        let devices = [];
-        let filteredDevices = [];
-        let deviceToDeleteId = null;
-
-        // Загрузка устройств при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            loadDevices();
-            setupEventListeners();
-        });
-
-        function setupEventListeners() {
-            // Обработчик формы
-            document.getElementById('device-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                saveDevice();
-            });
-
-            // Обработчик подтверждения удаления
-            document.getElementById('confirm-delete').addEventListener('click', function() {
-                if (deviceToDeleteId) {
-                    deleteDevice(deviceToDeleteId);
-                }
-            });
-
-            // Поиск при нажатии Enter
-            document.getElementById('search-input').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    searchDevices();
-                }
-            });
-        }
-
-        // Загрузка списка устройств
-        async function loadDevices() {
-            showLoading(true);
+        const API_BASE = 'http://localhost:8080';
+        
+        // CORS прокси для обхода ограничений браузера
+        async function fetchWithCORS(url, options = {}) {
             try {
-                const response = await fetch(`${API_BASE_URL}/devices`, {
-                    method: 'GET',
+                const response = await fetch(url, {
+                    ...options,
+                    mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',
+                        ...options.headers,
                     },
                 });
-
-                if (response.ok) {
-                    devices = await response.json();
-                    filteredDevices = [...devices];
-                    renderDevicesTable();
-                    updateStatistics();
-                } else {
-                    throw new Error('Ошибка загрузки устройств');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                
+                return await response.json();
             } catch (error) {
-                console.error('Ошибка:', error);
-                alert('Не удалось загрузить устройства. Проверьте, запущено ли серверное приложение.');
-            } finally {
-                showLoading(false);
+                console.error('Fetch error:', error);
+                alert('Ошибка при выполнении запроса: ' + error.message);
+                throw error;
             }
         }
 
-        // Отображение таблицы устройств
-        function renderDevicesTable() {
-            const tbody = document.getElementById('devices-table-body');
-            const noDevicesMessage = document.getElementById('no-devices-message');
-            const filterNoResults = document.getElementById('filter-no-results');
+        // Устройства
+        async function loadDevices() {
+            try {
+                const params = new URLSearchParams({
+                    title: document.getElementById('filterDeviceTitle').value || '',
+                    min_power: document.getElementById('filterMinPower').value || '',
+                    max_power: document.getElementById('filterMaxPower').value || '',
+                    activity: document.getElementById('filterActivity').value || '',
+                    type: document.getElementById('filterDeviceType').value || ''
+                });
 
-            document.getElementById('devices-count').textContent = filteredDevices.length;
+                const devices = await fetchWithCORS(`${API_BASE}/devices/filter?${params}`);
+                renderDevicesTable(devices.content || devices);
+            } catch (error) {
+                document.getElementById('devicesTableBody').innerHTML = 
+                    '<tr><td colspan="7" class="text-center text-danger">Ошибка загрузки данных</td></tr>';
+            }
+        }
 
-            if (devices.length === 0) {
-                tbody.innerHTML = '';
-                noDevicesMessage.style.display = 'block';
-                filterNoResults.style.display = 'none';
+        function renderDevicesTable(devices) {
+            const tbody = document.getElementById('devicesTableBody');
+            
+            if (!devices || devices.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center">Устройства не найдены</td></tr>';
                 return;
             }
 
-            noDevicesMessage.style.display = 'none';
-            
-            if (filteredDevices.length === 0) {
-                tbody.innerHTML = '';
-                filterNoResults.style.display = 'block';
-                return;
-            }
-
-            filterNoResults.style.display = 'none';
-            
-            tbody.innerHTML = filteredDevices.map(device => `
-                <tr class="${device.active ? 'table-success' : ''}">
-                    <td><strong>${device.id}</strong></td>
+            tbody.innerHTML = devices.map(device => `
+                <tr>
+                    <td>${device.id}</td>
                     <td>${device.title}</td>
+                    <td>${device.type}</td>
+                    <td>${device.power || '-'}</td>
                     <td>
-                        ${device.power ? `<span class="power-consumption">${device.power} Вт</span>` : '<span class="text-muted">Не указано</span>'}
+                        <i class="fas ${device.active ? 'fa-check device-active' : 'fa-times device-inactive'}"></i>
+                        ${device.active ? 'Активно' : 'Неактивно'}
                     </td>
-                    <td>
-                        <span class="badge ${device.active ? 'bg-success' : 'bg-danger'} status-badge">
-                            <i class="fas ${device.active ? 'fa-bolt' : 'fa-power-off'} me-1"></i>
-                            ${device.active ? 'Активно' : 'Неактивно'}
-                        </span>
-                    </td>
-                    <td class="action-buttons">
-                        <button class="btn btn-sm btn-outline-primary me-1" onclick="editDevice(${device.id})" title="Редактировать">
+                    <td>${device.mode ? device.mode.title : 'Нет'}</td>
+                    <td class="table-actions">
+                        <button class="btn btn-sm btn-outline-primary" onclick="editDevice(${device.id})">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="confirmDelete(${device.id}, '${device.title.replace(/'/g, "\\'")}')" title="Удалить">
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteDevice(${device.id})">
                             <i class="fas fa-trash"></i>
                         </button>
                     </td>
@@ -400,202 +334,219 @@
             `).join('');
         }
 
-        // Сохранение устройства (создание или обновление)
-        async function saveDevice() {
-            const editMode = document.getElementById('edit-mode').value === 'true';
-            const deviceIdInput = document.getElementById('id');
-            const deviceId = deviceIdInput.value ? parseInt(deviceIdInput.value) : null;
+        function showDeviceModal(device = null) {
+            const modal = new bootstrap.Modal(document.getElementById('deviceModal'));
+            const title = document.getElementById('deviceModalTitle');
+            const form = document.getElementById('deviceForm');
             
-            const device = {
-                title: document.getElementById('title').value,
-                power: document.getElementById('power').value ? parseFloat(document.getElementById('power').value) : null,
-                active: document.getElementById('active').checked
+            form.reset();
+            
+            if (device) {
+                title.textContent = 'Редактировать устройство';
+                document.getElementById('deviceId').value = device.id;
+                document.getElementById('deviceIdInput').value = device.id;
+                document.getElementById('deviceTitle').value = device.title;
+                document.getElementById('deviceType').value = device.type;
+                document.getElementById('devicePower').value = device.power || '';
+                document.getElementById('deviceModeId').value = device.mode ? device.mode.id : '';
+                document.getElementById('deviceActive').checked = device.active;
+            } else {
+                title.textContent = 'Добавить устройство';
+                document.getElementById('deviceIdInput').value = '';
+            }
+            
+            modal.show();
+        }
+
+        async function saveDevice() {
+            const deviceData = {
+                id: parseInt(document.getElementById('deviceIdInput').value),
+                title: document.getElementById('deviceTitle').value,
+                type: document.getElementById('deviceType').value,
+                power: document.getElementById('devicePower').value ? parseFloat(document.getElementById('devicePower').value) : null,
+                active: document.getElementById('deviceActive').checked
             };
 
-            // Если указан ID при создании, добавляем его в объект
-            if (!editMode && deviceId) {
-                device.id = deviceId;
-            }
-
-            let url, method;
-            
-            if (editMode) {
-                // Режим редактирования - используем ID из скрытого поля
-                const editDeviceId = document.getElementById('edit-device-id').value;
-                url = `${API_BASE_URL}/devices/${editDeviceId}`;
-                method = 'PUT';
-            } else {
-                // Режим создания
-                url = `${API_BASE_URL}/devices`;
-                method = 'POST';
+            const modeId = document.getElementById('deviceModeId').value;
+            if (modeId) {
+                try {
+                    const mode = await fetchWithCORS(`${API_BASE}/modes/${modeId}`);
+                    deviceData.mode = mode;
+                } catch (error) {
+                    alert('Режим с указанным ID не найден');
+                    return;
+                }
             }
 
             try {
-                const response = await fetch(url, {
-                    method: method,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(device)
-                });
-
-                if (response.ok) {
-                    resetForm();
-                    loadDevices();
-                    alert(editMode ? 'Устройство обновлено!' : 'Устройство добавлено!');
-                } else if (response.status === 400) {
-                    const errorData = await response.json();
-                    alert(`Ошибка: ${errorData.message || 'Неверные данные устройства'}`);
-                } else if (response.status === 409) {
-                    alert('Ошибка: Устройство с таким ID уже существует');
+                const existingId = document.getElementById('deviceId').value;
+                if (existingId) {
+                    // Обновление
+                    await fetchWithCORS(`${API_BASE}/devices/${existingId}`, {
+                        method: 'PUT',
+                        body: JSON.stringify(deviceData)
+                    });
                 } else {
-                    throw new Error('Ошибка сохранения устройства');
+                    // Создание
+                    await fetchWithCORS(`${API_BASE}/devices`, {
+                        method: 'POST',
+                        body: JSON.stringify(deviceData)
+                    });
                 }
+
+                bootstrap.Modal.getInstance(document.getElementById('deviceModal')).hide();
+                loadDevices();
+                alert('Устройство успешно сохранено!');
             } catch (error) {
-                console.error('Ошибка:', error);
-                alert('Не удалось сохранить устройство. Проверьте подключение к серверу.');
+                alert('Ошибка при сохранении устройства');
             }
         }
 
-        // Редактирование устройства
         async function editDevice(id) {
-            const device = devices.find(d => d.id === id);
-            if (device) {
-                document.getElementById('edit-mode').value = 'true';
-                document.getElementById('id').value = device.id;
-                document.getElementById('id').disabled = true; // Запрещаем изменение ID при редактировании
-                document.getElementById('title').value = device.title;
-                document.getElementById('power').value = device.power || '';
-                document.getElementById('active').checked = device.active;
-                
-                // Сохраняем ID редактируемого устройства в скрытом поле
-                if (!document.getElementById('edit-device-id')) {
-                    const hiddenInput = document.createElement('input');
-                    hiddenInput.type = 'hidden';
-                    hiddenInput.id = 'edit-device-id';
-                    document.getElementById('device-form').appendChild(hiddenInput);
-                }
-                document.getElementById('edit-device-id').value = device.id;
-                
-                document.getElementById('form-title').textContent = 'Редактировать устройство';
-                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save me-1"></i> Сохранить';
-                document.getElementById('submit-btn').classList.remove('btn-success');
-                document.getElementById('submit-btn').classList.add('btn-primary');
-                
-                // Прокрутка к форме
-                document.getElementById('device-form').scrollIntoView({ behavior: 'smooth' });
+            try {
+                const device = await fetchWithCORS(`${API_BASE}/devices/${id}`);
+                showDeviceModal(device);
+            } catch (error) {
+                alert('Ошибка при загрузке устройства');
             }
         }
 
-        // Подтверждение удаления
-        function confirmDelete(id, title) {
-            deviceToDeleteId = id;
-            document.getElementById('device-to-delete-title').textContent = title;
-            document.getElementById('device-to-delete-id').textContent = id;
-            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        async function deleteDevice(id) {
+            if (confirm('Вы уверены, что хотите удалить это устройство?')) {
+                try {
+                    await fetchWithCORS(`${API_BASE}/devices/${id}`, {
+                        method: 'DELETE'
+                    });
+                    loadDevices();
+                    alert('Устройство успешно удалено!');
+                } catch (error) {
+                    alert('Ошибка при удалении устройства');
+                }
+            }
         }
 
-        // Удаление устройства
-        async function deleteDevice(id) {
+        // Режимы
+        async function loadModes() {
             try {
-                const response = await fetch(`${API_BASE_URL}/devices/${id}`, {
-                    method: 'DELETE'
+                const params = new URLSearchParams({
+                    title: document.getElementById('filterModeTitle').value || '',
+                    type: document.getElementById('filterModeType').value || ''
                 });
 
-                if (response.ok || response.status === 204) {
-                    bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
-                    loadDevices();
-                } else if (response.status === 404) {
-                    alert('Устройство не найдено. Возможно, оно уже было удалено.');
-                    loadDevices();
-                } else {
-                    throw new Error('Ошибка удаления устройства');
-                }
+                const modes = await fetchWithCORS(`${API_BASE}/modes/filter?${params}`);
+                renderModesTable(modes.content || modes);
             } catch (error) {
-                console.error('Ошибка:', error);
-                alert('Не удалось удалить устройство');
-            } finally {
-                deviceToDeleteId = null;
+                document.getElementById('modesTableBody').innerHTML = 
+                    '<tr><td colspan="5" class="text-center text-danger">Ошибка загрузки данных</td></tr>';
             }
         }
 
-        // Сброс формы
-        function resetForm() {
-            document.getElementById('device-form').reset();
-            document.getElementById('edit-mode').value = 'false';
-            document.getElementById('id').disabled = false;
-            document.getElementById('form-title').textContent = 'Добавить новое устройство';
-            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-plus me-1"></i> Добавить';
-            document.getElementById('submit-btn').classList.remove('btn-primary');
-            document.getElementById('submit-btn').classList.add('btn-success');
+        function renderModesTable(modes) {
+            const tbody = document.getElementById('modesTableBody');
             
-            // Удаляем скрытое поле ID редактирования если существует
-            const editDeviceId = document.getElementById('edit-device-id');
-            if (editDeviceId) {
-                editDeviceId.remove();
+            if (!modes || modes.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">Режимы не найдены</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = modes.map(mode => `
+                <tr>
+                    <td>${mode.id}</td>
+                    <td>${mode.title}</td>
+                    <td>${mode.type}</td>
+                    <td>${mode.devices ? mode.devices.length : 0}</td>
+                    <td class="table-actions">
+                        <button class="btn btn-sm btn-outline-primary" onclick="editMode(${mode.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteMode(${mode.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function showModeModal(mode = null) {
+            const modal = new bootstrap.Modal(document.getElementById('modeModal'));
+            const title = document.getElementById('modeModalTitle');
+            const form = document.getElementById('modeForm');
+            
+            form.reset();
+            
+            if (mode) {
+                title.textContent = 'Редактировать режим';
+                document.getElementById('modeId').value = mode.id;
+                document.getElementById('modeIdInput').value = mode.id;
+                document.getElementById('modeTitle').value = mode.title;
+                document.getElementById('modeType').value = mode.type;
+            } else {
+                title.textContent = 'Добавить режим';
+                document.getElementById('modeIdInput').value = '';
+            }
+            
+            modal.show();
+        }
+
+        async function saveMode() {
+            const modeData = {
+                id: parseInt(document.getElementById('modeIdInput').value),
+                title: document.getElementById('modeTitle').value,
+                type: document.getElementById('modeType').value
+            };
+
+            try {
+                const existingId = document.getElementById('modeId').value;
+                if (existingId) {
+                    // Обновление
+                    await fetchWithCORS(`${API_BASE}/modes/${existingId}`, {
+                        method: 'PUT',
+                        body: JSON.stringify(modeData)
+                    });
+                } else {
+                    // Создание
+                    await fetchWithCORS(`${API_BASE}/modes`, {
+                        method: 'POST',
+                        body: JSON.stringify(modeData)
+                    });
+                }
+
+                bootstrap.Modal.getInstance(document.getElementById('modeModal')).hide();
+                loadModes();
+                alert('Режим успешно сохранен!');
+            } catch (error) {
+                alert('Ошибка при сохранении режима');
             }
         }
 
-        // Обновление статистики
-        function updateStatistics() {
-            document.getElementById('total-devices').textContent = devices.length;
-            
-            const activeDevices = devices.filter(d => d.active).length;
-            document.getElementById('active-devices').textContent = activeDevices;
-            
-            const inactiveDevices = devices.filter(d => !d.active).length;
-            document.getElementById('inactive-devices').textContent = inactiveDevices;
-            
-            const totalPower = devices.reduce((sum, device) => sum + (device.power || 0), 0);
-            document.getElementById('total-power').textContent = totalPower.toFixed(1);
-        }
-
-        // Поиск устройств
-        function searchDevices() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const statusFilter = document.getElementById('status-filter').value;
-            
-            filterDevices(searchTerm, statusFilter);
-        }
-
-        // Фильтрация устройств
-        function filterDevices(searchTerm = null, statusFilter = null) {
-            if (!searchTerm) {
-                searchTerm = document.getElementById('search-input').value.toLowerCase();
-            }
-            if (!statusFilter) {
-                statusFilter = document.getElementById('status-filter').value;
-            }
-            
-            filteredDevices = devices.filter(device => {
-                const matchesSearch = device.title.toLowerCase().includes(searchTerm) || 
-                                    device.id.toString().includes(searchTerm);
-                const matchesStatus = statusFilter === 'all' || 
-                                    (statusFilter === 'active' && device.active) ||
-                                    (statusFilter === 'inactive' && !device.active);
-                
-                return matchesSearch && matchesStatus;
-            });
-            
-            renderDevicesTable();
-        }
-
-        // Сброс фильтров
-        function resetFilters() {
-            document.getElementById('search-input').value = '';
-            document.getElementById('status-filter').value = 'all';
-            filteredDevices = [...devices];
-            renderDevicesTable();
-        }
-
-        // Показать/скрыть индикатор загрузки
-        function showLoading(show) {
-            document.getElementById('loading-message').style.display = show ? 'block' : 'none';
-            if (show) {
-                document.getElementById('no-devices-message').style.display = 'none';
-                document.getElementById('filter-no-results').style.display = 'none';
+        async function editMode(id) {
+            try {
+                const mode = await fetchWithCORS(`${API_BASE}/modes/${id}`);
+                showModeModal(mode);
+            } catch (error) {
+                alert('Ошибка при загрузке режима');
             }
         }
+
+        async function deleteMode(id) {
+            if (confirm('Вы уверены, что хотите удалить этот режим?')) {
+                try {
+                    await fetchWithCORS(`${API_BASE}/modes/${id}`, {
+                        method: 'DELETE'
+                    });
+                    loadModes();
+                    alert('Режим успешно удален!');
+                } catch (error) {
+                    alert('Ошибка при удалении режима');
+                }
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDevices();
+            loadModes();
+        });
     </script>
 </body>
 </html>
