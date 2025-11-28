@@ -24,7 +24,7 @@ public class DeviceSpecifications {
             return criterialBuilder.greaterThanOrEqualTo(root.get("power"), min_power);
         };
     }
-    private static Specification<Device> priceLower (Double max_power) {
+    private static Specification<Device> powerLower (Double max_power) {
         return (root, query, criterialBuilder) -> {
             if (max_power == null) {
                 return null;
@@ -52,6 +52,6 @@ public class DeviceSpecifications {
     }
 
     public static Specification<Device> filter (String title, Double min_power, Double max_power, Boolean activity, DeviceType type) {
-        return Specification.allOf(titleLike(title), powerGreater(min_power), priceLower(max_power), sameActivity(activity), definiteType(type));
+        return Specification.allOf(titleLike(title), powerGreater(min_power), powerLower(max_power), sameActivity(activity), definiteType(type));
     }
 }

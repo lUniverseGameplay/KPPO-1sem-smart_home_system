@@ -21,7 +21,9 @@ public class CacheConfig {
             new ConcurrentMapCache("devices"),
             new ConcurrentMapCache("device"),
             new ConcurrentMapCache("modes"),
-            new ConcurrentMapCache("mode")            
+            new ConcurrentMapCache("mode"),
+            new ConcurrentMapCache("rooms"),
+            new ConcurrentMapCache("room")      
         ));
         return scm;
     }

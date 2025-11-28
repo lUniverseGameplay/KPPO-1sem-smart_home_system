@@ -23,12 +23,14 @@ public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank
     @Size(min=1, max=150)
     @Column(nullable = false, unique = true, length = 150)
     private String title;
 
-    //private Room room;
+    @ManyToOne
+    private Room room;
     
     @ManyToOne
     //@JoinColumn(name = "mode_id")
