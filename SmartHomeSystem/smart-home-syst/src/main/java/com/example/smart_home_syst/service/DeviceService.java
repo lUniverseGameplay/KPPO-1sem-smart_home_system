@@ -1,7 +1,6 @@
 package com.example.smart_home_syst.service;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.cache.annotation.CacheEvict;
@@ -25,8 +24,6 @@ public class DeviceService {
         this.deviceRepository = deviceRepository;
     }
 
-    private final List<Device> devices = new ArrayList<>();
-
     @Transactional(readOnly = true)
     @Cacheable(value="devices", key="#root.methodName")
     public List<Device> getAll() {
@@ -40,20 +37,16 @@ public class DeviceService {
     @Transactional(readOnly = true)
     @Cacheable(value="device", key="#id")
     public Device getById(Long id) {
-        for (Device device : devices) {
-            if (device.getId().equals(id)) {
-                return deviceRepository.findById(id).orElse(null);
-            }
-        }
-        return null;
+        return deviceRepository.findById(id).orElse(null);
     }
 
     public Device update(Long id, Device device) {
         return deviceRepository.findById(id).map(existingDevice -> {
             existingDevice.setTitle(device.getTitle());
+            existingDevice.setMode(device.getMode());
+            existingDevice.setType(device.getType());
             existingDevice.setPower(device.getPower());
             existingDevice.setActive(device.isActive());
-            existingDevice.setMode(device.getMode());
             return deviceRepository.save(existingDevice);
         }).orElseThrow(null);
     }

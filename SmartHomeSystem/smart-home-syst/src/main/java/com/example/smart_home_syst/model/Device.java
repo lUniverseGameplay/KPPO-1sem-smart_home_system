@@ -34,7 +34,7 @@ public class Device {
     //@JoinColumn(name = "mode_id")
     private Mode mode;
     
-    private DeviceType type; // Придумать как добавить в БД
+    private DeviceType type;
 
     private Double power;
     private boolean active;

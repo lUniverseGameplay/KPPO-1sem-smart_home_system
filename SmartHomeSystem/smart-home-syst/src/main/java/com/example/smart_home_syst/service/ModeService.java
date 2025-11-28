@@ -1,6 +1,5 @@
 package com.example.smart_home_syst.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.cache.annotation.CacheEvict;
@@ -24,8 +23,6 @@ public class ModeService {
         this.modeRepository = modeRepository;
     }
 
-    private final List<Mode> modes = new ArrayList<>();
-
     @Transactional(readOnly = true)
     @Cacheable(value="modes", key="#root.methodName")
     public List<Mode> getAll() {
@@ -39,17 +36,13 @@ public class ModeService {
     @Transactional(readOnly = true)
     @Cacheable(value="mode", key="#id")
     public Mode getById(Long id) {
-        for (Mode mode : modes) {
-            if (mode.getId().equals(id)) {
-                return modeRepository.findById(id).orElse(null);
-            }
-        }
-        return null;
+        return modeRepository.findById(id).orElse(null);
     }
 
     public Mode update(Long id, Mode mode) {
         return modeRepository.findById(id).map(existingMode -> {
             existingMode.setTitle(mode.getTitle());
+            existingMode.setType(mode.getType());
             return modeRepository.save(existingMode);
         }).orElseThrow(null);
     }
