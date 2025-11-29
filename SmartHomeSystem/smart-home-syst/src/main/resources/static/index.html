@@ -7,9 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .device-table, .mode-table {
-            margin-bottom: 30px;
-        }
         .table-actions {
             white-space: nowrap;
         }
@@ -26,6 +23,15 @@
         .nav-tabs .nav-link.active {
             font-weight: bold;
         }
+        .badge {
+            font-size: 0.75em;
+        }
+        .filter-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +45,9 @@
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="modes-tab" data-bs-toggle="tab" data-bs-target="#modes" type="button" role="tab">Modes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="rooms-tab" data-bs-toggle="tab" data-bs-target="#rooms" type="button" role="tab">Rooms</button>
             </li>
         </ul>
 
@@ -54,33 +63,41 @@
                     </div>
                     <div class="card-body">
                         <!-- Фильтры для устройств -->
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="deviceTitleFilter" placeholder="Filter by title">
-                            </div>
-                            <div class="col-md-2">
-                                <select class="form-control" id="deviceTypeFilter">
-                                    <option value="">All Types</option>
-                                    <option value="light">Light</option>
-                                    <option value="coffee_machine">Coffee Machine</option>
-                                    <option value="speakers">Speakers</option>
-                                    <option value="kettle">Kettle</option>
-                                    <option value="microwave">Microwave</option>
-                                    <option value="door">Door</option>
-                                    <option value="conditioner">Conditioner</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <select class="form-control" id="deviceActivityFilter">
-                                    <option value="">All Status</option>
-                                    <option value="true">Active</option>
-                                    <option value="false">Inactive</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-outline-secondary" onclick="loadDevices()">
-                                    <i class="fas fa-filter"></i> Filter
-                                </button>
+                        <div class="filter-section">
+                            <div class="row g-2">
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" id="deviceTitleFilter" placeholder="Title">
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control" id="deviceTypeFilter">
+                                        <option value="">All Types</option>
+                                        <option value="light">Light</option>
+                                        <option value="coffee_machine">Coffee Machine</option>
+                                        <option value="speakers">Speakers</option>
+                                        <option value="kettle">Kettle</option>
+                                        <option value="microwave">Microwave</option>
+                                        <option value="door">Door</option>
+                                        <option value="conditioner">Conditioner</option>
+                                        <option value="printer">Printer</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control" id="deviceActivityFilter">
+                                        <option value="">All Status</option>
+                                        <option value="true">Active</option>
+                                        <option value="false">Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-primary" onclick="loadDevices()">
+                                            <i class="fas fa-filter"></i> Filter
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="clearDeviceFilters()">
+                                            <i class="fas fa-times"></i> Clear
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -93,6 +110,7 @@
                                         <th>Type</th>
                                         <th>Power</th>
                                         <th>Status</th>
+                                        <th>Room</th>
                                         <th>Mode</th>
                                         <th>Actions</th>
                                     </tr>
@@ -117,22 +135,29 @@
                     </div>
                     <div class="card-body">
                         <!-- Фильтры для режимов -->
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="modeTitleFilter" placeholder="Filter by title">
-                            </div>
-                            <div class="col-md-4">
-                                <select class="form-control" id="modeTypeFilter">
-                                    <option value="">All Types</option>
-                                    <option value="dinner">Dinner</option>
-                                    <option value="morning">Morning</option>
-                                    <option value="study">Study</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-outline-secondary" onclick="loadModes()">
-                                    <i class="fas fa-filter"></i> Filter
-                                </button>
+                        <div class="filter-section">
+                            <div class="row g-2">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" id="modeTitleFilter" placeholder="Title">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control" id="modeTypeFilter">
+                                        <option value="">All Types</option>
+                                        <option value="dinner">Dinner</option>
+                                        <option value="morning">Morning</option>
+                                        <option value="study">Study</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-primary" onclick="loadModes()">
+                                            <i class="fas fa-filter"></i> Filter
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="clearModeFilters()">
+                                            <i class="fas fa-times"></i> Clear
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -148,6 +173,65 @@
                                     </tr>
                                 </thead>
                                 <tbody id="modeTableBody">
+                                    <!-- Данные будут загружены через JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка Rooms -->
+            <div class="tab-pane fade" id="rooms" role="tabpanel">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Room Management</h5>
+                        <button class="btn btn-primary" onclick="showAddRoomModal()">
+                            <i class="fas fa-plus"></i> Add Room
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <!-- Фильтры для комнат -->
+                        <div class="filter-section">
+                            <div class="row g-2">
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" id="roomTitleFilter" placeholder="Title">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" id="roomLocationFilter" placeholder="Location">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" class="form-control" id="roomMinCapacityFilter" placeholder="Min Capacity">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" class="form-control" id="roomMaxCapacityFilter" placeholder="Max Capacity">
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-primary" onclick="loadRooms()">
+                                            <i class="fas fa-filter"></i> Filter
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="clearRoomFilters()">
+                                            <i class="fas fa-times"></i> Clear
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Location</th>
+                                        <th>Capacity</th>
+                                        <th>Devices Count</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="roomTableBody">
                                     <!-- Данные будут загружены через JavaScript -->
                                 </tbody>
                             </table>
@@ -184,11 +268,18 @@
                                 <option value="microwave">Microwave</option>
                                 <option value="door">Door</option>
                                 <option value="conditioner">Conditioner</option>
+                                <option value="printer">Printer</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Power</label>
-                            <input type="number" class="form-control" id="devicePower" step="0.1">
+                            <label class="form-label">Power (W)</label>
+                            <input type="number" class="form-control" id="devicePower" step="0.1" min="0">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Room</label>
+                            <select class="form-control" id="deviceRoom">
+                                <option value="">No Room</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mode</label>
@@ -244,6 +335,39 @@
         </div>
     </div>
 
+    <!-- Модальное окно для добавления/редактирования Room -->
+    <div class="modal fade" id="roomModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="roomModalTitle">Add Room</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="roomForm">
+                        <input type="hidden" id="roomId">
+                        <div class="mb-3">
+                            <label class="form-label">Title *</label>
+                            <input type="text" class="form-control" id="roomTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location *</label>
+                            <input type="text" class="form-control" id="roomLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Capacity</label>
+                            <input type="number" class="form-control" id="roomCapacity" min="1">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveRoom()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const API_BASE = 'http://localhost:8080';
@@ -252,13 +376,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadDevices();
             loadModes();
+            loadRooms();
             loadModesForDeviceForm();
+            loadRoomsForDeviceForm();
         });
 
         // ========== DEVICE FUNCTIONS ==========
 
         async function loadDevices() {
             try {
+                showLoading('deviceTableBody');
                 const title = document.getElementById('deviceTitleFilter').value;
                 const type = document.getElementById('deviceTypeFilter').value;
                 const activity = document.getElementById('deviceActivityFilter').value;
@@ -273,7 +400,7 @@
                 displayDevices(data.content || data);
             } catch (error) {
                 console.error('Error loading devices:', error);
-                alert('Error loading devices');
+                showError('deviceTableBody', 'Error loading devices');
             }
         }
 
@@ -281,19 +408,25 @@
             const tbody = document.getElementById('deviceTableBody');
             tbody.innerHTML = '';
 
+            if (devices.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="text-center">No devices found</td></tr>';
+                return;
+            }
+
             devices.forEach(device => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${device.id}</td>
                     <td>${device.title}</td>
                     <td><span class="badge bg-secondary">${device.type}</span></td>
-                    <td>${device.power || 'N/A'}</td>
+                    <td>${device.power ? device.power + 'W' : 'N/A'}</td>
                     <td>
                         <span class="${device.active ? 'status-active' : 'status-inactive'}">
                             <i class="fas ${device.active ? 'fa-toggle-on' : 'fa-toggle-off'}"></i>
                             ${device.active ? 'Active' : 'Inactive'}
                         </span>
                     </td>
+                    <td>${device.room ? device.room.title : 'No Room'}</td>
                     <td>${device.mode ? device.mode.title : 'No Mode'}</td>
                     <td class="table-actions">
                         <button class="btn btn-sm btn-outline-primary" onclick="editDevice(${device.id})">
@@ -306,6 +439,13 @@
                 `;
                 tbody.appendChild(row);
             });
+        }
+
+        function clearDeviceFilters() {
+            document.getElementById('deviceTitleFilter').value = '';
+            document.getElementById('deviceTypeFilter').value = '';
+            document.getElementById('deviceActivityFilter').value = '';
+            loadDevices();
         }
 
         function showAddDeviceModal() {
@@ -326,6 +466,7 @@
                 document.getElementById('deviceType').value = device.type;
                 document.getElementById('devicePower').value = device.power || '';
                 document.getElementById('deviceActive').checked = device.active;
+                document.getElementById('deviceRoom').value = device.room ? device.room.id : '';
                 document.getElementById('deviceMode').value = device.mode ? device.mode.id : '';
                 
                 new bootstrap.Modal(document.getElementById('deviceModal')).show();
@@ -342,6 +483,11 @@
                 power: document.getElementById('devicePower').value ? parseFloat(document.getElementById('devicePower').value) : null,
                 active: document.getElementById('deviceActive').checked
             };
+
+            const roomId = document.getElementById('deviceRoom').value;
+            if (roomId) {
+                deviceData.room = { id: parseInt(roomId) };
+            }
 
             const modeId = document.getElementById('deviceMode').value;
             if (modeId) {
@@ -364,7 +510,8 @@
                 if (response.ok) {
                     bootstrap.Modal.getInstance(document.getElementById('deviceModal')).hide();
                     loadDevices();
-                    loadModes(); // Обновляем режимы, так как мог измениться счетчик устройств
+                    loadModes();
+                    loadRooms();
                 } else {
                     alert('Error saving device');
                 }
@@ -383,7 +530,8 @@
 
                     if (response.ok) {
                         loadDevices();
-                        loadModes(); // Обновляем режимы, так как мог измениться счетчик устройств
+                        loadModes();
+                        loadRooms();
                     } else {
                         alert('Error deleting device');
                     }
@@ -398,6 +546,7 @@
 
         async function loadModes() {
             try {
+                showLoading('modeTableBody');
                 const title = document.getElementById('modeTitleFilter').value;
                 const type = document.getElementById('modeTypeFilter').value;
                 
@@ -410,13 +559,18 @@
                 displayModes(data.content || data);
             } catch (error) {
                 console.error('Error loading modes:', error);
-                alert('Error loading modes');
+                showError('modeTableBody', 'Error loading modes');
             }
         }
 
         function displayModes(modes) {
             const tbody = document.getElementById('modeTableBody');
             tbody.innerHTML = '';
+
+            if (modes.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No modes found</td></tr>';
+                return;
+            }
 
             modes.forEach(mode => {
                 const deviceCount = mode.devices ? mode.devices.length : 0;
@@ -441,6 +595,12 @@
                 `;
                 tbody.appendChild(row);
             });
+        }
+
+        function clearModeFilters() {
+            document.getElementById('modeTitleFilter').value = '';
+            document.getElementById('modeTypeFilter').value = '';
+            loadModes();
         }
 
         async function loadModesForDeviceForm() {
@@ -507,7 +667,7 @@
                 if (response.ok) {
                     bootstrap.Modal.getInstance(document.getElementById('modeModal')).hide();
                     loadModes();
-                    loadModesForDeviceForm(); // Обновляем список режимов в форме устройств
+                    loadModesForDeviceForm();
                 } else {
                     alert('Error saving mode');
                 }
@@ -526,8 +686,8 @@
 
                     if (response.ok) {
                         loadModes();
-                        loadModesForDeviceForm(); // Обновляем список режимов в форме устройств
-                        loadDevices(); // Обновляем устройства, так как мог измениться режим
+                        loadModesForDeviceForm();
+                        loadDevices();
                     } else {
                         alert('Error deleting mode');
                     }
@@ -536,6 +696,183 @@
                     alert('Error deleting mode');
                 }
             }
+        }
+
+        // ========== ROOM FUNCTIONS ==========
+
+        async function loadRooms() {
+            try {
+                showLoading('roomTableBody');
+                const title = document.getElementById('roomTitleFilter').value;
+                const location = document.getElementById('roomLocationFilter').value;
+                const minCapacity = document.getElementById('roomMinCapacityFilter').value;
+                const maxCapacity = document.getElementById('roomMaxCapacityFilter').value;
+                
+                let url = `${API_BASE}/rooms/filter?page=0&size=100`;
+                if (title) url += `&title=${encodeURIComponent(title)}`;
+                if (location) url += `&location=${encodeURIComponent(location)}`;
+                if (minCapacity) url += `&min_capacity=${minCapacity}`;
+                if (maxCapacity) url += `&max_capacity=${maxCapacity}`;
+
+                const response = await fetch(url);
+                const data = await response.json();
+                displayRooms(data.content || data);
+            } catch (error) {
+                console.error('Error loading rooms:', error);
+                showError('roomTableBody', 'Error loading rooms');
+            }
+        }
+
+        function displayRooms(rooms) {
+            const tbody = document.getElementById('roomTableBody');
+            tbody.innerHTML = '';
+
+            if (rooms.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center">No rooms found</td></tr>';
+                return;
+            }
+
+            rooms.forEach(room => {
+                const deviceCount = room.devices ? room.devices.length : 0;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${room.id}</td>
+                    <td>${room.title}</td>
+                    <td>${room.location}</td>
+                    <td>${room.capacity || 'N/A'}</td>
+                    <td>
+                        <span class="badge ${deviceCount > 0 ? 'bg-success' : 'bg-secondary'}">
+                            ${deviceCount} device(s)
+                        </span>
+                    </td>
+                    <td class="table-actions">
+                        <button class="btn btn-sm btn-outline-primary" onclick="editRoom(${room.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteRoom(${room.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function clearRoomFilters() {
+            document.getElementById('roomTitleFilter').value = '';
+            document.getElementById('roomLocationFilter').value = '';
+            document.getElementById('roomMinCapacityFilter').value = '';
+            document.getElementById('roomMaxCapacityFilter').value = '';
+            loadRooms();
+        }
+
+        async function loadRoomsForDeviceForm() {
+            try {
+                const response = await fetch(`${API_BASE}/rooms`);
+                const rooms = await response.json();
+                const select = document.getElementById('deviceRoom');
+                
+                select.innerHTML = '<option value="">No Room</option>';
+                rooms.forEach(room => {
+                    const option = document.createElement('option');
+                    option.value = room.id;
+                    option.textContent = `${room.title} (${room.location})`;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading rooms for device form:', error);
+            }
+        }
+
+        function showAddRoomModal() {
+            document.getElementById('roomModalTitle').textContent = 'Add Room';
+            document.getElementById('roomForm').reset();
+            document.getElementById('roomId').value = '';
+            new bootstrap.Modal(document.getElementById('roomModal')).show();
+        }
+
+        async function editRoom(id) {
+            try {
+                const response = await fetch(`${API_BASE}/rooms/${id}`);
+                const room = await response.json();
+                
+                document.getElementById('roomModalTitle').textContent = 'Edit Room';
+                document.getElementById('roomId').value = room.id;
+                document.getElementById('roomTitle').value = room.title;
+                document.getElementById('roomLocation').value = room.location;
+                document.getElementById('roomCapacity').value = room.capacity || '';
+                
+                new bootstrap.Modal(document.getElementById('roomModal')).show();
+            } catch (error) {
+                console.error('Error loading room:', error);
+                alert('Error loading room');
+            }
+        }
+
+        async function saveRoom() {
+            const roomData = {
+                title: document.getElementById('roomTitle').value,
+                location: document.getElementById('roomLocation').value,
+                capacity: document.getElementById('roomCapacity').value ? parseInt(document.getElementById('roomCapacity').value) : null
+            };
+
+            const roomId = document.getElementById('roomId').value;
+            const url = roomId ? `${API_BASE}/rooms/${roomId}` : `${API_BASE}/rooms`;
+            const method = roomId ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(roomData)
+                });
+
+                if (response.ok) {
+                    bootstrap.Modal.getInstance(document.getElementById('roomModal')).hide();
+                    loadRooms();
+                    loadRoomsForDeviceForm();
+                } else {
+                    alert('Error saving room');
+                }
+            } catch (error) {
+                console.error('Error saving room:', error);
+                alert('Error saving room');
+            }
+        }
+
+        async function deleteRoom(id) {
+            if (confirm('Are you sure you want to delete this room? This will remove it from all associated devices.')) {
+                try {
+                    const response = await fetch(`${API_BASE}/rooms/${id}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        loadRooms();
+                        loadRoomsForDeviceForm();
+                        loadDevices();
+                    } else {
+                        alert('Error deleting room');
+                    }
+                } catch (error) {
+                    console.error('Error deleting room:', error);
+                    alert('Error deleting room');
+                }
+            }
+        }
+
+        // ========== UTILITY FUNCTIONS ==========
+
+        function showLoading(elementId) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = '<tr><td colspan="8" class="text-center"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr>';
+        }
+
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<tr><td colspan="8" class="text-center text-danger">${message}</td></tr>`;
         }
     </script>
 </body>

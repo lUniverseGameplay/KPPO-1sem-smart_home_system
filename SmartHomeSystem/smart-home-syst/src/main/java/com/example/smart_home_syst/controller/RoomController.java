@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.smart_home_syst.enumerator.ModeType;
 import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.service.RoomService;
 
