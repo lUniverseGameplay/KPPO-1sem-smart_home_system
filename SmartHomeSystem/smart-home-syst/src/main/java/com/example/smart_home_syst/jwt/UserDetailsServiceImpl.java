@@ -1,0 +1,23 @@
+package com.example.smart_home_syst.jwt;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.example.smart_home_syst.exception.ResourceNotFoundException;
+import com.example.smart_home_syst.repository.UserRepository;
+
+@Service
+public class UserDetailsServiceImpl implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User not found: " + username));
+    }
+}
