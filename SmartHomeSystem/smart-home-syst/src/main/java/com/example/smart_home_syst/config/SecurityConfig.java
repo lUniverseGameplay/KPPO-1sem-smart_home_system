@@ -43,7 +43,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests(auth->
         {auth.requestMatchers(ALOWED_URLS).permitAll();
-            auth.requestMatchers("/api/auth/login", "/api/auth/refresh");
+            auth.requestMatchers("/api/auth/login", "/api/auth/refresh").permitAll();
             auth.anyRequest().authenticated();});
         http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.exceptionHandling(ex->ex.authenticationEntryPoint(jwtAuthEntryPoint));

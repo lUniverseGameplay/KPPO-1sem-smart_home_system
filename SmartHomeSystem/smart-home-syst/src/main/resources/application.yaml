@@ -28,7 +28,7 @@ server:
     port: 9001
 ---
 jwt:
-    secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30
+    secret: b8c3e20c245fe71c330750ca0140c81f0a5982725877c35f890eb92d8f3e568e
     access:
         duration:
             minutes: 5
