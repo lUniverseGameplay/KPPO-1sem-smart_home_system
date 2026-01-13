@@ -4,7 +4,6 @@ import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +25,7 @@ public class Role implements GrantedAuthority {
     
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "role")
     private Set <User> users;
 
     @ManyToMany

@@ -49,7 +49,7 @@ public class JwtTokenProvider {
     }
 
     private Claims extractAllClaims(String value) {
-        return Jwts.parserBuilder().setSigningKey(decodeSecretKey(key)).build().parseClaimsJwt(value).getBody();
+        return Jwts.parserBuilder().setSigningKey(decodeSecretKey(key)).build().parseClaimsJws(value).getBody();
     }
 
     private Key decodeSecretKey(String key) {
@@ -71,7 +71,8 @@ public class JwtTokenProvider {
     public boolean isValid (String token) {
         if (token == null) return false;
         try {
-            Jwts.parserBuilder().setSigningKey(decodeSecretKey(key)).build().parseClaimsJwt(token);
+            //Jwts.parserBuilder().setSigningKey(decodeSecretKey(key)).build().parseClaimsJwt(token);
+            Jwts.parserBuilder().setSigningKey(decodeSecretKey(key)).build().parseClaimsJws(token);
             return !isDisabled(token);
         }
         catch (JwtException e) {

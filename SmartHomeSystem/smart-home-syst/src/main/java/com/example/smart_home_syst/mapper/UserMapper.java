@@ -7,7 +7,7 @@ import com.example.smart_home_syst.dto.UserLoggedDto;
 import com.example.smart_home_syst.model.Permission;
 import com.example.smart_home_syst.model.User;
 
-public class UserMapper {
+public class UserMapper { // Преобразует User в UserDto
     public static UserDto userToUserDto (User user) {
         return new UserDto(user.getId(),
         user.getUsername(),

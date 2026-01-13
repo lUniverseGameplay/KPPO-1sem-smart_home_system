@@ -47,20 +47,20 @@ public class AuthenticationService {
     private long refreshDurationSec;
 
     private void addAccessTokenCookie(HttpHeaders headers, Token token) {
-        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.createAccessCookie(token.getValue(), accessDurationSec).toString());
+        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.createAccessCookie(token.getValue(), accessDurationSec).toString()); // отправка токенов как куки в заголовок HTTP
     }
 
     private void addRefreshTokenCookie(HttpHeaders headers, Token token) {
         headers.add(HttpHeaders.SET_COOKIE, cookieUtil.createRefreshCookie(token.getValue(), refreshDurationSec).toString());
     }
 
-    private void revokeAllTokens(User user) {
+    private void revokeAllTokens(User user) { // удаление/деактивация всех токенов пользователя
         Set <Token> tokens = user.getTokens();
         
-        tokens.forEach(token -> {if(token.getExpiringDate().isBefore(LocalDateTime.now())) tokenRepository.delete(token);
+        tokens.forEach(token -> {if(token.getExpiringDate().isBefore(LocalDateTime.now())) tokenRepository.delete(token); // удаление токена из БД по истечению времени жизни
         else if(!token.isDisabled()) {
-            token.setDisabled(true);
-            tokenRepository.save(token);
+            token.setDisabled(true); // если активен - сделать неактивным
+            tokenRepository.save(token); // запись в БД обновлённого токена
         }});
     }
 
@@ -93,31 +93,38 @@ public class AuthenticationService {
             tokenRepository.save(newRefresh);
         }
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication); // устанавливает для текущего запроса аутентифицированного пользователя
         return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(true, user.getRole().getName()));
     }
 
-    public ResponseEntity<LoginResponseDto> refresh(String refreshToken){
+    public ResponseEntity<LoginResponseDto> refresh(String refreshToken){ // обновление access токена
         if(!jwtTokenProvider.isValid(refreshToken)){
-            throw new RuntimeException("token is in valid");
+            throw new RuntimeException("token is invalid");
         }
 
         User user = userService.getUser(jwtTokenProvider.getUsername(refreshToken));
-        Token newAcess = jwtTokenProvider.generatedAccessToken(Map.of(), accessDurationMin, null, user);
-         HttpHeaders headers = new HttpHeaders();
-         addAccessTokenCookie(headers, newAcess);
+
+        Token newAccess = jwtTokenProvider.generatedAccessToken(Map.of("role", user.getRole().getAuthority()),
+                accessDurationMin, ChronoUnit.MINUTES, user);
+
+        newAccess.setUser(user);
+        HttpHeaders headers = new HttpHeaders();
+        addAccessTokenCookie(headers, newAccess);
+        tokenRepository.save(newAccess);
 
         LoginResponseDto loginResponseDto = new LoginResponseDto(true, user.getRole().getName());
-        return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(true, user.getRole().getName()));
+        return ResponseEntity.ok().headers(headers).body(loginResponseDto);
     }
 
-    public ResponseEntity<LoginResponseDto> logout(String access, String refresh){
+    public ResponseEntity<LoginResponseDto> logout(String accessToken){
         SecurityContextHolder.clearContext();
-        User user = userService.getUser(jwtTokenProvider.getUsername(access));
+        User user = userService.getUser(jwtTokenProvider.getUsername(accessToken));
         revokeAllTokens(user);
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteAccessCookie().toString());
-        return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(true, user.getRole().getName()));
+        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteRefreshCookie().toString());
+        
+        return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(false, null));
     }
 
     public UserLoggedDto info(){

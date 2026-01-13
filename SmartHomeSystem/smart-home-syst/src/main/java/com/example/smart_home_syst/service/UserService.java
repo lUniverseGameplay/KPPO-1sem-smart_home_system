@@ -19,21 +19,25 @@ public class UserService {
     private final UserRepository userRepository;
     
     public List<UserDto> getUsers() {
-        return userRepository.findAll().stream().map(UserMapper::userToUserDto).toList();
+        return userRepository.findAll().stream().map(UserMapper::userToUserDto).toList(); // Возврат списка всех пользователей в формате Dto. Stream преобразует список в поток
     }
 
     public UserDto getUser(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id " + id + "not found"));
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id " + id + "not found")); // Возврат пользователя с указанным Id, в формате Dto. Также есть обработка исключений
         return UserMapper.userToUserDto(user);
     }
 
     public UserDto getUserDto(String username) {
-        User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User with username " + username + "not found"));
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User with username " + username + "not found")); // Возврат сущности Дто пользователя с указанным именем. Также есть обработка исключений
         return UserMapper.userToUserDto(user);
     }
 
     public User getUser(String username) {
-        User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User with username " + username + "not found"));
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User with username " + username + "not found")); // Возврат сущности пользователя с указанным именем. Также есть обработка исключений
         return user;
+    }
+
+    public void saveUser(User user) {
+        userRepository.save(user);
     }
 }
