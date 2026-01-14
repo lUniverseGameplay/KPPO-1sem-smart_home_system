@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.smart_home_syst.dto.DeviceDto;
 import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.service.DeviceService;
@@ -42,14 +43,14 @@ public class DeviceController {
     }
 
     @PostMapping("/devices")
-    public ResponseEntity<Device> addDevice(@RequestBody @Valid Device device) {
-       Device newDevice = deviceService.create(device);
+    public ResponseEntity<Device> addDevice(@RequestBody @Valid DeviceDto deviceDto) {
+       Device newDevice = deviceService.create(deviceDto);
        return  ResponseEntity.status(HttpStatus.CREATED).body(newDevice);
     }
 
     @PutMapping("/devices/{id}")
-    public ResponseEntity<Device> editDevice(@PathVariable Long id, @RequestBody @Valid Device device) {
-        Device updDevice = deviceService.update(id, device);
+    public ResponseEntity<Device> editDevice(@PathVariable Long id, @RequestBody @Valid DeviceDto deviceDto) {
+        Device updDevice = deviceService.update(id, deviceDto);
         if(updDevice != null) {
             return ResponseEntity.ok(updDevice);
         }

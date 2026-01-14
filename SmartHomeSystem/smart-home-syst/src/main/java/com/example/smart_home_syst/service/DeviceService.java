@@ -11,18 +11,27 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.smart_home_syst.dto.DeviceDto;
 import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Device;
+import com.example.smart_home_syst.model.Mode;
+import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.repository.DeviceRepository;
+import com.example.smart_home_syst.repository.ModeRepository;
+import com.example.smart_home_syst.repository.RoomRepository;
 import com.example.smart_home_syst.specifications.DeviceSpecifications;
 
 @Service
 public class DeviceService {
     private final DeviceRepository deviceRepository;
+    private final ModeRepository modeRepository;
+    private final RoomRepository roomRepository;
 
-    public DeviceService(DeviceRepository deviceRepository) {
+    public DeviceService(DeviceRepository deviceRepository, ModeRepository modeRepository, RoomRepository roomRepository) {
         this.deviceRepository = deviceRepository;
+        this.modeRepository = modeRepository;
+        this.roomRepository = roomRepository;
     }
 
     @Transactional(readOnly = true)
@@ -41,8 +50,28 @@ public class DeviceService {
         return deviceRepository.findById(id).orElse(null);
     }
 
-    public Device update(Long id, Device device) {
-        return deviceRepository.findById(id).map(existingDevice -> {
+    public Device update(Long id, DeviceDto deviceDto) {
+        Device existingDevice = deviceRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Device not found with id: " + id));
+        existingDevice.setTitle(deviceDto.title());
+        existingDevice.setType(deviceDto.type());
+        existingDevice.setPower(deviceDto.power());
+        
+        if (deviceDto.active() != null) {
+            existingDevice.setActive(deviceDto.active()); // т.к. у Dto нет isActive
+        }
+        
+        if (deviceDto.modeId() != null) {
+            Mode mode = modeRepository.findById(deviceDto.modeId()).orElseThrow(() -> new ResourceNotFoundException("Mode not found with id: " + deviceDto.modeId()));
+            existingDevice.setMode(mode);
+        }
+        
+        if (deviceDto.roomId() != null) {
+            Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId()));
+            existingDevice.setRoom(room);
+        }
+        
+        return deviceRepository.save(existingDevice);
+        /*return deviceRepository.findById(id).map(existingDevice -> {
             existingDevice.setTitle(device.getTitle());
             existingDevice.setMode(device.getMode());
             existingDevice.setRoom(device.getRoom());
@@ -50,7 +79,7 @@ public class DeviceService {
             existingDevice.setPower(device.getPower());
             existingDevice.setActive(device.isActive());
             return deviceRepository.save(existingDevice);
-        }).orElseThrow(() -> new ResourceNotFoundException("Error to update device with id: " + id));
+        }).orElseThrow(() -> new ResourceNotFoundException("Error to update device with id: " + id));*/
     }
 
     @Caching(evict = {
@@ -68,7 +97,35 @@ public class DeviceService {
 
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
-    public Device create (Device device) {
+    public Device create (DeviceDto deviceDto) {
+        Device device = new Device();
+        device.setTitle(deviceDto.title());
+        device.setType(deviceDto.type());
+        device.setPower(deviceDto.power());
+        
+        if (deviceDto.active() != null) {
+            device.setActive(deviceDto.active()); // т.к. у Dto нет isActive
+        }
+        else {
+            device.setActive(false);
+        }
+        
+        if (deviceDto.modeId() != null) {
+            Mode mode = modeRepository.findById(deviceDto.modeId()).orElseThrow(() -> new ResourceNotFoundException("Mode not found with id: " + deviceDto.modeId()));
+            device.setMode(mode);
+        }
+        else {
+            device.setMode(null);
+        }
+        
+        if (deviceDto.roomId() != null) {
+            Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId()));
+            device.setRoom(room);
+        }
+        else {
+            device.setRoom(null);
+        }
+
         return deviceRepository.save(device);
     }
 
