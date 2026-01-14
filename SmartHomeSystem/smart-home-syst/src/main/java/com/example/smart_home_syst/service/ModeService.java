@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.smart_home_syst.enumerator.ModeType;
+import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.repository.ModeRepository;
 import com.example.smart_home_syst.specifications.ModeSpecifications;
@@ -44,7 +45,7 @@ public class ModeService {
             existingMode.setTitle(mode.getTitle());
             existingMode.setType(mode.getType());
             return modeRepository.save(existingMode);
-        }).orElseThrow(null);
+        }).orElseThrow(() -> new ResourceNotFoundException("Error to update mode with id: " + id));
     }
 
     @Caching(evict = {

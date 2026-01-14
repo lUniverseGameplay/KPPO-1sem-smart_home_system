@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.smart_home_syst.enumerator.DeviceType;
+import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.repository.DeviceRepository;
 import com.example.smart_home_syst.specifications.DeviceSpecifications;
@@ -49,7 +50,7 @@ public class DeviceService {
             existingDevice.setPower(device.getPower());
             existingDevice.setActive(device.isActive());
             return deviceRepository.save(existingDevice);
-        }).orElseThrow(null);
+        }).orElseThrow(() -> new ResourceNotFoundException("Error to update device with id: " + id));
     }
 
     @Caching(evict = {

@@ -86,7 +86,7 @@ public class AuthenticationService {
         }
 
         if (!refreshValid || accessValid) {
-            Token newRefresh = jwtTokenProvider.generatedRefreshToken(refreshDurationDate, ChronoUnit.MINUTES, user);
+            Token newRefresh = jwtTokenProvider.generatedRefreshToken(refreshDurationDate, ChronoUnit.DAYS, user);
 
             newRefresh.setUser(user);
             addRefreshTokenCookie(headers, newRefresh);

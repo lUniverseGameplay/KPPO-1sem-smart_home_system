@@ -2,6 +2,7 @@ package com.example.smart_home_syst.model;
 
 import com.example.smart_home_syst.enumerator.DeviceType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,4 +44,14 @@ public class Device {
 
     private Double power;
     private boolean active;
+
+    @JsonProperty("roomId")
+    public Long getRoomId() {
+        return room != null ? room.getId() : null;
+    }
+
+    @JsonProperty("modeId")
+    public Long getModeId() {
+        return mode != null ? mode.getId() : null;
+    }
 }

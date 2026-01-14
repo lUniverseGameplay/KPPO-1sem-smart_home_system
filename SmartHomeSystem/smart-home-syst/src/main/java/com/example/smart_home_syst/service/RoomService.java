@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.repository.RoomRepository;
 import com.example.smart_home_syst.specifications.RoomSpecifications;
@@ -44,7 +45,7 @@ public class RoomService {
             existingRoom.setLocation(room.getLocation());
             existingRoom.setCapacity(room.getCapacity());
             return roomRepository.save(existingRoom);
-        }).orElseThrow(null);
+        }).orElseThrow(() -> new ResourceNotFoundException("Error to update room with id: " + id));
     }
 
     @Caching(evict = {
