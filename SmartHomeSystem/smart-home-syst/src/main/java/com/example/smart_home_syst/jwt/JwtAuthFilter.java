@@ -45,6 +45,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
 
         if (token == "" || token.isEmpty() || !jwtTokenProvider.isValid(token)) {
+            System.out.println("\n\n\nEmpty or invalid token\n\n\n");
             filterChain.doFilter(request, response);
             return;
         }
@@ -56,7 +57,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()); // оздаётся токен аутентификации (объект UserDetails, без пароля в токене)
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()); // cоздаётся токен аутентификации (объект UserDetails, без пароля в токене)
         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request)); // доп. сведения из запроса
         SecurityContextHolder.getContext().setAuthentication(authToken);
         filterChain.doFilter(request, response);

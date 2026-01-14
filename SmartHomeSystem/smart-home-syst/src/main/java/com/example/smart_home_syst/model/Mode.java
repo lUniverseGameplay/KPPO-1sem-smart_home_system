@@ -1,11 +1,9 @@
 package com.example.smart_home_syst.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.example.smart_home_syst.enumerator.ModeType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -41,7 +39,7 @@ public class Mode {
     @OneToMany(mappedBy="mode", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Device> devices;
     
-    @JsonProperty("devices")
+    /*@JsonProperty("devices")
     public List<String> getDeviceTitles() {
         if (devices == null) {
             return List.of();
@@ -49,5 +47,5 @@ public class Mode {
         return devices.stream()
                 .map(Device::getTitle)
                 .collect(Collectors.toList());
-    }
+    }*/
 }

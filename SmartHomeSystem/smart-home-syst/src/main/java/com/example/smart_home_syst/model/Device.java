@@ -1,6 +1,7 @@
 package com.example.smart_home_syst.model;
 
 import com.example.smart_home_syst.enumerator.DeviceType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,9 +30,11 @@ public class Device {
     @Column(nullable = false, unique = true, length = 150)
     private String title;
 
+    @JsonIgnore
     @ManyToOne
     private Room room;
     
+    @JsonIgnore
     @ManyToOne
     //@JoinColumn(name = "mode_id")
     private Mode mode;

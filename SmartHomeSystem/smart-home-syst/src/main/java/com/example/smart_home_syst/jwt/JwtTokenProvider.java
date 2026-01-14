@@ -99,6 +99,8 @@ public class JwtTokenProvider {
         LocalDateTime now = LocalDateTime.now();
 
         LocalDateTime expirationDate = now.plus(duration, durationType);
+        /*System.out.println(duration);
+        System.out.println(durationType.toString()); // проверить кто возвращает минуты вместо дней*/
 
         String value = Jwts.builder().setSubject(username).setIssuedAt(toDate(now)).setExpiration(toDate(expirationDate))
         .signWith(decodeSecretKey(key), SignatureAlgorithm.HS256).compact();
