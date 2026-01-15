@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
 
     @Version

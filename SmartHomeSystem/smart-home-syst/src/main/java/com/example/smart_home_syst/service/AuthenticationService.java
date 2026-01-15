@@ -10,11 +10,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.smart_home_syst.dto.ChangePasswordDto;
 import com.example.smart_home_syst.dto.LoginRequestDto;
 import com.example.smart_home_syst.dto.LoginResponseDto;
 import com.example.smart_home_syst.dto.UserLoggedDto;
@@ -34,6 +37,7 @@ public class AuthenticationService {
     private final JwtTokenProvider jwtTokenProvider;
     private final CookieUtil cookieUtil;
     private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
 
     private final UserService userService;
 
@@ -132,5 +136,31 @@ public class AuthenticationService {
         if(authentication instanceof AnonymousAuthenticationToken) throw new RuntimeException("No user");
         User user = userService.getUser(authentication.getName());
         return UserMapper.userToUserLoggedDto(user);
+    }
+
+    public ResponseEntity<LoginResponseDto> changePassword(ChangePasswordDto request) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication instanceof AnonymousAuthenticationToken) throw new RuntimeException("No user");
+        User user = userService.getUser(authentication.getName());
+
+        if (!passwordEncoder.matches(request.oldPassword(), user.getPassword())) {
+            throw new BadCredentialsException("Wrong current password");
+        }
+        if (passwordEncoder.matches(request.newPassword(), user.getPassword())) {
+            throw new BadCredentialsException("New password can't be equal to old password");
+        }
+        if (!request.newPassword().equals(request.newPasswordAgain())) {
+            throw new BadCredentialsException("New passwords don't match");
+        }
+
+        user.setPassword(passwordEncoder.encode(request.newPassword()));
+        userService.saveUser(user);
+        SecurityContextHolder.clearContext(); // убирает для текущего запроса аутентифицированного пользователя
+        revokeAllTokens(user);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteAccessCookie().toString());
+        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteRefreshCookie().toString());
+        
+        return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(false, null));
     }
 }

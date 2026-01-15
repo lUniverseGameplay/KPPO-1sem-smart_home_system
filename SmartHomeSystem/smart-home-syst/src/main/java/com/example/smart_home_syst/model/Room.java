@@ -26,7 +26,6 @@ import lombok.NoArgsConstructor;
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
 
     @Version
@@ -48,16 +47,6 @@ public class Room {
     @JsonIgnore
     @OneToMany(mappedBy="room", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Device> devices;
-    
-    /*@JsonProperty("devices")
-    public List<String> getDeviceTitles() {
-        if (devices == null) {
-            return List.of();
-        }
-        return devices.stream()
-                .map(Device::getTitle)
-                .collect(Collectors.toList());
-    }*/
 
     private Integer capacity;
 }

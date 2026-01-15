@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 public class Mode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
 
     @Version
@@ -44,14 +43,4 @@ public class Mode {
     @JsonIgnore
     @OneToMany(mappedBy="mode", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Device> devices;
-    
-    /*@JsonProperty("devices")
-    public List<String> getDeviceTitles() {
-        if (devices == null) {
-            return List.of();
-        }
-        return devices.stream()
-                .map(Device::getTitle)
-                .collect(Collectors.toList());
-    }*/
 }

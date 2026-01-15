@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.smart_home_syst.dto.RoomDto;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.repository.RoomRepository;
@@ -39,11 +40,11 @@ public class RoomService {
         return roomRepository.findById(id).orElse(null);
     }
 
-    public Room update(Long id, Room room) {
+    public Room update(Long id, RoomDto roomDto) {
         return roomRepository.findById(id).map(existingRoom -> {
-            existingRoom.setTitle(room.getTitle());
-            existingRoom.setLocation(room.getLocation());
-            existingRoom.setCapacity(room.getCapacity());
+            existingRoom.setTitle(roomDto.title());
+            existingRoom.setLocation(roomDto.location());
+            existingRoom.setCapacity(roomDto.capacity());
             return roomRepository.save(existingRoom);
         }).orElseThrow(() -> new ResourceNotFoundException("Error to update room with id: " + id));
     }
@@ -63,7 +64,11 @@ public class RoomService {
 
     @Transactional
     @CacheEvict(value="rooms", allEntries=true)
-    public Room create (Room room) {
+    public Room create (RoomDto roomDto) {
+        Room room = new Room();
+        room.setTitle(roomDto.title());
+        room.setLocation(roomDto.location());
+        room.setCapacity(roomDto.capacity());
         return roomRepository.save(room);
     }
 

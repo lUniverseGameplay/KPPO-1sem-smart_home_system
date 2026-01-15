@@ -71,15 +71,6 @@ public class DeviceService {
         }
         
         return deviceRepository.save(existingDevice);
-        /*return deviceRepository.findById(id).map(existingDevice -> {
-            existingDevice.setTitle(device.getTitle());
-            existingDevice.setMode(device.getMode());
-            existingDevice.setRoom(device.getRoom());
-            existingDevice.setType(device.getType());
-            existingDevice.setPower(device.getPower());
-            existingDevice.setActive(device.isActive());
-            return deviceRepository.save(existingDevice);
-        }).orElseThrow(() -> new ResourceNotFoundException("Error to update device with id: " + id));*/
     }
 
     @Caching(evict = {

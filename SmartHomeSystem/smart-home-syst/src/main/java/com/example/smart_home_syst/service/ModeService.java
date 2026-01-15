@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.smart_home_syst.dto.ModeDto;
 import com.example.smart_home_syst.enumerator.ModeType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Mode;
@@ -40,10 +41,10 @@ public class ModeService {
         return modeRepository.findById(id).orElse(null);
     }
 
-    public Mode update(Long id, Mode mode) {
+    public Mode update(Long id, ModeDto modeDto) {
         return modeRepository.findById(id).map(existingMode -> {
-            existingMode.setTitle(mode.getTitle());
-            existingMode.setType(mode.getType());
+            existingMode.setTitle(modeDto.title());
+            existingMode.setType(modeDto.type());
             return modeRepository.save(existingMode);
         }).orElseThrow(() -> new ResourceNotFoundException("Error to update mode with id: " + id));
     }
@@ -63,7 +64,10 @@ public class ModeService {
 
     @Transactional
     @CacheEvict(value="modes", allEntries=true)
-    public Mode create (Mode mode) {
+    public Mode create (ModeDto modeDto) {
+        Mode mode = new Mode();
+        mode.setTitle(modeDto.title());
+        mode.setType(modeDto.type());
         return modeRepository.save(mode);
     }
 
