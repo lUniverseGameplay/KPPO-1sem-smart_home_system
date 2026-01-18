@@ -21,10 +21,17 @@ import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.service.DeviceService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 
-
+@Tag(
+    name = "Управление устройствами",
+    description = """
+    Модуль для управления устройствами умного дома.
+    \nПоддерживаемые типы устройств на данный момент: light, coffee_machine, speakers, kettle, microwave, door, conditioner, printer.
+    """
+)
 @RestController
 public class DeviceController {
     private final DeviceService deviceService;
@@ -34,24 +41,32 @@ public class DeviceController {
     }
 
     @Operation(
-    summary = "Get All devices",
-    description = "Here we try to get list of all devices")
+    summary = "Все устройства",
+    description = "Получение списка всех устройств")
     @GetMapping("/devices")
     public List<Device> getDevices() {
         return deviceService.getAll();
     }
 
     @Operation(
-    summary = "Get device with definite Id",
-    description = "Specify the device Id")
+    summary = "Конкретное устройство",
+    description = "Получение устройства с указанным ID")
     @GetMapping("/devices/{id}")
     public ResponseEntity<Device> getDevice(@PathVariable Long id) {
         return ResponseEntity.ok().body(deviceService.getById(id)); 
     }
 
     @Operation(
-    summary = "Create new device",
-    description = "Fill in all the fields. Device type at this moment: light, coffee_machine, speakers, kettle, microwave, door, conditioner, printer")
+    summary = "Новое устройство",
+    description = """
+    Заполните все поля для добавления устройства.
+    \nTitle - название устройства
+    \nType - тип устройства
+    \nPower - напряжение (В)
+    \nActive - работает ли устройство (true/false)
+    \nModeId - номер режима, в котором устройство работает
+    \nRoomId - номер комнаты, где установлено устройство
+    """)
     @PostMapping("/devices")
     public ResponseEntity<Device> addDevice(@RequestBody @Valid DeviceDto deviceDto) {
        Device newDevice = deviceService.create(deviceDto);
@@ -59,8 +74,16 @@ public class DeviceController {
     }
 
     @Operation(
-    summary = "Update device",
-    description = "Specify the device Id and fill in all the fields. Device type at this moment: light, coffee_machine, speakers, kettle, microwave, door, conditioner, printer")
+    summary = "Обновить устройство",
+    description = """
+    Заполните все поля для обновления устройства, указав его ID.
+    \nTitle - название устройства
+    \nType - тип устройства
+    \nPower - напряжение (В)
+    \nActive - работает ли устройство (true/false)
+    \nModeId - номер режима, в котором устройство работает
+    \nRoomId - номер комнаты, где установлено устройство
+    """)
     @PutMapping("/devices/{id}")
     public ResponseEntity<Device> editDevice(@PathVariable Long id, @RequestBody @Valid DeviceDto deviceDto) {
         Device updDevice = deviceService.update(id, deviceDto);
@@ -73,8 +96,8 @@ public class DeviceController {
     }
 
     @Operation(
-    summary = "Delete device",
-    description = "Specify the device Id")
+    summary = "Удалить устройство",
+    description = "Удаление устройства с указанным ID")
     @DeleteMapping("/devices/{id}")
     public ResponseEntity <Void> deleteDevice(@PathVariable Long id) {
         if (deviceService.deleteById(id)) {
@@ -84,8 +107,8 @@ public class DeviceController {
     }
 
     @Operation(
-    summary = "Get devices with filters",
-    description = "Fill in all the fields and write in pageable sort field 1 field of device for orderings")
+    summary = "Устройства по фильтру",
+    description = "Заполните поля для вывода списка устройств, удовлетворяющих требованиям. Для Pageable в поле sort указать 1 поле устройства для порядка вывода")
     @GetMapping("/devices/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title,
     Double min_power, Double max_power, Boolean activity, DeviceType type, @PageableDefault(page=0, size=10, sort="id") Pageable pageable) {

@@ -16,8 +16,13 @@ import com.example.smart_home_syst.dto.UserLoggedDto;
 import com.example.smart_home_syst.service.AuthenticationService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
+@Tag(
+    name = "Аутентификация",
+    description = "Модуль для аутентификации пользователя"
+)
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
@@ -25,8 +30,12 @@ public class AuthentificationController {
     private final AuthenticationService authenticationService;
 
     @Operation(
-    summary = "Try to authentificate",
-    description = "Write your username and password. Also if you see Error 401 'Unauthorized' - try login again)")
+    summary = "Вход в систему",
+    description = """
+    Аутентифицирует пользователя по логину и паролю.
+    \nusername - имя пользователя
+    \npassword - пароль пользователя
+    """)
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login (
         @CookieValue(name="access-token",required = false) String accessToken,
@@ -36,8 +45,8 @@ public class AuthentificationController {
     }
 
     @Operation(
-    summary = "Try to refresh Access token",
-    description = "Just send this request, access token will be refreshed")
+    summary = "Обновление Access токена",
+    description = "Обновление токена происходит при отправке запроса, ничего вводить не требуется")
     @PostMapping("/refresh")
     public ResponseEntity<LoginResponseDto> refresh(
     @CookieValue(name = "refresh-token", required = false) String refresh) {
@@ -45,8 +54,8 @@ public class AuthentificationController {
     }
 
     @Operation(
-    summary = "Logout",
-    description = "Authentificated user will be forgotten")
+    summary = "Выход из системы",
+    description = "Аутентифицироанный пользователь завершит текущую сессию")
     @PostMapping("/logout")
     public ResponseEntity<LoginResponseDto> logout(
     @CookieValue(name = "access-token", required = false) String access) {
@@ -54,16 +63,25 @@ public class AuthentificationController {
     }
 
     @Operation(
-    summary = "Info about current user",
-    description = "Will be sended info about authentificated user")
+    summary = "Информация о текущем пользователе",
+    description = "Будет получена информация об аутентифицированном пользователе")
     @GetMapping("/info")
     public ResponseEntity <UserLoggedDto> info() {
         return ResponseEntity.ok(authenticationService.info());
     }
 
     @Operation(
-    summary = "Change your password",
-    description = "Firstly, you must write your current password. Secondly, current and new password can't be equal. Thirdly, both new passwords must be equal!")
+    summary = "Смена пароля",
+    description = """
+    Заполните все поля для смены пароля текущего пользователя.
+    \noldPassword - текущий пароль для подтверждения
+    \nnewPassword - новый пароль для замены
+    \nnewPasswordAgain - подтверждение нового пароля
+    \nПравила смены пароля:
+    \nЗначение поля oldPassword должно совпадать с текущим паролем
+    \nЗначение поля newPassword должно отличаться от текущего пароля
+    \nЗначение поля newPassword и newPasswordAgain поля должно совпадать
+    """)
     @PatchMapping("/changePassword")
     public ResponseEntity <LoginResponseDto> changePassword(ChangePasswordDto request) {
         return authenticationService.changePassword(request);

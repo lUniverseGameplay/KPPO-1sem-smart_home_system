@@ -20,9 +20,13 @@ import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.service.RoomService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
-
+@Tag(
+    name = "Управление комнатами",
+    description = "Модуль для управления комнатами умного дома."
+)
 @RestController
 public class RoomController {
     private final RoomService roomService;
@@ -32,24 +36,29 @@ public class RoomController {
     }
 
     @Operation(
-    summary = "Get All rooms",
-    description = "Here we try to get list of all rooms")
+    summary = "Все комнаты",
+    description = "Получение списка всех комнат")
     @GetMapping("/rooms")
     public List<Room> getRooms() {
         return roomService.getAll();
     }
 
     @Operation(
-    summary = "Get room with definite Id",
-    description = "Specify the room Id")
+    summary = "Конкретная комната",
+    description = "Получение комнаты с указанным ID")
     @GetMapping("/rooms/{id}")
     public ResponseEntity<Room> getRoom(@PathVariable Long id) {
         return ResponseEntity.ok().body(roomService.getById(id));
     }
 
     @Operation(
-    summary = "Create new room",
-    description = "Fill in all the fields")
+    summary = "Новая комната",
+    description = """
+    Заполните все поля для добавления комнаты.
+    \nTitle - название комнаты
+    \nLocation - расположение комнаты в доме
+    \nCapacity - максимальное количество устройств в комнате
+    """)
     @PostMapping("/rooms")
     public ResponseEntity<Room> addRoom(@RequestBody @Valid RoomDto roomDto) {
        Room newRoom = roomService.create(roomDto);
@@ -57,8 +66,13 @@ public class RoomController {
     }
 
     @Operation(
-    summary = "Update room",
-    description = "Specify the room Id and fill in all the fields")
+    summary = "Обновление комнаты",
+    description = """
+    Заполните все поля для обновления комнаты.
+    \nTitle - название комнаты
+    \nLocation - расположение комнаты в доме
+    \nCapacity - максимальное количество устройств в комнате
+    """)
     @PutMapping("/rooms/{id}")
     public ResponseEntity<Room> editRoom(@PathVariable Long id, @RequestBody @Valid RoomDto roomDto) {
         Room updRoom = roomService.update(id, roomDto);
@@ -71,8 +85,8 @@ public class RoomController {
     }
 
     @Operation(
-    summary = "Delete room",
-    description = "Specify the room Id")
+    summary = "Удалить комнату",
+    description = "Удаление комнаты с указанным ID")
     @DeleteMapping("/rooms/{id}")
     public ResponseEntity <Void> deleteRoom(@PathVariable Long id) {
         if (roomService.deleteById(id)) {
@@ -82,8 +96,8 @@ public class RoomController {
     }
 
     @Operation(
-    summary = "Get rooms with filters",
-    description = "Fill in all the fields and write in pageable sort field 1 field of room for orderings")
+    summary = "Комнаты по фильтру",
+    description = "Заполните поля для вывода списка комнат, удовлетворяющих требованиям. Для Pageable в поле sort указать 1 поле комнаты для порядка вывода")
     @GetMapping("/rooms/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title, String location, Integer max_capacity, Integer min_capacity,
     @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {

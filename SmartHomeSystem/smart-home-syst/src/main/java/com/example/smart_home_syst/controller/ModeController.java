@@ -21,8 +21,16 @@ import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.service.ModeService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+@Tag(
+    name = "Управление режимами работ устройств",
+    description = """
+    Модуль для управления режимами работ устройств умного дома.
+    \nПоддерживаемые типы режимов на данный момент: dinner, morning, study
+    """
+)
 @RestController
 public class ModeController {
     private final ModeService modeService;
@@ -32,24 +40,28 @@ public class ModeController {
     }
 
     @Operation(
-    summary = "Get All modes",
-    description = "Here we try to get list of all modes")
+    summary = "Все режимы",
+    description = "Получение списка всех режимов работ")
     @GetMapping("/modes")
     public List<Mode> getModes() {
         return modeService.getAll();
     }
 
     @Operation(
-    summary = "Get mode with definite Id",
-    description = "Specify the mode Id")
+    summary = "Конкретный режим",
+    description = "Получение режима с указанным ID")
     @GetMapping("/modes/{id}")
     public ResponseEntity<Mode> getMode(@PathVariable Long id) {
         return ResponseEntity.ok().body(modeService.getById(id));
     }
 
     @Operation(
-    summary = "Create new mode",
-    description = "Fill in all the fields. Mode type at this moment: dinner, morning, study")
+    summary = "Новый режим",
+    description = """
+    Заполните все поля для добавления режима.
+    \nTitle - название режима работы
+    \nType - тип режима
+    """)
     @PostMapping("/modes")
     public ResponseEntity<Mode> addMode(@RequestBody @Valid ModeDto modeDto) {
        Mode newMode = modeService.create(modeDto);
@@ -57,8 +69,12 @@ public class ModeController {
     }
 
     @Operation(
-    summary = "Update mode",
-    description = "Specify the mode Id and fill in all the fields. Mode type at this moment: dinner, morning, study")
+    summary = "Обновление режима",
+    description = """
+    Заполните все поля для обновления режима, указав его ID.
+    \nTitle - название режима работы
+    \nType - тип режима
+    """)
     @PutMapping("/modes/{id}")
     public ResponseEntity<Mode> editMode(@PathVariable Long id, @RequestBody @Valid ModeDto modeDto) {
         Mode updMode = modeService.update(id, modeDto);
@@ -71,8 +87,8 @@ public class ModeController {
     }
 
     @Operation(
-    summary = "Delete mode",
-    description = "Specify the mode Id")
+    summary = "Удаление режима",
+    description = "Удалить режим с указанным ID")
     @DeleteMapping("/modes/{id}")
     public ResponseEntity <Void> deleteMode(@PathVariable Long id) {
         if (modeService.deleteById(id)) {
@@ -82,8 +98,8 @@ public class ModeController {
     }
 
     @Operation(
-    summary = "Get modes with filters",
-    description = "Fill in all the fields and write in pageable sort field 1 field of mode for orderings")
+    summary = "Режимы по фильтру",
+    description = "Заполните поля для вывода списка режима работ, удовлетворяющих требованиям. Для Pageable в поле sort указать 1 поле режима для порядка вывода")
     @GetMapping("/modes/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title, ModeType type, @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
         return ResponseEntity.ok(modeService.getByFilter(title, type, pageable));
