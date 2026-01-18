@@ -114,4 +114,31 @@ public class DeviceController {
     Double min_power, Double max_power, Boolean activity, DeviceType type, @PageableDefault(page=0, size=10, sort="id") Pageable pageable) {
         return ResponseEntity.ok(deviceService.getByFilter(title, min_power, max_power, activity, type, pageable));
     }
+
+    @Operation(
+    summary = "Включение устройств типа Х",
+    description = "Включить все устройства с указанным типом устройства")
+    @PutMapping("/devices/turnOnType/{type}")
+    public ResponseEntity<List<Device>> turnOnDevicesWithType(DeviceType type) {
+        List<Device> updDeviceList = deviceService.turnOnDevicesWithType(type);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @Operation(
+    summary = "Выключение устройств типа Х",
+    description = "Выключить все устройства с указанным типом устройства")
+    @PutMapping("/devices/turnOffType/{type}")
+    public ResponseEntity<List<Device>> turnOffDevicesWithType(DeviceType type) {
+        List<Device> updDeviceList = deviceService.turnOffDevicesWithType(type);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

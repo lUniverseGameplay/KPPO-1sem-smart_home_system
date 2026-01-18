@@ -11,17 +11,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.smart_home_syst.dto.RoomDto;
+import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
+import com.example.smart_home_syst.model.Device;
+import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.model.Room;
+import com.example.smart_home_syst.repository.DeviceRepository;
+import com.example.smart_home_syst.repository.ModeRepository;
 import com.example.smart_home_syst.repository.RoomRepository;
 import com.example.smart_home_syst.specifications.RoomSpecifications;
 
 @Service
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final DeviceRepository deviceRepository;
+    private final ModeRepository modeRepository;
 
-    public RoomService(RoomRepository roomRepository) {
+    public RoomService(RoomRepository roomRepository, DeviceRepository deviceRepository, ModeRepository modeRepository) {
         this.roomRepository = roomRepository;
+        this.deviceRepository = deviceRepository;
+        this.modeRepository = modeRepository;
     }
     
     @Transactional(readOnly = true)
@@ -74,5 +83,46 @@ public class RoomService {
 
     public Page<Room> getByFilter(String title, String location, Integer max_capacity, Integer min_capacity, Pageable pageable) {
         return roomRepository.findAll(RoomSpecifications.filter(title, location, max_capacity, min_capacity), pageable);
+    }
+
+    
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> getDevicesInRoom(Long id) {
+        return roomRepository.findById(id).orElse(null).getDevices();
+    }
+
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> turnOffDevicesInRoom(Long id) {
+        List<Device> device_to_change = roomRepository.findById(id).orElse(null).getDevices();
+        for (Device dev : device_to_change) {
+            dev.setActive(false);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
+    }
+
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> turnOnDevicesInRoom(Long id) {
+        List<Device> device_to_change = roomRepository.findById(id).orElse(null).getDevices();
+        for (Device dev : device_to_change) {
+            dev.setActive(true);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
+    }
+
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> switchDevicesModeInRoom(Long roomId, Long modeId) {
+        List<Device> device_to_change = roomRepository.findById(roomId).orElse(null).getDevices();
+        Mode newMode = modeRepository.findById(modeId).orElseThrow(() -> new ResourceNotFoundException("Mode not found with id: " + modeId));
+        for (Device dev : device_to_change) {
+            dev.setMode(newMode);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
     }
 }

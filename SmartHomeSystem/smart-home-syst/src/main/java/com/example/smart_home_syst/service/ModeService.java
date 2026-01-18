@@ -13,16 +13,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.smart_home_syst.dto.ModeDto;
 import com.example.smart_home_syst.enumerator.ModeType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
+import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Mode;
+import com.example.smart_home_syst.repository.DeviceRepository;
 import com.example.smart_home_syst.repository.ModeRepository;
 import com.example.smart_home_syst.specifications.ModeSpecifications;
 
 @Service
 public class ModeService {
     private final ModeRepository modeRepository;
+    private final DeviceRepository deviceRepository;
 
-    public ModeService(ModeRepository modeRepository) {
+    public ModeService(ModeRepository modeRepository, DeviceRepository deviceRepository) {
         this.modeRepository = modeRepository;
+        this.deviceRepository = deviceRepository;
     }
 
     @Transactional(readOnly = true)
@@ -73,5 +77,35 @@ public class ModeService {
 
     public Page<Mode> getByFilter(String title, ModeType type, Pageable pageable) {
         return modeRepository.findAll(ModeSpecifications.filter(title, type), pageable);
+    }
+
+    
+    @Transactional(readOnly = true)
+    @Cacheable(value="mode", key="#id")
+    public List<Device> getDevicesOfMode(Long id) {
+        return modeRepository.findById(id).orElse(null).getDevices();
+    }
+
+    
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> turnOffDevicesOfMode(Long id) {
+        List<Device> device_to_change = modeRepository.findById(id).orElse(null).getDevices();
+        for (Device dev : device_to_change) {
+            dev.setActive(false);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
+    }
+
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> turnOnDevicesOfMode(Long id) {
+        List<Device> device_to_change = modeRepository.findById(id).orElse(null).getDevices();
+        for (Device dev : device_to_change) {
+            dev.setActive(true);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
     }
 }

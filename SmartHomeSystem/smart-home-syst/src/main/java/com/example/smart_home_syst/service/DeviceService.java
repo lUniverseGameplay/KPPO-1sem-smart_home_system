@@ -50,6 +50,11 @@ public class DeviceService {
         return deviceRepository.findById(id).orElse(null);
     }
 
+    @Caching(evict = {
+        @CacheEvict(value="devices", allEntries=true),
+        @CacheEvict(value="device", key="#id")
+    })
+    @Transactional
     public Device update(Long id, DeviceDto deviceDto) {
         Device existingDevice = deviceRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Device not found with id: " + id));
         existingDevice.setTitle(deviceDto.title());
@@ -67,7 +72,13 @@ public class DeviceService {
         
         if (deviceDto.roomId() != null) {
             Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId()));
-            existingDevice.setRoom(room);
+            if (room.getDevices().size() < room.getCapacity() || deviceDto.roomId() == getById(id).getRoomId()) { // проверка того, что количество устройств в комнате < вместимости, или того, что устройство остаётся в комнате
+                //if (deviceDto.roomId() == getById(id).getRoomId()) {System.out.println("Устройство на месте");}
+                existingDevice.setRoom(room);
+            }
+            else {
+                existingDevice.setRoom(null);
+            }
         }
         
         return deviceRepository.save(existingDevice);
@@ -111,7 +122,12 @@ public class DeviceService {
         
         if (deviceDto.roomId() != null) {
             Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId()));
-            device.setRoom(room);
+            if (room.getDevices().size() < room.getCapacity()) {
+                device.setRoom(room);
+            }
+            else {
+                device.setRoom(null);
+            }
         }
         else {
             device.setRoom(null);
@@ -122,5 +138,26 @@ public class DeviceService {
 
     public Page<Device> getByFilter (String title, Double min_power, Double max_power, Boolean activity, DeviceType type, Pageable pageable) {
         return deviceRepository.findAll(DeviceSpecifications.filter(title, min_power, max_power, activity, type), pageable);
+    }
+
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> turnOnDevicesWithType(DeviceType type) {
+        List<Device> device_to_change = deviceRepository.findAllByType(type);
+        for (Device dev : device_to_change) {
+            dev.setActive(true);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
+    }
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> turnOffDevicesWithType(DeviceType type) {
+        List<Device> device_to_change = deviceRepository.findAllByType(type);
+        for (Device dev : device_to_change) {
+            dev.setActive(false);
+            deviceRepository.save(dev);
+        }
+        return device_to_change;
     }
 }

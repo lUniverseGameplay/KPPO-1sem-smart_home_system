@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.smart_home_syst.dto.RoomDto;
+import com.example.smart_home_syst.enumerator.DeviceType;
+import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.service.RoomService;
 
@@ -102,5 +104,55 @@ public class RoomController {
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title, String location, Integer max_capacity, Integer min_capacity,
     @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
         return ResponseEntity.ok(roomService.getByFilter(title, location, max_capacity, min_capacity, pageable));
+    }
+
+    @Operation(
+    summary = "Устройства в комнате",
+    description = "Получение всех устройств в комнате с указанным ID")
+    @GetMapping("/room-devices/{id}")
+    public List<Device> getDevicesInRoom(@PathVariable Long id) {
+        return roomService.getDevicesInRoom(id);
+    }
+
+    @Operation(
+    summary = "Выключение комнаты",
+    description = "Выключить все устройства в комнате c указанным ID")
+    @PutMapping("/room/turnOff/{id}")
+    public ResponseEntity<List<Device>> turnOffRoom(@PathVariable Long id) {
+        List<Device> updDeviceList = roomService.turnOffDevicesInRoom(id);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(
+    summary = "Включение комнаты",
+    description = "Включить все устройства в комнате c указанным ID")
+    @PutMapping("/room/turnOn/{id}")
+    public ResponseEntity<List<Device>> turnOnRoom(@PathVariable Long id) {
+        List<Device> updDeviceList = roomService.turnOnDevicesInRoom(id);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(
+    summary = "Смена режима в комнате",
+    description = "Перевести все устройства в комнате с указанным ID в режим работы с указанным ID")
+    @PutMapping("/room/set-mode/{id}")
+    public ResponseEntity<List<Device>> switchModeInRoom(Long roomId, Long modeId) {
+        List<Device> updDeviceList = roomService.switchDevicesModeInRoom(roomId, modeId);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }

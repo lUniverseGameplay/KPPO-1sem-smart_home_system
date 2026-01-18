@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.smart_home_syst.dto.ModeDto;
 import com.example.smart_home_syst.enumerator.ModeType;
+import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.service.ModeService;
 
@@ -103,5 +104,41 @@ public class ModeController {
     @GetMapping("/modes/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title, ModeType type, @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
         return ResponseEntity.ok(modeService.getByFilter(title, type, pageable));
+    }
+
+    @Operation(
+    summary = "Устройства с режимом Х",
+    description = "Получение всех устройств с режимом работы с указанным ID")
+    @GetMapping("/mode-devices/{id}")
+    public List<Device> getDevicesOfMode(@PathVariable Long id) {
+        return modeService.getDevicesOfMode(id);
+    }
+
+    @Operation(
+    summary = "Выключение режима Х",
+    description = "Выключить все устройства с режимом работы c указанным ID")
+    @PutMapping("/mode/turnOff/{id}")
+    public ResponseEntity<List<Device>> turnOffRoom(@PathVariable Long id) {
+        List<Device> updDeviceList = modeService.turnOffDevicesOfMode(id);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(
+    summary = "Включение режима Х",
+    description = "Включить все устройства с режимом работы c указанным ID")
+    @PutMapping("/mode/turnOn/{id}")
+    public ResponseEntity<List<Device>> turnOnRoom(@PathVariable Long id) {
+        List<Device> updDeviceList = modeService.turnOnDevicesOfMode(id);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }
