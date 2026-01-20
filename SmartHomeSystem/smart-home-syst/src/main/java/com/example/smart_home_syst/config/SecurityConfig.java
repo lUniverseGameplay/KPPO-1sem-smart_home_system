@@ -46,7 +46,9 @@ public class SecurityConfig {
             auth.requestMatchers("/api/auth/login", "/api/auth/refresh").permitAll();
             auth.anyRequest().authenticated();});
         http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.exceptionHandling(ex->ex.authenticationEntryPoint(jwtAuthEntryPoint));
+        http.exceptionHandling(ex-> {
+            ex.authenticationEntryPoint(jwtAuthEntryPoint);
+        });
         http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

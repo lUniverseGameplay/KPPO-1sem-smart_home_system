@@ -39,3 +39,17 @@ jwt:
             days: 7
             second: 604800
         cookie-name: refresh-token
+---
+logging:
+    level:
+        root: INFO
+        com.example.smart_home_syst: DEBUG  # Детальные логи вашего приложения
+        org.springframework: WARN               # Меньше шума от Spring
+        org.hibernate: INFO  
+    file:
+        name: logs/smart-home-syst.log
+        max-size: 10MB
+        max-history: 30
+    pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} - %cyan(%logger{36}) - %level - %msg%n"
+        file: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %level - %msg%n"
