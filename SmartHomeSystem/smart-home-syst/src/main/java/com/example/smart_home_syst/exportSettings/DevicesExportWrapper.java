@@ -1,4 +1,4 @@
-package com.example.smart_home_syst.exports;
+package com.example.smart_home_syst.exportSettings;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -40,7 +40,7 @@ public class DevicesExportWrapper {
         private String name = "Smart Home System";
         
         @JacksonXmlProperty(localName = "exportedBy")
-        private String exportedBy = SecurityContextHolder.getContext().getAuthentication().getName();;
+        private String exportedBy = SecurityContextHolder.getContext().getAuthentication().getName();
         
         @JacksonXmlProperty(localName = "format")
         private String format = "XML";

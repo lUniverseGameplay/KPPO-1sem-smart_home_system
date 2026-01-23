@@ -7,6 +7,16 @@ spring:
 spring:
     config:
         activate:
+            on-profile: dev
+    servlet:
+        multipart:
+            location: ${user.dir}/uploads
+            max-file-size: 10MB
+            max-request-size: 10MB
+---
+spring:
+    config:
+        activate:
             on profile: dev
     datasource:
         url: jdbc:postgresql://localhost:5432/smart-home-syst
@@ -53,13 +63,3 @@ logging:
     pattern:
         console: "%d{yyyy-MM-dd HH:mm:ss} - %cyan(%logger{36}) - %level - %msg%n"
         file: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %level - %msg%n"
----
-spring:
-  servlet:
-    multipart:
-      enabled: true
-      max-file-size: 10MB
-      max-request-size: 10MB
-  jackson:
-    xml:
-      indent-output: true

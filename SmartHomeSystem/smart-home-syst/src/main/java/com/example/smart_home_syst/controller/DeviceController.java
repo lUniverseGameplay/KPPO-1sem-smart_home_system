@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.smart_home_syst.dto.DeviceDto;
 import com.example.smart_home_syst.enumerator.DeviceType;
@@ -157,4 +159,16 @@ public class DeviceController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping(path = "/devices/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<List<Device>> importDevicesFromXml(@RequestParam MultipartFile file) {
+        List<Device> updDeviceList = deviceService.importDevicesListFromXmlFile(file);
+        if(updDeviceList.size() != 0) {
+            return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
 }

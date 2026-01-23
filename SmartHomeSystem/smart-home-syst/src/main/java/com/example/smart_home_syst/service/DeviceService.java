@@ -1,13 +1,19 @@
 package com.example.smart_home_syst.service;
 
 
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
@@ -15,11 +21,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.smart_home_syst.dto.DeviceDto;
+import com.example.smart_home_syst.dto.DeviceImportDto;
 import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
-import com.example.smart_home_syst.exports.DevicesExportWrapper;
+import com.example.smart_home_syst.exportSettings.DevicesExportWrapper;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.model.Room;
@@ -34,8 +42,11 @@ public class DeviceService {
     private final DeviceRepository deviceRepository;
     private final ModeRepository modeRepository;
     private final RoomRepository roomRepository;
-    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
+    private static final Logger logger = LoggerFactory.getLogger(DeviceService.class);
     private final XmlMapper xmlMapper = new XmlMapper();
+    
+    @Value("${spring.servlet.multipart.location}")
+    private String uploadLocation;
 
     public DeviceService(DeviceRepository deviceRepository, ModeRepository modeRepository, RoomRepository roomRepository) {
         this.deviceRepository = deviceRepository;
@@ -160,7 +171,6 @@ public class DeviceService {
         }
         return device_to_change;
     }
-
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> turnOffDevicesWithType(DeviceType type) {
@@ -231,6 +241,71 @@ public class DeviceService {
         catch (Exception e) {
             logger.warn("Export to file error: {}", e.getMessage(), e);
             throw new RuntimeException("Error to create file", e);
+        }
+    }
+
+    private void validateFile(MultipartFile file) {
+        if (file.isEmpty()) {
+            logger.warn("Empty file");
+            throw new IllegalArgumentException("File is empty");
+        }
+
+        String fileName = file.getOriginalFilename();
+        if (fileName == null || !fileName.toLowerCase().endsWith(".xml")) {
+            logger.warn("Wrong file format detected");
+            throw new IllegalArgumentException("The system supports only Xml files");
+        }
+    }
+
+    @Transactional
+    @CacheEvict(value="devices", allEntries=true)
+    public List<Device> importDevicesListFromXmlFile(MultipartFile file) {
+        logger.info("Start device importing from file operation");
+        validateFile(file);
+
+        try {
+            Path filePath = Paths.get("imports", "devices");
+            Files.createDirectories(filePath);
+            filePath = filePath.resolve(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")) + "_" + file.getOriginalFilename());
+            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+            logger.info("File copied with path: {}", filePath);
+
+            try (InputStream fileByteStream = file.getInputStream()) {
+                DeviceImportDto xmlDto = xmlMapper.readValue(fileByteStream, DeviceImportDto.class);
+                List<DeviceDto> deviceToImport = xmlDto.getDevices();
+
+                List<Device> importedDevices = new ArrayList<>();
+
+                for (int i = 0; i < xmlDto.getDevices().size(); i++) {
+                    DeviceDto item = xmlDto.getDevices().get(i);
+                    List<Device> devicesWithSameName = deviceRepository.findAllByTitle(item.title());
+                    try {
+                        if (devicesWithSameName.size() == 0 || devicesWithSameName == null) {
+                            importedDevices.add(create(item));
+                            
+                            logger.debug("Device imported to DB: {}", item.title());
+                        }
+                        else {
+                            importedDevices.add(update(devicesWithSameName.get(0).getId(), item));
+                            
+                            logger.debug("Device updated in DB: {}", item.title());
+                        }
+                        
+                    } catch (Exception e) {
+                        logger.warn("Error to add Device {} to DB", item.title());
+                    }
+                }
+                logger.info("Devices data successfully imported from XML file {}", filePath);
+                return importedDevices;
+            }
+            catch (Exception e) {
+                logger.warn("Error of opening XML file: {}", e.getMessage(), e);
+                throw new RuntimeException("Error of opening XML file", e);
+            }
+        }
+        catch (Exception e) {
+            logger.warn("File import error: {}", e.getMessage(), e);
+            throw new RuntimeException("Error to create/change devices from file", e);
         }
     }
 }
