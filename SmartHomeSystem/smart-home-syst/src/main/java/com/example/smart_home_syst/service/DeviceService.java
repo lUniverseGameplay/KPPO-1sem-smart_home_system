@@ -1,8 +1,13 @@
 package com.example.smart_home_syst.service;
 
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
@@ -14,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.smart_home_syst.dto.DeviceDto;
 import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
+import com.example.smart_home_syst.exports.DevicesExportWrapper;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.model.Room;
@@ -21,17 +27,21 @@ import com.example.smart_home_syst.repository.DeviceRepository;
 import com.example.smart_home_syst.repository.ModeRepository;
 import com.example.smart_home_syst.repository.RoomRepository;
 import com.example.smart_home_syst.specifications.DeviceSpecifications;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 @Service
 public class DeviceService {
     private final DeviceRepository deviceRepository;
     private final ModeRepository modeRepository;
     private final RoomRepository roomRepository;
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
+    private final XmlMapper xmlMapper = new XmlMapper();
 
     public DeviceService(DeviceRepository deviceRepository, ModeRepository modeRepository, RoomRepository roomRepository) {
         this.deviceRepository = deviceRepository;
         this.modeRepository = modeRepository;
         this.roomRepository = roomRepository;
+        xmlMapper.enable(com.fasterxml.jackson.databind.SerializationFeature.INDENT_OUTPUT);
     }
 
     @Transactional(readOnly = true)
@@ -150,6 +160,7 @@ public class DeviceService {
         }
         return device_to_change;
     }
+
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> turnOffDevicesWithType(DeviceType type) {
@@ -159,5 +170,67 @@ public class DeviceService {
             deviceRepository.save(dev);
         }
         return device_to_change;
+    }
+
+    private DevicesExportWrapper createExportWrapper(List<Device> devices) {
+        List<DeviceDto> devicesDto_to_export = devices.stream()
+            .map(device -> new DeviceDto(
+                device.getTitle(),
+                device.getType(),
+                device.getPower(),
+                device.isActive(),
+                device.getMode().getId(),
+                device.getRoom().getId()
+            ))
+            .toList();
+        
+        DevicesExportWrapper wrapper = new DevicesExportWrapper();
+        wrapper.setDevices(devicesDto_to_export);
+        wrapper.setTotalCount(devicesDto_to_export.size());
+        return wrapper;
+    }
+
+    @Transactional(readOnly = true)
+    public String exportDevicesListToXmlString() {
+        logger.info("Start device exporting to string operation");
+
+        List<Device> devices_to_export = deviceRepository.findAll();
+        logger.debug("{} devices was founded", devices_to_export.size());
+        
+        DevicesExportWrapper wrapper = createExportWrapper(devices_to_export);
+        
+        try {
+            String xml = xmlMapper.writeValueAsString(wrapper);
+            logger.debug("XML export to string successfully finished");
+            return xml;
+        } catch (Exception e) {
+            logger.warn("Formating to XML error: {}", e.getMessage(), e);
+            throw new RuntimeException("Error of export to XML", e);
+        }
+    }
+
+    @Transactional(readOnly=true)
+    public String exportDevicesListToXmlFile(String pathToFile, String fileName) {
+        logger.info("Start device exporting to file operation");
+
+        try {
+            // Создаем директорию для экспорта, если её нет
+            Path fileDir = Paths.get(pathToFile);
+            Files.createDirectories(fileDir);
+            Path filePath = fileDir.resolve(fileName + ".xml"); // Соединяем путь и имя файла
+            logger.debug("Full path to file created: {}", filePath);
+
+            String xml = exportDevicesListToXmlString();
+
+            logger.debug("Try to write XML string to file: {}", filePath);
+            Files.writeString(filePath, xml);
+            
+            logger.info("Devices data successfully exported to XML file {}", filePath);
+            return xml;
+        }
+        catch (Exception e) {
+            logger.warn("Export to file error: {}", e.getMessage(), e);
+            throw new RuntimeException("Error to create file", e);
+        }
     }
 }

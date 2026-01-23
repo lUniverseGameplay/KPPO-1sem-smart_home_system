@@ -128,6 +128,7 @@ public class DeviceController {
             return ResponseEntity.notFound().build();
         }
     }
+    
     @Operation(
     summary = "Выключение устройств типа Х",
     description = "Выключить все устройства с указанным типом устройства")
@@ -136,6 +137,21 @@ public class DeviceController {
         List<Device> updDeviceList = deviceService.turnOffDevicesWithType(type);
         if(updDeviceList.size() != 0) {
             return ResponseEntity.ok(updDeviceList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    @Operation(
+    summary = "Экспорт устройств",
+    description = "Экспортировать данные обо всех устройствах в файл в формате XML")
+    @GetMapping("/devices/export/{type}")
+    public ResponseEntity<String> exportDevicesToXml(String name) {
+        String path = "exports/xml/devices";
+        String savedXml = deviceService.exportDevicesListToXmlFile(path, name);
+        if(savedXml != "" & savedXml != null) {
+            return ResponseEntity.ok(savedXml);
         }
         else{
             return ResponseEntity.notFound().build();
