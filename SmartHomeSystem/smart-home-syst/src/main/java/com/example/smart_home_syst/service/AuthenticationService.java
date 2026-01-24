@@ -1,6 +1,7 @@
 package com.example.smart_home_syst.service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
 import java.util.Set;
@@ -116,6 +117,8 @@ public class AuthenticationService {
 
         SecurityContextHolder.getContext().setAuthentication(authentication); // устанавливает для текущего запроса аутентифицированного пользователя
         logger.info("Login completed successfully for user {}", user.getUsername());
+        
+        if (user.getTgBotChatId() != null) botService.sendMessage(user.getTgBotChatId().toString(), "Someone logged by your account " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")));
 
         return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(true, user.getRole().getName()));
     }
@@ -197,6 +200,9 @@ public class AuthenticationService {
         user.setPassword(passwordEncoder.encode(request.newPassword()));
         userService.saveUser(user);
         logger.debug("Password changes saved for user {}", user.getUsername());
+        botService.sendMessageToAdmin("Password of user " + user.getUsername() + " was changed");
+        if (user.getTgBotChatId() != null) botService.sendMessage(user.getTgBotChatId().toString(), "Your password was changed at " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")));
+
         SecurityContextHolder.clearContext(); // убирает для текущего запроса аутентифицированного пользователя
         revokeAllTokens(user);
         HttpHeaders headers = new HttpHeaders();
@@ -221,11 +227,14 @@ public class AuthenticationService {
             logger.warn("Failed change password (Wrong password) for user: id-{}, name-{}", user.getId(), user.getUsername());
             throw new BadCredentialsException("Wrong password");
         }
+
         Long oldChatId = user.getTgBotChatId();
         user.setTgBotChatId(request.newChatId());
         userService.saveUser(user);
         logger.debug("Chat Id changes saved for user {}", user.getUsername());
+
         botService.sendMessageToAdmin("Chat Id of user " + user.getUsername() + " was changed from " + oldChatId.toString() + " to " + user.getTgBotChatId().toString());
+
         SecurityContextHolder.clearContext(); // убирает для текущего запроса аутентифицированного пользователя
         revokeAllTokens(user);
         HttpHeaders headers = new HttpHeaders();

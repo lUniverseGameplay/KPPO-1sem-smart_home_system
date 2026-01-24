@@ -70,16 +70,19 @@ public class DeviceService {
     @Transactional(readOnly = true)
     @Cacheable(value="devices", key="#root.methodName")
     public List<Device> getAll() {
+        logger.debug("Get all devices");
         return deviceRepository.findAll();
     }
 
     public List<Device> getAllByTitle(String title) {
+        logger.debug("Get all devices with title: {}", title);
         return deviceRepository.findAllByTitle(title);
     }
 
     @Transactional(readOnly = true)
     @Cacheable(value="device", key="#id")
     public Device getById(Long id) {
+        logger.debug("Get device with id: {}", id);
         return deviceRepository.findById(id).orElse(null);
     }
 
@@ -89,7 +92,11 @@ public class DeviceService {
     })
     @Transactional
     public Device update(Long id, DeviceDto deviceDto) {
-        Device existingDevice = deviceRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Device not found with id: " + id));
+        logger.info("Start Update device operation");
+        Device existingDevice = deviceRepository.findById(id).orElseThrow(() -> {
+            logger.warn("Device not found with id: {}", id);
+            return new ResourceNotFoundException("Device not found with id: " + id);
+        });
         existingDevice.setTitle(deviceDto.title());
         existingDevice.setType(deviceDto.type());
         existingDevice.setPower(deviceDto.power());
@@ -99,22 +106,32 @@ public class DeviceService {
         }
         
         if (deviceDto.modeId() != null) {
-            Mode mode = modeRepository.findById(deviceDto.modeId()).orElseThrow(() -> new ResourceNotFoundException("Mode not found with id: " + deviceDto.modeId()));
+            Mode mode = modeRepository.findById(deviceDto.modeId()).orElseThrow(() -> {
+                logger.warn("Mode not found with id: {}", id);
+                return new ResourceNotFoundException("Mode not found with id: " + id);
+            });
             existingDevice.setMode(mode);
         }
         
         if (deviceDto.roomId() != null) {
-            Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId()));
+            Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> {
+                logger.warn("Room not found with id: {}", id);
+                return new ResourceNotFoundException("Room not found with id: " + id);
+            });
             if (room.getDevices().size() < room.getCapacity() || deviceDto.roomId() == getById(id).getRoomId()) { // проверка того, что количество устройств в комнате < вместимости, или того, что устройство остаётся в комнате
                 //if (deviceDto.roomId() == getById(id).getRoomId()) {System.out.println("Устройство на месте");}
                 existingDevice.setRoom(room);
+                logger.debug("Devices in Room {} less than room capacity {}. Device added", room.getId(), room.getCapacity());
             }
             else {
                 existingDevice.setRoom(null);
+                logger.debug("Too many devices in Room {} (room capacity {}). Set null room in device", room.getId(), room.getCapacity());
             }
         }
         
-        return deviceRepository.save(existingDevice);
+        deviceRepository.save(existingDevice);
+        logger.info("Update comleted successfully for Device {}", id);
+        return existingDevice;
     }
 
     @Caching(evict = {
@@ -123,16 +140,21 @@ public class DeviceService {
     })
     @Transactional
     public boolean deleteById(Long id) {
+        logger.info("Start Delete device operation");
+        logger.debug("Try to find device with Id {}", id);
         if (deviceRepository.existsById(id)) {
             deviceRepository.deleteById(id);
+            logger.info("Delete device with Id {} completed successfully", id);
             return true;
         }
+        logger.info("Device with Id {} doesn't founded. Operation canceled", id);
         return false;
     }
 
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public Device create (DeviceDto deviceDto) {
+        logger.info("Start Create device operation");
         Device device = new Device();
         device.setTitle(deviceDto.title());
         device.setType(deviceDto.type());
@@ -146,7 +168,10 @@ public class DeviceService {
         }
         
         if (deviceDto.modeId() != null) {
-            Mode mode = modeRepository.findById(deviceDto.modeId()).orElseThrow(() -> new ResourceNotFoundException("Mode not found with id: " + deviceDto.modeId()));
+            Mode mode = modeRepository.findById(deviceDto.modeId()).orElseThrow(() -> {
+                logger.warn("Mode not found with id: {}", deviceDto.modeId());
+                return new ResourceNotFoundException("Mode not found with id: " + deviceDto.modeId());
+            });
             device.setMode(mode);
         }
         else {
@@ -154,19 +179,24 @@ public class DeviceService {
         }
         
         if (deviceDto.roomId() != null) {
-            Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId()));
+            Room room = roomRepository.findById(deviceDto.roomId()).orElseThrow(() -> {
+                logger.warn("Room not found with id: {}", deviceDto.roomId());
+                return new ResourceNotFoundException("Room not found with id: " + deviceDto.roomId());
+            });
             if (room.getDevices().size() < room.getCapacity()) {
                 device.setRoom(room);
+                logger.debug("Devices in Room {} less than room capacity {}. Device added", room.getId(), room.getCapacity());
             }
             else {
-                device.setRoom(null);
+                logger.debug("Too many devices in Room {} (room capacity {}). Set null room in device", room.getId(), room.getCapacity());
             }
         }
         else {
             device.setRoom(null);
         }
-
-        return deviceRepository.save(device);
+        deviceRepository.save(device);
+        logger.info("Device with Id {} successfully created", device.getId());
+        return device;
     }
 
     public Page<Device> getByFilter (String title, Double min_power, Double max_power, Boolean activity, DeviceType type, Pageable pageable) {
@@ -176,21 +206,27 @@ public class DeviceService {
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> turnOnDevicesWithType(DeviceType type) {
+        logger.info("Start 'Turn on devices with same type' operation");
         List<Device> device_to_change = deviceRepository.findAllByType(type);
+        logger.debug("Founded {} devices with type {}", device_to_change.size(), type);
         for (Device dev : device_to_change) {
             dev.setActive(true);
             deviceRepository.save(dev);
         }
+        logger.info("All devices activity with type {} was changed to true", type);
         return device_to_change;
     }
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> turnOffDevicesWithType(DeviceType type) {
+        logger.info("Start 'Turn off devices with same type' operation");
         List<Device> device_to_change = deviceRepository.findAllByType(type);
+        logger.debug("Founded {} devices with type {}", device_to_change.size(), type);
         for (Device dev : device_to_change) {
             dev.setActive(false);
             deviceRepository.save(dev);
         }
+        logger.info("All devices activity with type {} was changed to false", type);
         return device_to_change;
     }
 
