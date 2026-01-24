@@ -74,3 +74,8 @@ report:
   watermark:
     enabled: false
     text: "SMART HOME SYSTEM"
+---
+bot:
+    username: kppo_pinj4_smarthomesyst_bot
+    token: 8590152748:AAGzaKHKab3tPVeoZ8D2EwXmdF-gWdHsBN0
+    adminChatId: 1021195063

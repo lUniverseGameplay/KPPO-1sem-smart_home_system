@@ -118,6 +118,13 @@
 			<artifactId>jasperreports-fonts</artifactId>
 			<version>6.20.0</version>
 		</dependency>
+
+		<!-- For TG bot -->
+		<dependency>
+		    <groupId>org.telegram</groupId>
+		    <artifactId>telegrambots</artifactId>
+		    <version>6.9.7.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

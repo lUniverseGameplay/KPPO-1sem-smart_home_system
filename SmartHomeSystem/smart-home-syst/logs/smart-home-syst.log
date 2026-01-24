@@ -5675,3 +5675,797 @@ java.lang.NoSuchMethodException: Unknown property 'title' on class 'class com.ex
 2026-01-24 11:59:53 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
 2026-01-24 11:59:53 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-01-24 11:59:54 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 5.684 seconds (process running for 6.214)
+2026-01-24 16:34:16 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 3856 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:34:16 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:34:16 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:34:18 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:34:18 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:34:18 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:34:18 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:34:18 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 16:34:18 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:34:19 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 16:34:19 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9fc337f
+2026-01-24 16:34:19 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 16:34:19 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:34:19 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:34:20 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:34:21 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:34:21 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:34:25 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 9.444 seconds (process running for 10.011)
+2026-01-24 16:36:14 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Shutdown initiated...
+2026-01-24 16:36:14 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Shutdown completed.
+2026-01-24 16:36:14 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 3856 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:36:14 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:36:14 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:36:14 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:36:14 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:36:14 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:36:14 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:36:14 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:36:14 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-2 - Starting...
+2026-01-24 16:36:14 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@38ab3643
+2026-01-24 16:36:14 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-2 - Start completed.
+2026-01-24 16:36:14 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:36:14 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:36:14 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:36:15 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:36:15 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:36:15 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 1.545 seconds (process running for 119.974)
+2026-01-24 16:36:16 - o.t.t.u.DefaultBotSession - ERROR - Error getting updates
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:93) ~[telegrambots-meta-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:263) ~[telegrambots-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:192) ~[telegrambots-5.0.1.jar:na]
+2026-01-24 16:36:20 - o.t.t.u.DefaultBotSession - ERROR - Error getting updates
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:93) ~[telegrambots-meta-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:263) ~[telegrambots-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:192) ~[telegrambots-5.0.1.jar:na]
+2026-01-24 16:36:29 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 22848 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:36:29 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:36:29 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:36:31 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:36:31 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:36:31 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:36:31 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:36:31 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 16:36:31 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:36:31 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 16:36:31 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@163ac219
+2026-01-24 16:36:31 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 16:36:31 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:36:32 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:36:32 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:36:33 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:36:33 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:36:34 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 5.91 seconds (process running for 6.506)
+2026-01-24 16:37:38 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Shutdown initiated...
+2026-01-24 16:37:38 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Shutdown completed.
+2026-01-24 16:37:38 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 22848 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:37:38 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:37:38 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:37:39 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:37:39 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:37:39 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:37:39 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:37:39 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:37:39 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-2 - Starting...
+2026-01-24 16:37:39 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1f297b8b
+2026-01-24 16:37:39 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-2 - Start completed.
+2026-01-24 16:37:39 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:37:39 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:37:39 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:37:40 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:53:38 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 19248 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:53:38 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:53:38 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:53:40 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:53:40 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:53:40 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:53:41 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:53:41 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 16:53:41 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:53:41 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 16:53:41 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fde4feb
+2026-01-24 16:53:41 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 16:53:41 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:53:41 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:53:42 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:53:43 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:53:43 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:53:44 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.449 seconds (process running for 7.129)
+2026-01-24 16:54:54 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 18636 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:54:54 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:54:54 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:54:56 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:54:56 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:54:56 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:54:56 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:54:56 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 16:54:57 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:54:57 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 16:54:57 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4752c6d8
+2026-01-24 16:54:57 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 16:54:57 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:54:57 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:54:58 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:54:59 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:54:59 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:55:00 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.545 seconds (process running for 7.148)
+2026-01-24 16:55:50 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 3768 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:55:50 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:55:50 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:55:52 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:55:52 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:55:52 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:55:52 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:55:52 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 16:55:52 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:55:53 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 16:55:53 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fde4feb
+2026-01-24 16:55:53 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 16:55:53 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:55:53 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:55:54 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:55:54 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:55:55 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:55:56 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 5.994 seconds (process running for 6.573)
+2026-01-24 16:59:33 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 13080 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 16:59:33 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 16:59:33 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 16:59:35 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 16:59:35 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 16:59:35 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 16:59:35 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 16:59:35 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 16:59:35 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 16:59:36 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 16:59:36 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5ff0cab9
+2026-01-24 16:59:36 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 16:59:36 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 16:59:36 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 16:59:37 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 16:59:38 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 16:59:38 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 16:59:39 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 7.183 seconds (process running for 7.8)
+2026-01-24 16:59:43 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-24 16:59:44 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 358 ms
+2026-01-24 16:59:50 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-24 16:59:51 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - true
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-24T17:04:51.213973400
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 43 saved
+2026-01-24 16:59:51 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-24 17:00:04 - c.e.s.service.AuthenticationService - INFO - Start get-info operation
+2026-01-24 17:00:04 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-24 17:00:04 - c.e.s.service.AuthenticationService - INFO - Info sended successfully about user string
+2026-01-24 17:00:32 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Shutdown initiated...
+2026-01-24 17:00:32 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Shutdown completed.
+2026-01-24 17:00:32 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 13080 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:00:32 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:00:32 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:00:33 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:00:33 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:00:33 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:00:33 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:00:33 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:00:33 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-2 - Starting...
+2026-01-24 17:00:33 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1b67201c
+2026-01-24 17:00:33 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-2 - Start completed.
+2026-01-24 17:00:33 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:00:33 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:00:33 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:00:34 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:00:34 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:00:34 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 1.678 seconds (process running for 62.432)
+2026-01-24 17:00:34 - o.t.t.u.DefaultBotSession - ERROR - Error getting updates
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:93) ~[telegrambots-meta-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:263) ~[telegrambots-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:192) ~[telegrambots-5.0.1.jar:na]
+2026-01-24 17:00:38 - o.t.t.u.DefaultBotSession - ERROR - Error getting updates
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:93) ~[telegrambots-meta-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:263) ~[telegrambots-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:192) ~[telegrambots-5.0.1.jar:na]
+2026-01-24 17:00:39 - o.t.t.u.DefaultBotSession - ERROR - Error getting updates
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:93) ~[telegrambots-meta-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:263) ~[telegrambots-5.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:192) ~[telegrambots-5.0.1.jar:na]
+2026-01-24 17:00:45 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 22652 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:00:45 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:00:45 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:00:47 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:00:47 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:00:47 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:00:47 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:00:47 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:00:47 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:00:48 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:00:48 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fde4feb
+2026-01-24 17:00:48 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:00:48 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:00:48 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:00:49 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:00:49 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:00:50 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:00:51 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.305 seconds (process running for 6.902)
+2026-01-24 17:00:56 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-24 17:00:57 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 338 ms
+2026-01-24 17:10:04 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 22964 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:10:04 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:10:04 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:10:07 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:10:07 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:10:07 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:10:07 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:10:07 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:10:07 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:10:07 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:10:07 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b508108
+2026-01-24 17:10:07 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:10:08 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:10:08 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:10:09 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:10:09 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:10:10 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:10:11 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.977 seconds (process running for 7.66)
+2026-01-24 17:27:41 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 5400 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:27:41 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:27:41 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:27:43 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:27:43 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:27:43 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:27:43 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:27:43 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:27:43 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:27:43 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:27:43 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a80ba8b
+2026-01-24 17:27:43 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:27:43 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:27:43 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:27:44 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:27:45 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:27:45 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:27:46 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.433 seconds (process running for 7.153)
+2026-01-24 17:27:50 - c.e.s.service.DeviceService - INFO - Taken message /start from chat with Id 1021195063
+2026-01-24 17:28:23 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 3488 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:28:23 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:28:23 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:28:25 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:28:25 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:28:25 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:28:25 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:28:25 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:28:25 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:28:25 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:28:26 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@62c03b50
+2026-01-24 17:28:26 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:28:26 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:28:26 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:28:26 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:28:27 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:28:27 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:28:28 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 5.842 seconds (process running for 6.441)
+2026-01-24 17:28:32 - c.e.s.service.DeviceService - INFO - Taken message /start from chat with Id 1021195063
+2026-01-24 17:29:20 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 11104 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:29:20 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:29:20 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:29:22 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:29:22 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:29:22 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:29:22 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:29:22 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:29:22 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:29:22 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:29:22 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a2648bb
+2026-01-24 17:29:22 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:29:22 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:29:22 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:29:23 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:29:24 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:29:24 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:29:25 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.264 seconds (process running for 6.972)
+2026-01-24 17:29:34 - c.e.s.service.DeviceService - INFO - Taken message 1 from chat with Id 1021195063
+2026-01-24 17:29:39 - c.e.s.service.DeviceService - INFO - Taken message /start from chat with Id 1021195063
+2026-01-24 17:30:12 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 19892 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:30:12 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:30:12 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:30:14 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:30:14 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:30:14 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:30:14 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:30:14 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:30:14 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:30:15 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:30:15 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52f18573
+2026-01-24 17:30:15 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:30:15 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:30:15 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:30:16 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:30:16 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:30:17 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:30:18 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.428 seconds (process running for 7.132)
+2026-01-24 17:30:21 - c.e.s.service.DeviceService - INFO - Taken message /start from chat with Id 1021195063
+2026-01-24 17:30:21 - c.e.s.service.DeviceService - INFO - User start bot chat with Id 1021195063
+2026-01-24 17:35:41 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 14624 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:35:41 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:35:41 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:35:43 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:35:43 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:35:43 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:35:43 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:35:43 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:35:43 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:35:43 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:35:44 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9f176b7
+2026-01-24 17:35:44 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:35:44 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:35:44 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:35:44 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:35:45 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:35:45 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:35:46 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.211 seconds (process running for 6.963)
+2026-01-24 17:35:53 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-24 17:35:53 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-24 17:35:53 - c.e.s.service.DeviceService - DEBUG - User ask '/chat_id' bot chat with Id 1021195063
+2026-01-24 17:36:22 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 12972 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 17:36:22 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 17:36:22 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 17:36:24 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 17:36:24 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 17:36:24 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 17:36:24 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 17:36:24 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 17:36:24 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 17:36:24 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 17:36:25 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6139a29d
+2026-01-24 17:36:25 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 17:36:25 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 17:36:25 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 17:36:26 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 17:36:26 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 17:36:26 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 17:36:27 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 5.782 seconds (process running for 6.374)
+2026-01-24 17:37:47 - c.e.s.service.DeviceService - INFO - Taken message /start from chat with Id 1021195063
+2026-01-24 17:37:47 - c.e.s.service.DeviceService - DEBUG - User start bot chat with Id 1021195063
+2026-01-24 17:37:49 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-24 17:37:49 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-24 17:37:51 - c.e.s.service.DeviceService - INFO - Taken message /chat_id from chat with Id 1021195063
+2026-01-24 17:37:51 - c.e.s.service.DeviceService - DEBUG - User ask '/chat_id' bot chat with Id 1021195063
+2026-01-24 18:23:01 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 22972 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 18:23:01 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 18:23:01 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 18:23:03 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 18:23:03 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 18:23:03 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 18:23:03 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 18:23:04 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 18:23:04 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 18:23:04 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 18:23:04 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9f176b7
+2026-01-24 18:23:04 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 18:23:04 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 18:23:04 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 18:23:05 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 18:23:05 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 18:23:06 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 18:23:07 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.32 seconds (process running for 6.957)
+2026-01-24 18:23:12 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-24 18:23:12 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-24 18:23:12 - c.e.s.service.DeviceService - WARN - Sending message error: Unable to deserialize response
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:132)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:32)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1009)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.example.smart_home_syst.service.TgBotService.sendMessage(TgBotService.java:68)
+	at com.example.smart_home_syst.service.TgBotService.onUpdateReceived(TgBotService.java:50)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:320)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61] (through reference chain: org.telegram.telegrambots.meta.api.objects.ApiResponse["result"]->org.telegram.telegrambots.meta.api.objects.Message["from"]->org.telegram.telegrambots.meta.api.objects.User["id"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:400)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:359)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1966)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:304)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:137)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4971)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3887)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3870)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:124)
+	... 8 common frames omitted
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:619)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:681)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:981)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:787)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	... 20 common frames omitted
+2026-01-24 18:23:13 - c.e.s.service.DeviceService - INFO - Taken message /send_logs_to_admin from chat with Id 1021195063
+2026-01-24 18:23:13 - c.e.s.service.DeviceService - DEBUG - User ask '/send_logs_to_admin' bot chat with Id 1021195063
+2026-01-24 18:23:17 - c.e.s.service.DeviceService - WARN - Sending file error: Unable to deserialize response
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+	at org.telegram.telegrambots.meta.api.methods.send.SendDocument.deserializeResponse(SendDocument.java:94)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.execute(DefaultAbsSender.java:195)
+	at com.example.smart_home_syst.service.TgBotService.sendLogsToAdmin(TgBotService.java:88)
+	at com.example.smart_home_syst.service.TgBotService.onUpdateReceived(TgBotService.java:58)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:320)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61] (through reference chain: org.telegram.telegrambots.meta.api.objects.ApiResponse["result"]->org.telegram.telegrambots.meta.api.objects.Message["from"]->org.telegram.telegrambots.meta.api.objects.User["id"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:400)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:359)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1966)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:304)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:137)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4971)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3887)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3870)
+	at org.telegram.telegrambots.meta.api.methods.send.SendDocument.deserializeResponse(SendDocument.java:86)
+	... 6 common frames omitted
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:619)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:681)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:981)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:787)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	... 18 common frames omitted
+2026-01-24 18:23:18 - c.e.s.service.DeviceService - WARN - Sending message error: Unable to deserialize response
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:132)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:32)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1009)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.example.smart_home_syst.service.TgBotService.sendMessage(TgBotService.java:68)
+	at com.example.smart_home_syst.service.TgBotService.sendLogsToAdmin(TgBotService.java:94)
+	at com.example.smart_home_syst.service.TgBotService.onUpdateReceived(TgBotService.java:58)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:320)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61] (through reference chain: org.telegram.telegrambots.meta.api.objects.ApiResponse["result"]->org.telegram.telegrambots.meta.api.objects.Message["from"]->org.telegram.telegrambots.meta.api.objects.User["id"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:400)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:359)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1966)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:304)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:137)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4971)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3887)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3870)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:124)
+	... 9 common frames omitted
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:619)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:681)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:981)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:787)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	... 21 common frames omitted
+2026-01-24 18:24:37 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-24 18:24:37 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-24 18:24:37 - c.e.s.service.DeviceService - WARN - Sending message error: Unable to deserialize response
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:132)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:32)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1009)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.example.smart_home_syst.service.TgBotService.sendMessage(TgBotService.java:68)
+	at com.example.smart_home_syst.service.TgBotService.onUpdateReceived(TgBotService.java:50)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:320)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61] (through reference chain: org.telegram.telegrambots.meta.api.objects.ApiResponse["result"]->org.telegram.telegrambots.meta.api.objects.Message["from"]->org.telegram.telegrambots.meta.api.objects.User["id"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:400)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:359)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1966)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:304)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:137)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4971)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3887)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3870)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:124)
+	... 8 common frames omitted
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:619)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:681)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:981)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:787)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	... 20 common frames omitted
+2026-01-24 18:24:48 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 12600 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-24 18:24:48 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-24 18:24:48 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-24 18:24:49 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-24 18:24:49 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-24 18:24:49 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-24 18:24:50 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-24 18:24:50 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-24 18:24:50 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-24 18:24:50 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-24 18:24:50 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a80ba8b
+2026-01-24 18:24:50 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-24 18:24:50 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-24 18:24:50 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-24 18:24:51 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-24 18:24:52 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-24 18:24:52 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-24 18:24:53 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-24 18:24:53 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-24 18:24:53 - c.e.s.service.DeviceService - WARN - Sending message error: Unable to deserialize response
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:132)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:32)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1009)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.example.smart_home_syst.service.TgBotService.sendMessage(TgBotService.java:68)
+	at com.example.smart_home_syst.service.TgBotService.onUpdateReceived(TgBotService.java:50)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:320)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61] (through reference chain: org.telegram.telegrambots.meta.api.objects.ApiResponse["result"]->org.telegram.telegrambots.meta.api.objects.Message["from"]->org.telegram.telegrambots.meta.api.objects.User["id"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:400)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:359)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1966)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:304)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:137)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4971)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3887)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3870)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:124)
+	... 8 common frames omitted
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:619)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:681)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:981)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:787)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	... 20 common frames omitted
+2026-01-24 18:24:53 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.272 seconds (process running for 6.875)
+2026-01-24 18:24:58 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-24 18:24:58 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-24 18:24:58 - c.e.s.service.DeviceService - WARN - Sending message error: Unable to deserialize response
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:132)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:32)
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1009)
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:64)
+	at com.example.smart_home_syst.service.TgBotService.sendMessage(TgBotService.java:68)
+	at com.example.smart_home_syst.service.TgBotService.onUpdateReceived(TgBotService.java:50)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:320)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61] (through reference chain: org.telegram.telegrambots.meta.api.objects.ApiResponse["result"]->org.telegram.telegrambots.meta.api.objects.Message["from"]->org.telegram.telegrambots.meta.api.objects.User["id"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:400)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:359)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1966)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:304)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:137)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:169)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4971)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3887)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3870)
+	at org.telegram.telegrambots.meta.api.methods.send.SendMessage.deserializeResponse(SendMessage.java:124)
+	... 8 common frames omitted
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (8590152748) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 61]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:619)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:681)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:981)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:787)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:302)
+	... 20 common frames omitted
