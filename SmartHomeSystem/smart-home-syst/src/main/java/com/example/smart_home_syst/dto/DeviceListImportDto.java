@@ -15,7 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @Data
 @JacksonXmlRootElement(localName = "devices")
-public class DeviceImportDto {
+public class DeviceListImportDto {
      @JacksonXmlProperty(localName = "exportDate", isAttribute = true)
     private String exportDate;
     

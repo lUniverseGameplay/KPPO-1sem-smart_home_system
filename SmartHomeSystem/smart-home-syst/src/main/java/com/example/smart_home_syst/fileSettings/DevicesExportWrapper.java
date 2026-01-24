@@ -1,4 +1,4 @@
-package com.example.smart_home_syst.exportSettings;
+package com.example.smart_home_syst.fileSettings;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

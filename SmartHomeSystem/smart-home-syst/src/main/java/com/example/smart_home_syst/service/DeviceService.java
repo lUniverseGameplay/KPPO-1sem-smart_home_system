@@ -9,7 +9,9 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,10 +27,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.smart_home_syst.dto.DeviceDto;
-import com.example.smart_home_syst.dto.DeviceImportDto;
+import com.example.smart_home_syst.dto.DeviceListImportDto;
+import com.example.smart_home_syst.dto.DeviceReportDto;
 import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
-import com.example.smart_home_syst.exportSettings.DevicesExportWrapper;
+import com.example.smart_home_syst.fileSettings.DevicesExportWrapper;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.model.Room;
@@ -36,6 +40,13 @@ import com.example.smart_home_syst.repository.ModeRepository;
 import com.example.smart_home_syst.repository.RoomRepository;
 import com.example.smart_home_syst.specifications.DeviceSpecifications;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Service
 public class DeviceService {
@@ -271,7 +282,7 @@ public class DeviceService {
             logger.info("File copied with path: {}", filePath);
 
             try (InputStream fileByteStream = file.getInputStream()) {
-                DeviceImportDto xmlDto = xmlMapper.readValue(fileByteStream, DeviceImportDto.class);
+                DeviceListImportDto xmlDto = xmlMapper.readValue(fileByteStream, DeviceListImportDto.class);
                 List<DeviceDto> deviceToImport = xmlDto.getDevices();
 
                 List<Device> importedDevices = new ArrayList<>();
@@ -306,6 +317,46 @@ public class DeviceService {
         catch (Exception e) {
             logger.warn("File import error: {}", e.getMessage(), e);
             throw new RuntimeException("Error to create/change devices from file", e);
+        }
+    }
+
+    @Transactional(readOnly=true)
+    public byte[] generateDevicePdfReport() {
+        logger.info("Start device report creating");
+        try {
+            InputStream templateStream = new ClassPathResource("deviceReportConfig.jrxml").getInputStream(); // загрузка шаблона
+            logger.debug("Pdf template loaded");
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(templateStream);
+            logger.debug("Pdf template compiled");
+
+            List<DeviceReportDto> reportData = deviceRepository.findAll().stream().map(device -> new DeviceReportDto(
+                device.getTitle(),
+                device.getType().toString(),
+                device.getPower(),
+                device.isActive(),
+                device.getRoom().getTitle(),
+                device.getMode().getTitle()
+            )).toList();
+            logger.debug("Data taken from DB and change to DeviceReportDto");
+
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(reportData);
+            logger.debug("Data about devices converted for writing to pdf");
+
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("reportTitle", "Отчет об устройствах умного дома");
+            parameters.put("generatedBy", "Smart Home System");
+            logger.debug("Pdf parametrs entered");
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport, parameters, dataSource);
+            
+            logger.info("Devices data report successfully created");
+            return JasperExportManager.exportReportToPdf(jasperPrint);
+        }
+        catch (Exception e) {
+            logger.warn("Device report creating error: {}", e.getMessage(), e);
+            throw new RuntimeException("Error to create report about devices", e);
         }
     }
 }

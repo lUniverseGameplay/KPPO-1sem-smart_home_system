@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="DeviceReport" pageWidth="595" pageHeight="842" 
+              columnWidth="555" leftMargin="20" rightMargin="20" 
+              topMargin="20" bottomMargin="20">
+    
+    <!-- Определяем стили для активного/неактивного состояния -->
+    <style name="ActiveStyle" mode="Opaque" forecolor="#27AE60" isBold="true"/>
+    <style name="InactiveStyle" mode="Opaque" forecolor="#E74C3C" isBold="true"/>
+    
+    <!-- Параметры отчета -->
+    <parameter name="systemName" class="java.lang.String"/>
+    <parameter name="activeCount" class="java.lang.Integer"/>
+    <parameter name="totalPower" class="java.lang.Double"/>
+    
+    <!-- Поля данных -->
+    <field name="title" class="java.lang.String"/>
+    <field name="type" class="java.lang.String"/>
+    <field name="power" class="java.lang.Double"/>
+    <field name="active" class="java.lang.Boolean"/>
+    <field name="roomName" class="java.lang.String"/>
+    <field name="modeName" class="java.lang.String"/>
+    
+    <!-- Переменные -->
+    <variable name="REPORT_COUNT" class="java.lang.Integer" calculation="Count"/>
+    
+    <!-- Заголовок отчета -->
+    <title>
+        <band height="100">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="40"/>
+                <textElement textAlignment="Center">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Отчет об устройствах умного дома]]></text>
+            </staticText>
+            
+            <textField>
+                <reportElement x="0" y="45" width="555" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Дата формирования: " + new java.text.SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new java.util.Date())]]></textFieldExpression>
+            </textField>
+            
+            <textField>
+                <reportElement x="0" y="65" width="555" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="10" isItalic="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Сгенерировано системой: " + $P{systemName}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    
+    <!-- Заголовки колонок -->
+    <columnHeader>
+        <band height="35">
+            <!-- Название -->
+            <staticText>
+                <reportElement x="0" y="5" width="120" height="30" backcolor="#4A90E2"/>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+                </textElement>
+                <text><![CDATA[Название]]></text>
+            </staticText>
+            
+            <!-- Тип -->
+            <staticText>
+                <reportElement x="120" y="5" width="80" height="30" backcolor="#4A90E2"/>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+                </textElement>
+                <text><![CDATA[Тип]]></text>
+            </staticText>
+            
+            <!-- Мощность -->
+            <staticText>
+                <reportElement x="200" y="5" width="70" height="30" backcolor="#4A90E2"/>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+                </textElement>
+                <text><![CDATA[Мощность (Вт)]]></text>
+            </staticText>
+            
+            <!-- Активный -->
+            <staticText>
+                <reportElement x="270" y="5" width="70" height="30" backcolor="#4A90E2"/>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+                </textElement>
+                <text><![CDATA[Активный]]></text>
+            </staticText>
+            
+            <!-- Комната -->
+            <staticText>
+                <reportElement x="340" y="5" width="100" height="30" backcolor="#4A90E2"/>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+                </textElement>
+                <text><![CDATA[Комната]]></text>
+            </staticText>
+            
+            <!-- Режим работы -->
+            <staticText>
+                <reportElement x="440" y="5" width="115" height="30" backcolor="#4A90E2"/>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+                </textElement>
+                <text><![CDATA[Режим работы]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    
+    <!-- Данные устройств -->
+    <detail>
+        <band height="30">
+            <!-- Название устройства -->
+            <textField>
+                <reportElement x="0" y="0" width="120" height="30"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Тип устройства -->
+            <textField>
+                <reportElement x="120" y="0" width="80" height="30"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Мощность -->
+            <textField>
+                <reportElement x="200" y="0" width="70" height="30"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{power} + " Вт"]]></textFieldExpression>
+            </textField>
+            
+            <!-- Активный статус - АЛЬТЕРНАТИВНЫЙ ВАРИАНТ без conditionalStyle -->
+            <textField>
+                <reportElement x="270" y="0" width="70" height="30"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <!-- Используем условное выражение для цвета -->
+                    <font size="10" isBold="true">
+                        <conditionalStyle>
+                            <conditionExpression><![CDATA[$F{active} == Boolean.TRUE]]></conditionExpression>
+                            <style forecolor="#27AE60"/>
+                        </conditionalStyle>
+                        <conditionalStyle>
+                            <conditionExpression><![CDATA[$F{active} == Boolean.FALSE]]></conditionExpression>
+                            <style forecolor="#E74C3C"/>
+                        </conditionalStyle>
+                    </font>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{active} ? "ДА" : "НЕТ"]]></textFieldExpression>
+            </textField>
+            
+            <!-- Комната -->
+            <textField>
+                <reportElement x="340" y="0" width="100" height="30"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{roomName} != null ? $F{roomName} : "—"]]></textFieldExpression>
+            </textField>
+            
+            <!-- Режим работы -->
+            <textField>
+                <reportElement x="440" y="0" width="115" height="30"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{modeName} != null ? $F{modeName} : "—"]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    
+    <!-- Итоговая информация -->
+    <summary>
+        <band height="120">
+            <!-- Разделительная линия -->
+            <line>
+                <reportElement x="0" y="10" width="555" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#7F8C8D"/>
+                </graphicElement>
+            </line>
+            
+            <!-- Статистика -->
+            <staticText>
+                <reportElement x="0" y="20" width="555" height="20"/>
+                <textElement textAlignment="Left">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Статистика устройств:]]></text>
+            </staticText>
+            
+            <!-- Всего устройств -->
+            <textField>
+                <reportElement x="20" y="45" width="250" height="15"/>
+                <textElement textAlignment="Left">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Всего устройств: " + $V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Активных устройств -->
+            <textField>
+                <reportElement x="20" y="60" width="250" height="15"/>
+                <textElement textAlignment="Left">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Активных устройств: " + $P{activeCount}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Общая мощность -->
+            <textField>
+                <reportElement x="20" y="75" width="250" height="15"/>
+                <textElement textAlignment="Left">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Общая мощность: " + $P{totalPower} + " Вт"]]></textFieldExpression>
+            </textField>
+            
+            <!-- Подпись -->
+            <textField>
+                <reportElement x="0" y="100" width="555" height="15"/>
+                <textElement textAlignment="Center">
+                    <font size="8" isItalic="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Отчет сгенерирован автоматически. Smart Home System © " + 
+                    new java.text.SimpleDateFormat("yyyy").format(new java.util.Date())]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+    
+</jasperReport>

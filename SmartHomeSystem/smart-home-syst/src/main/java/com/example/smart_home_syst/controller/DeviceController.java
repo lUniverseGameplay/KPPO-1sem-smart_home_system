@@ -1,7 +1,10 @@
 package com.example.smart_home_syst.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -25,6 +28,7 @@ import com.example.smart_home_syst.service.DeviceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 
 
 @Tag(
@@ -159,7 +163,23 @@ public class DeviceController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
+    @Operation(
+    summary = "Импорт устройств",
+    description = """
+        Импортировать данные об устройствах из XML файла.
+        Требования к файлу: формат XML, размер не более 10Mb
+        Структура файла (текст за // писать не требуется - это комментарии):
+        \n<system>Наименование системы, Имя пользователя экспортера, Формат (писать: '<format>XML</format>')</system>
+        \n<device>
+        \n  <title>Название устройства</title>
+        \n  <type>light</type> // Должен совпадать с DeviceType
+        \n  <power>5.0</power> // Должно быть число
+        \n  <active>true</active> // Только true или false
+        \n  <modeId>1</modeId> // Должно быть, соответствующее Id комнаты
+        \n  <roomId>1</roomId> // Должно быть, соответствующее Id режима работы
+        \n</device>
+    """)
     @PostMapping(path = "/devices/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<List<Device>> importDevicesFromXml(@RequestParam MultipartFile file) {
         List<Device> updDeviceList = deviceService.importDevicesListFromXmlFile(file);
@@ -171,4 +191,18 @@ public class DeviceController {
         }
     }
     
+    @Operation(
+    summary = "Отчёт об устройствах",
+    description = "Сформировать отчёт обо всех устройствах в БД. Результатом будет pdf файл, который можно будет скачать по ссылке")
+    @GetMapping("/devices/report/{type}")
+    public ResponseEntity<ByteArrayResource> generateDevicesPdf() {
+        byte[] pdfContent = deviceService.generateDevicePdfReport();
+        String filename = "devices_report_" + 
+            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")) + ".pdf";
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
+            .contentType(MediaType.APPLICATION_PDF)
+            .contentLength(pdfContent.length)
+            .body(new ByteArrayResource(pdfContent));
+    }
 }

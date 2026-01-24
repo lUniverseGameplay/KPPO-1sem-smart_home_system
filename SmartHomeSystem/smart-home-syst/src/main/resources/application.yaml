@@ -63,3 +63,14 @@ logging:
     pattern:
         console: "%d{yyyy-MM-dd HH:mm:ss} - %cyan(%logger{36}) - %level - %msg%n"
         file: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %level - %msg%n"
+---
+report:
+  storage:
+    path: ./reports/
+    retention-days: 30
+  default:
+    font-family: Arial
+    font-size: 12
+  watermark:
+    enabled: false
+    text: "SMART HOME SYSTEM"
