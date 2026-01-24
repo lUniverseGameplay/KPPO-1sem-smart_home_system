@@ -170,15 +170,15 @@ public class DeviceController {
         Импортировать данные об устройствах из XML файла.
         Требования к файлу: формат XML, размер не более 10Mb
         Структура файла (текст за // писать не требуется - это комментарии):
-        \n<system>Наименование системы, Имя пользователя экспортера, Формат (писать: '<format>XML</format>')</system>
-        \n<device>
-        \n  <title>Название устройства</title>
-        \n  <type>light</type> // Должен совпадать с DeviceType
-        \n  <power>5.0</power> // Должно быть число
-        \n  <active>true</active> // Только true или false
-        \n  <modeId>1</modeId> // Должно быть, соответствующее Id комнаты
-        \n  <roomId>1</roomId> // Должно быть, соответствующее Id режима работы
-        \n</device>
+        \nsystem>Наименование системы, Имя пользователя экспортера, Формат (писать: '<format>XML</format>')</system
+        \ndevice>
+        \n  title>Название устройства</title
+        \n  type>Тип устройства</type // Должен совпадать с DeviceType
+        \n  power>Требуемое напряжение (В)</power // Должно быть число
+        \n  active>работает ли устройство</active // Только true или false
+        \n  modeId>номер режима, в котором устройство работает</modeId // Должно быть, соответствующее Id комнаты
+        \n  roomId>номер комнаты, где установлено устройство</roomId // Должно быть, соответствующее Id режима работы
+        \n</device"
     """)
     @PostMapping(path = "/devices/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<List<Device>> importDevicesFromXml(@RequestParam MultipartFile file) {

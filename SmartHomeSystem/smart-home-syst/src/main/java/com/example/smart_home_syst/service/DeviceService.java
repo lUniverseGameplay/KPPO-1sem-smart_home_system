@@ -22,6 +22,7 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -324,7 +325,7 @@ public class DeviceService {
     public byte[] generateDevicePdfReport() {
         logger.info("Start device report creating");
         try {
-            InputStream templateStream = new ClassPathResource("deviceReportConfig.jrxml").getInputStream(); // загрузка шаблона
+            InputStream templateStream = new ClassPathResource("reportPdfConfig/deviceReportConfig.jrxml").getInputStream(); // загрузка шаблона
             logger.debug("Pdf template loaded");
 
             JasperReport jasperReport = JasperCompileManager.compileReport(templateStream);
@@ -344,8 +345,8 @@ public class DeviceService {
             logger.debug("Data about devices converted for writing to pdf");
 
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("reportTitle", "Отчет об устройствах умного дома");
-            parameters.put("generatedBy", "Smart Home System");
+            parameters.put("reportTitle", "Report about devices of Smart Home System");
+            parameters.put("generatedBy", SecurityContextHolder.getContext().getAuthentication().getName());
             logger.debug("Pdf parametrs entered");
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(
