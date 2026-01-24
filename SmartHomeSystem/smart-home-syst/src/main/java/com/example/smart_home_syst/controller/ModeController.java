@@ -1,10 +1,15 @@
 package com.example.smart_home_syst.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.smart_home_syst.dto.ModeDto;
 import com.example.smart_home_syst.enumerator.ModeType;
@@ -140,5 +146,58 @@ public class ModeController {
         else{
             return ResponseEntity.notFound().build();
         }
+    }
+    
+    @Operation(
+    summary = "Экспорт режимов",
+    description = "Экспортировать данные обо всех режимах работы устройств в файл в формате XML. Введите название конечного файла перед отправкой запроса")
+    @GetMapping("/modes/export/{type}")
+    public ResponseEntity<String> exportModesToXml(String filename) {
+        String path = "exports/xml/modes";
+        String savedXml = modeService.exportModesListToXmlFile(path, filename);
+        if(savedXml != "" & savedXml != null) {
+            return ResponseEntity.ok(savedXml);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(
+    summary = "Импорт режимов",
+    description = """
+        Импортировать данные об режимах работ устройств из XML файла.
+        Требования к файлу: формат XML, размер не более 10Mb
+        Структура файла (текст за // писать не требуется - это комментарии):
+        \nsystem>Наименование системы, Имя пользователя экспортера, Формат (писать: '<format>XML</format>')</system
+        \nmode>
+        \n  title>Название режима</title
+        \n  type>Тип режима работы</type // Должен совпадать с ModeType
+        \n</mode"
+    """)
+    @PostMapping(path = "/modes/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<List<Mode>> importModesFromXml(@RequestParam MultipartFile file) {
+        List<Mode> updModeList = modeService.importModesListFromXmlFile(file);
+        if(updModeList.size() != 0) {
+            return ResponseEntity.ok(updModeList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+        
+    @Operation(
+    summary = "Отчёт об режимах",
+    description = "Сформировать отчёт обо всех режимах работы устройствах (данные из БД). Результатом будет pdf файл, который можно будет скачать по ссылке")
+    @GetMapping("/modes/report/{type}")
+    public ResponseEntity<ByteArrayResource> generateModesPdf() {
+        byte[] pdfContent = modeService.generateModePdfReport();
+        String filename = "modes_report_" + 
+            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")) + ".pdf";
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
+            .contentType(MediaType.APPLICATION_PDF)
+            .contentLength(pdfContent.length)
+            .body(new ByteArrayResource(pdfContent));
     }
 }

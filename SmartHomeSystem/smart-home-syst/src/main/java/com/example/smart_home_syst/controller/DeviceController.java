@@ -151,11 +151,11 @@ public class DeviceController {
     
     @Operation(
     summary = "Экспорт устройств",
-    description = "Экспортировать данные обо всех устройствах в файл в формате XML")
+    description = "Экспортировать данные обо всех устройствах в файл в формате XML. Введите название конечного файла перед отправкой запроса")
     @GetMapping("/devices/export/{type}")
-    public ResponseEntity<String> exportDevicesToXml(String name) {
+    public ResponseEntity<String> exportDevicesToXml(String filename) {
         String path = "exports/xml/devices";
-        String savedXml = deviceService.exportDevicesListToXmlFile(path, name);
+        String savedXml = deviceService.exportDevicesListToXmlFile(path, filename);
         if(savedXml != "" & savedXml != null) {
             return ResponseEntity.ok(savedXml);
         }

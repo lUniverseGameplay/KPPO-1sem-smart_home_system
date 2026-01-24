@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @JacksonXmlRootElement(localName = "devices")
-public class DeviceListImportDto {
+public class ModeListImportDto {
     @JacksonXmlProperty(localName = "exportDate", isAttribute = true)
     private String exportDate;
     
@@ -24,8 +24,8 @@ public class DeviceListImportDto {
     private SystemInfo system;
     
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "device")
-    private List<DeviceDto> devices;
+    @JacksonXmlProperty(localName = "mode")
+    private List<ModeDto> modes;
     
     @Data
     public static class SystemInfo {
