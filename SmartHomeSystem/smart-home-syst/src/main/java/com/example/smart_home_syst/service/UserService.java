@@ -59,8 +59,4 @@ public class UserService {
         userRepository.save(user);
         logger.info("User with username {} successfully saved", user.getUsername());
     }
-
-    /*@Transactional
-    public void*/
-
 }

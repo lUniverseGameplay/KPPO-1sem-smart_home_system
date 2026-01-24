@@ -70,6 +70,19 @@ public class TgBotService extends TelegramLongPollingBot{
         }
     }
 
+    public void sendMessageToAdmin(String text) {
+        SendMessage newMessage = new SendMessage();
+        newMessage.setChatId(adminChatId.toString());
+        newMessage.setText(text);
+        try
+        {
+            execute(newMessage);
+        }
+        catch (Exception e) {
+            logger.warn("Sending message to admin error: {}", e.getMessage(), e);
+        }
+    }
+
     public void sendLogsToAdmin(String reasonChatId) {
         try {
             File pdfFile = new File("logs/smart-home-syst.log");
@@ -89,7 +102,7 @@ public class TgBotService extends TelegramLongPollingBot{
         }
         catch (Exception e) {
             logger.warn("Sending file error: {}", e.getMessage(), e);
-            sendMessage(adminChatId.toString(), "Sending file error: " + e.getMessage());
+            sendMessageToAdmin("Sending file error: " + e.getMessage());
         }
     }
 }

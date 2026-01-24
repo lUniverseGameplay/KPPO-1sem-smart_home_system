@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.smart_home_syst.dto.ChangePasswordDto;
+import com.example.smart_home_syst.dto.ChangeTgChatIdDto;
 import com.example.smart_home_syst.dto.LoginRequestDto;
 import com.example.smart_home_syst.dto.LoginResponseDto;
 import com.example.smart_home_syst.dto.UserLoggedDto;
@@ -21,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 
 @Tag(
     name = "Аутентификация",
-    description = "Модуль для аутентификации пользователя"
+    description = "Модуль для аутентификации пользователя. Ссылка на бота для получения уведомлений: @kppo_pinj4_smarthomesyst_bot"
 )
 @RestController
 @RequiredArgsConstructor
@@ -86,4 +87,17 @@ public class AuthentificationController {
     public ResponseEntity <LoginResponseDto> changePassword(ChangePasswordDto request) {
         return authenticationService.changePassword(request);
     }
+
+    @Operation(
+    summary = "Смена чата ТГ",
+    description = """
+    Заполните все поля для смены Id чата с ТГ ботом.
+    \nnewChatId - номер чата с ботом (запросите для этого номер у бота через команду '/chat_id')
+    \nPassword - текущий пароль для подтверждения
+    """)
+    @PatchMapping("/changeTgChat")
+    public ResponseEntity<LoginResponseDto> changeTgChatNumber(ChangeTgChatIdDto request) {
+        return authenticationService.changeTgChatId(request);
+    }
+
 }

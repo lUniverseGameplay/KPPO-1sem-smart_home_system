@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.smart_home_syst.dto.ChangePasswordDto;
+import com.example.smart_home_syst.dto.ChangeTgChatIdDto;
 import com.example.smart_home_syst.dto.LoginRequestDto;
 import com.example.smart_home_syst.dto.LoginResponseDto;
 import com.example.smart_home_syst.dto.UserLoggedDto;
@@ -41,7 +42,8 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
-
+    
+    private final TgBotService botService;
     private final UserService userService;
 
     @Value("${jwt.access.duration.minutes}")
@@ -201,6 +203,35 @@ public class AuthenticationService {
         headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteAccessCookie().toString());
         headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteRefreshCookie().toString());
         logger.info("Password changed successfully for user {}", user.getUsername());
+        
+        return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(false, null));
+    }
+
+    public ResponseEntity<LoginResponseDto> changeTgChatId(ChangeTgChatIdDto request) {
+        logger.info("Start change Telegram Bot chat Id operation");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication instanceof AnonymousAuthenticationToken){
+            logger.warn("User isn't authentificated and cann't change Telegram Bot chat Id");
+            throw new RuntimeException("No user");
+        }
+        User user = userService.getUser(authentication.getName());
+        logger.debug("User with ID {} and name {} is founded", user.getId(), user.getUsername());
+
+        if (!passwordEncoder.matches(request.Password(), user.getPassword())) {
+            logger.warn("Failed change password (Wrong password) for user: id-{}, name-{}", user.getId(), user.getUsername());
+            throw new BadCredentialsException("Wrong password");
+        }
+        Long oldChatId = user.getTgBotChatId();
+        user.setTgBotChatId(request.newChatId());
+        userService.saveUser(user);
+        logger.debug("Chat Id changes saved for user {}", user.getUsername());
+        botService.sendMessageToAdmin("Chat Id of user " + user.getUsername() + " was changed from " + oldChatId.toString() + " to " + user.getTgBotChatId().toString());
+        SecurityContextHolder.clearContext(); // убирает для текущего запроса аутентифицированного пользователя
+        revokeAllTokens(user);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteAccessCookie().toString());
+        headers.add(HttpHeaders.SET_COOKIE, cookieUtil.deleteRefreshCookie().toString());
+        logger.info("Chat Id changed successfully for user {}", user.getUsername());
         
         return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(false, null));
     }
