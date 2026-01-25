@@ -385,3 +385,43 @@ Caused by: org.postgresql.util.PSQLException: Œÿ»¡ ¿: INSERT ËÎË UPDATE ‚ Ú‡·ÎËˆ
 2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Device imported to DB: dev100
 2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Devices data successfully imported from XML file imports\devices\2026-01-25-16-06-50_1-2.xml
 2026-01-25 16:07:37 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-25 16:18:56 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 20340 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 16:18:56 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 16:18:56 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 16:19:00 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 16:19:00 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 16:19:00 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 16:19:01 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 16:19:01 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 16:19:01 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 16:19:01 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 16:19:01 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@17e9b3c1
+2026-01-25 16:19:01 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 16:19:02 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 16:19:02 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 16:19:03 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 16:19:04 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 16:19:05 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 16:19:07 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 12.379 seconds (process running for 13.325)
+2026-01-25 16:20:59 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 16:21:13 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 16:21:14 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - true
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-25T16:26:14.758269200
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 70 saved
+2026-01-25 16:21:14 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-25 16:21:23 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-25 16:21:49 - c.e.s.service.AuthenticationService - INFO - Start 'Switch devices mode in room' operation
+2026-01-25 16:21:49 - c.e.s.service.AuthenticationService - DEBUG - Founded 3 devices in room with Id 1
+2026-01-25 16:21:49 - c.e.s.service.AuthenticationService - INFO - All devices mode in room 1 was changed to mode mode1 with Id 1

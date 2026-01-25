@@ -45,16 +45,19 @@ public class RoomService {
     @Transactional(readOnly = true)
     @Cacheable(value="rooms", key="#root.methodName")
     public List<Room> getAll() {
+        logger.debug("Get all rooms");
         return roomRepository.findAll();
     }
 
     public List<Room> getAllByTitle(String title) {
+        logger.debug("Get all rooms with title: {}", title);
         return roomRepository.findAllByTitle(title);
     }
 
     @Transactional(readOnly = true)
     @Cacheable(value="room", key="#id")
     public Room getById(Long id) {
+        logger.debug("Get room with id: {}", id);
         return roomRepository.findById(id).orElse(null);
     }
 
@@ -94,16 +97,21 @@ public class RoomService {
     })
     @Transactional
     public boolean deleteById(Long id) {
+        logger.info("Start Delete room operation");
+        logger.debug("Try to find room with Id {}", id);
         if (roomRepository.existsById(id)) {
             roomRepository.deleteById(id);
+            logger.info("Delete room with Id {} completed successfully", id);
             return true;
         }
+        logger.info("Room with Id {} doesn't founded. Operation canceled", id);
         return false;
     }
 
     @Transactional
     @CacheEvict(value="rooms", allEntries=true)
     public Room create (RoomDto roomDto) {
+        logger.info("Start Create room operation");
         Room room = new Room();
         room.setTitle(roomDto.title());
         room.setLocation(roomDto.location());
@@ -112,9 +120,12 @@ public class RoomService {
             room.setManager(userRepository.findById(roomDto.managerId()).orElse(null));
         }
         else {
+            logger.debug("No manager Id {} in request. Set 'null' manager", roomDto.managerId());
             room.setManager(null);
         }
-        return roomRepository.save(room);
+        roomRepository.save(room);
+        logger.info("Update comleted successfully for Room {}", room.getId());
+        return room;
     }
 
     public Page<Room> getByFilter(String title, String location, Integer max_capacity, Integer min_capacity, Pageable pageable) {
@@ -125,40 +136,50 @@ public class RoomService {
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> getDevicesInRoom(Long id) {
+        logger.info("Get all devices in room with Id {}", id);
         return roomRepository.findById(id).orElse(null).getDevices();
     }
 
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> turnOffDevicesInRoom(Long id) {
+        logger.info("Start 'Turn off devices in room' operation");
         List<Device> device_to_change = roomRepository.findById(id).orElse(null).getDevices();
+        logger.debug("Founded {} devices in room with Id {}", device_to_change.size(), id);
         for (Device dev : device_to_change) {
             dev.setActive(false);
             deviceRepository.save(dev);
         }
+        logger.info("All devices activity in room {} was changed to false", id);
         return device_to_change;
     }
 
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> turnOnDevicesInRoom(Long id) {
+        logger.info("Start 'Turn on devices in room' operation");
         List<Device> device_to_change = roomRepository.findById(id).orElse(null).getDevices();
+        logger.debug("Founded {} devices in room with Id {}", device_to_change.size(), id);
         for (Device dev : device_to_change) {
             dev.setActive(true);
             deviceRepository.save(dev);
         }
+        logger.info("All devices activity in room {} was changed to true", id);
         return device_to_change;
     }
 
     @Transactional
     @CacheEvict(value="devices", allEntries=true)
     public List<Device> switchDevicesModeInRoom(Long roomId, Long modeId) {
+        logger.info("Start 'Switch devices mode in room' operation");
         List<Device> device_to_change = roomRepository.findById(roomId).orElse(null).getDevices();
+        logger.debug("Founded {} devices in room with Id {}", device_to_change.size(), roomId);
         Mode newMode = modeRepository.findById(modeId).orElseThrow(() -> new ResourceNotFoundException("Mode not found with id: " + modeId));
         for (Device dev : device_to_change) {
             dev.setMode(newMode);
             deviceRepository.save(dev);
         }
+        logger.info("All devices mode in room {} was changed to mode {} with Id {}", roomId, newMode.getTitle(), modeId);
         return device_to_change;
     }
 }
