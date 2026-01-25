@@ -42,7 +42,8 @@ public class Room {
     @Column(nullable = false, unique = true, length = 150)
     private String location;
 
-    //private User manager; //проверять имя пользователя при смене менеджера
+    @JsonIgnore
+    private User manager; //проверять имя пользователя при смене менеджера
 
     @JsonIgnore
     @OneToMany(mappedBy="room", cascade=CascadeType.ALL, orphanRemoval=true)

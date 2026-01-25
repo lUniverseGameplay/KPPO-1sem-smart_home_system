@@ -118,7 +118,7 @@ public class AuthenticationService {
         SecurityContextHolder.getContext().setAuthentication(authentication); // устанавливает для текущего запроса аутентифицированного пользователя
         logger.info("Login completed successfully for user {}", user.getUsername());
         
-        if (user.getTgBotChatId() != null) botService.sendMessage(user.getTgBotChatId().toString(), "Someone logged by your account " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")));
+        if (user.getTgBotChatId() != null) botService.sendMessage(user.getTgBotChatId().toString(), "Someone logged by your account " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")));
 
         return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(true, user.getRole().getName()));
     }
@@ -201,7 +201,7 @@ public class AuthenticationService {
         userService.saveUser(user);
         logger.debug("Password changes saved for user {}", user.getUsername());
         botService.sendMessageToAdmin("Password of user " + user.getUsername() + " was changed");
-        if (user.getTgBotChatId() != null) botService.sendMessage(user.getTgBotChatId().toString(), "Your password was changed at " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")));
+        if (user.getTgBotChatId() != null) botService.sendMessage(user.getTgBotChatId().toString(), "Your password was changed at " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")));
 
         SecurityContextHolder.clearContext(); // убирает для текущего запроса аутентифицированного пользователя
         revokeAllTokens(user);

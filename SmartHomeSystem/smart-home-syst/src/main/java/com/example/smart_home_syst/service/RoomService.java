@@ -2,35 +2,44 @@ package com.example.smart_home_syst.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.smart_home_syst.dto.RoomDto;
-import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Mode;
 import com.example.smart_home_syst.model.Room;
+import com.example.smart_home_syst.model.User;
 import com.example.smart_home_syst.repository.DeviceRepository;
 import com.example.smart_home_syst.repository.ModeRepository;
 import com.example.smart_home_syst.repository.RoomRepository;
+import com.example.smart_home_syst.repository.UserRepository;
 import com.example.smart_home_syst.specifications.RoomSpecifications;
 
 @Service
 public class RoomService {
+
+    private final UserRepository userRepository;
     private final RoomRepository roomRepository;
     private final DeviceRepository deviceRepository;
     private final ModeRepository modeRepository;
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
+    private TgBotService botService;
 
-    public RoomService(RoomRepository roomRepository, DeviceRepository deviceRepository, ModeRepository modeRepository) {
+    public RoomService(RoomRepository roomRepository, DeviceRepository deviceRepository, ModeRepository modeRepository, UserRepository userRepository) {
         this.roomRepository = roomRepository;
         this.deviceRepository = deviceRepository;
         this.modeRepository = modeRepository;
+        this.userRepository = userRepository;
     }
     
     @Transactional(readOnly = true)
@@ -51,11 +60,32 @@ public class RoomService {
 
     public Room update(Long id, RoomDto roomDto) {
         return roomRepository.findById(id).map(existingRoom -> {
+            logger.info("Start Update room operation");
             existingRoom.setTitle(roomDto.title());
             existingRoom.setLocation(roomDto.location());
             existingRoom.setCapacity(roomDto.capacity());
+            if (roomDto.managerId() != null) {
+                User newUser = userRepository.findById(roomDto.managerId()).orElse(null);
+                String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
+                if (newUser != null) {
+                    logger.debug("New room manager {} entered", roomDto.managerId());
+                    existingRoom.setManager(newUser);                    
+                }
+                else {
+                    logger.debug("Manager with Id {} doesn't founded. Set 'null' manager", roomDto.managerId());
+                    existingRoom.setManager(null);
+                }
+            }
+            else {
+                logger.debug("No manager Id {} in request. Set 'null' manager", roomDto.managerId());
+                existingRoom.setManager(null);
+            }
+            logger.info("Update comleted successfully for Room {}", id);
             return roomRepository.save(existingRoom);
-        }).orElseThrow(() -> new ResourceNotFoundException("Error to update room with id: " + id));
+        }).orElseThrow(() -> {
+            logger.warn("Error to update mode with id: {}", id);
+            return new ResourceNotFoundException("Error to update room with id: " + id);
+        });
     }
 
     @Caching(evict = {
@@ -78,6 +108,12 @@ public class RoomService {
         room.setTitle(roomDto.title());
         room.setLocation(roomDto.location());
         room.setCapacity(roomDto.capacity());
+        if (roomDto.managerId() != null) {
+            room.setManager(userRepository.findById(roomDto.managerId()).orElse(null));
+        }
+        else {
+            room.setManager(null);
+        }
         return roomRepository.save(room);
     }
 

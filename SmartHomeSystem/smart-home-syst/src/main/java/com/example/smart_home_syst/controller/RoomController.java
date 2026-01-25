@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.smart_home_syst.dto.RoomDto;
-import com.example.smart_home_syst.enumerator.DeviceType;
 import com.example.smart_home_syst.model.Device;
 import com.example.smart_home_syst.model.Room;
 import com.example.smart_home_syst.service.RoomService;
@@ -60,6 +59,7 @@ public class RoomController {
     \nTitle - название комнаты
     \nLocation - расположение комнаты в доме
     \nCapacity - максимальное количество устройств в комнате
+    \nmanagerId - Id управляющего комнатой
     """)
     @PostMapping("/rooms")
     public ResponseEntity<Room> addRoom(@RequestBody @Valid RoomDto roomDto) {
@@ -74,6 +74,7 @@ public class RoomController {
     \nTitle - название комнаты
     \nLocation - расположение комнаты в доме
     \nCapacity - максимальное количество устройств в комнате
+    \nmanagerId - Id управляющего комнатой
     """)
     @PutMapping("/rooms/{id}")
     public ResponseEntity<Room> editRoom(@PathVariable Long id, @RequestBody @Valid RoomDto roomDto) {
