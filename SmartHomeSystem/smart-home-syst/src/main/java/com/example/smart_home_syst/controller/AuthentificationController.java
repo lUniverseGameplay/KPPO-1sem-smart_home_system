@@ -99,5 +99,12 @@ public class AuthentificationController {
     public ResponseEntity<LoginResponseDto> changeTgChatNumber(ChangeTgChatIdDto request) {
         return authenticationService.changeTgChatId(request);
     }
-
+        
+    @Operation(
+    summary = "Уведомить администратора",
+    description = "Отправить сообщение администратору системы через бота")
+    @GetMapping("/reportToAdmin")
+    public ResponseEntity<String> sendMessageAdmin(String message) {
+        return ResponseEntity.ok(authenticationService.notifyAdmin(message));
+    }
 }

@@ -25,10 +25,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.smart_home_syst.dto.DeviceDto;
-import com.example.smart_home_syst.dto.DeviceReportDto;
-import com.example.smart_home_syst.dto.RoomListImportDto;
 import com.example.smart_home_syst.dto.RoomDto;
+import com.example.smart_home_syst.dto.RoomListImportDto;
 import com.example.smart_home_syst.dto.RoomReportDto;
 import com.example.smart_home_syst.exception.ResourceNotFoundException;
 import com.example.smart_home_syst.fileSettings.RoomsExportWrapper;
@@ -58,14 +56,15 @@ public class RoomService {
     private final DeviceRepository deviceRepository;
     private final ModeRepository modeRepository;
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
-    private TgBotService botService;
+    private final TgBotService botService;
     private final XmlMapper xmlMapper = new XmlMapper();
 
-    public RoomService(RoomRepository roomRepository, DeviceRepository deviceRepository, ModeRepository modeRepository, UserRepository userRepository) {
+    public RoomService(RoomRepository roomRepository, DeviceRepository deviceRepository, ModeRepository modeRepository, UserRepository userRepository, TgBotService botService) {
         this.roomRepository = roomRepository;
         this.deviceRepository = deviceRepository;
         this.modeRepository = modeRepository;
         this.userRepository = userRepository;
+        this.botService = botService;
         xmlMapper.enable(com.fasterxml.jackson.databind.SerializationFeature.INDENT_OUTPUT);
     }
     
@@ -383,5 +382,15 @@ public class RoomService {
             logger.warn("Room report creating error: {}", e.getMessage(), e);
             throw new RuntimeException("Error to create report about rooms", e);
         }
+    }
+
+    public String notifyRoomManager(Long roomId, String message) {
+        Room currentRoom = roomRepository.findById(roomId).orElseThrow(() -> new ResourceNotFoundException("Room not found with id: " + roomId));
+        User manager = currentRoom.getManager();
+        if (manager.getTgBotChatId() != null) {
+            botService.sendMessage(manager.getTgBotChatId().toString(), message);
+            return "Message successfully sended to user " + manager.getUsername();
+        }
+        return "No chat with manager. Please, ask admin about it";
     }
 }

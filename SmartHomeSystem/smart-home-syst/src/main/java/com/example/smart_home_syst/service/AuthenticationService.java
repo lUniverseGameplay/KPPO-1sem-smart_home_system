@@ -244,4 +244,9 @@ public class AuthenticationService {
         
         return ResponseEntity.ok().headers(headers).body(new LoginResponseDto(false, null));
     }
+
+    public String notifyAdmin(String message) {
+        botService.sendMessageToAdmin(message);
+        return "Message successfully sended to admin";
+    }
 }

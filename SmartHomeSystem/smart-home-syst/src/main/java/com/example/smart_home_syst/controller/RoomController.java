@@ -217,4 +217,12 @@ public class RoomController {
             .contentLength(pdfContent.length)
             .body(new ByteArrayResource(pdfContent));
     }
+        
+    @Operation(
+    summary = "Уведомить менеджера комнаты",
+    description = "Отправить сообщение менеджеру комнаты с указанным номером через бота")
+    @GetMapping("/room/sendMessage/{id}")
+    public ResponseEntity<String> sendMessageManager(Long roomId, String message) {
+        return ResponseEntity.ok(roomService.notifyRoomManager(roomId, message));
+    }
 }

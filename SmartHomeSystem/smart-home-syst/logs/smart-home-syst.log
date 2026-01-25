@@ -1936,3 +1936,257 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 2026-01-25 17:49:03 - c.e.s.service.AuthenticationService - DEBUG - Data about rooms converted for writing to pdf
 2026-01-25 17:49:03 - c.e.s.service.AuthenticationService - DEBUG - Pdf parametrs entered
 2026-01-25 17:49:04 - c.e.s.service.AuthenticationService - INFO - Rooms data report successfully created
+2026-01-25 20:53:13 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 18496 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 20:53:13 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 20:53:13 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 20:53:15 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 20:53:15 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 20:53:16 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 20:53:16 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 20:53:16 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 20:53:16 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 20:53:16 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 20:53:16 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4098a10a
+2026-01-25 20:53:16 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 20:53:16 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 20:53:16 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 20:53:17 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 20:53:18 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 20:53:18 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 20:53:20 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.524 seconds (process running for 7.115)
+2026-01-25 20:53:24 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 20:53:25 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 345 ms
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 20:53:43 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-25T20:58:43.690231700
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 80 saved
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-01T20:53:43.729240800
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user string
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 81 saved
+2026-01-25 20:53:43 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-25 20:53:48 - c.e.s.service.AuthenticationService - DEBUG - Get all rooms
+2026-01-25 20:54:03 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.example.smart_home_syst.service.TgBotService.sendMessage(String, String)" because "this.botService" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.example.smart_home_syst.service.TgBotService.sendMessage(String, String)" because "this.botService" is null
+	at com.example.smart_home_syst.service.RoomService.notifyRoomManager(RoomService.java:390)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724)
+	at com.example.smart_home_syst.service.RoomService$$SpringCGLIB$$0.notifyRoomManager(<generated>)
+	at com.example.smart_home_syst.controller.RoomController.sendMessageManager(RoomController.java:226)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.smart_home_syst.jwt.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-01-25 20:55:36 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 17268 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 20:55:36 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 20:55:36 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 20:55:39 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 20:55:39 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 20:55:39 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 20:55:39 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 20:55:39 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 20:55:39 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 20:55:40 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 20:55:40 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27afd5c9
+2026-01-25 20:55:40 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 20:55:40 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 20:55:40 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 20:55:41 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 20:55:42 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 20:55:42 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 20:55:44 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 7.866 seconds (process running for 8.503)
+2026-01-25 20:55:47 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 20:55:48 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 334 ms
+2026-01-25 20:55:53 - c.e.s.service.AuthenticationService - DEBUG - Get all rooms
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 20:56:01 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - true, Refresh - true
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-01T20:56:01.990249
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user string
+2026-01-25 20:56:01 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-25 20:56:02 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 82 saved
+2026-01-25 20:56:02 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 20:56:19 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - true
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-25T21:01:19.632435700
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 83 saved
+2026-01-25 20:56:19 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-25 21:00:23 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 19404 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 21:00:23 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 21:00:23 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 21:00:25 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 21:00:25 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 21:00:25 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 21:00:25 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 21:00:25 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 21:00:25 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 21:00:25 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 21:00:26 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d9c35d5
+2026-01-25 21:00:26 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 21:00:26 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 21:00:26 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 21:00:27 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 21:00:27 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 21:00:28 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 21:00:29 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.646 seconds (process running for 7.311)
+2026-01-25 21:00:44 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 21:00:45 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 321 ms
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 21:00:51 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - true, Refresh - false
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-01T21:00:51.864328100
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user string
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 84 saved
+2026-01-25 21:00:51 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 21:00:54 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - true
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-25T21:05:54.199437500
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 85 saved
+2026-01-25 21:00:54 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
