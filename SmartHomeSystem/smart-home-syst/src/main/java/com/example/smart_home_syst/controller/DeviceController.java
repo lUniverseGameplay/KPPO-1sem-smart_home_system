@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class DeviceController {
     @Operation(
     summary = "Все устройства",
     description = "Получение списка всех устройств")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/devices")
     public List<Device> getDevices() {
         return deviceService.getAll();
@@ -57,6 +59,7 @@ public class DeviceController {
     @Operation(
     summary = "Конкретное устройство",
     description = "Получение устройства с указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/devices/{id}")
     public ResponseEntity<Device> getDevice(@PathVariable Long id) {
         return ResponseEntity.ok().body(deviceService.getById(id)); 
@@ -73,6 +76,7 @@ public class DeviceController {
     \nModeId - номер режима, в котором устройство работает
     \nRoomId - номер комнаты, где установлено устройство
     """)
+    @PreAuthorize("hasAuthority('DEVICE:CREATE')")
     @PostMapping("/devices")
     public ResponseEntity<Device> addDevice(@RequestBody @Valid DeviceDto deviceDto) {
        Device newDevice = deviceService.create(deviceDto);
@@ -90,6 +94,7 @@ public class DeviceController {
     \nModeId - номер режима, в котором устройство работает
     \nRoomId - номер комнаты, где установлено устройство
     """)
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/devices/{id}")
     public ResponseEntity<Device> editDevice(@PathVariable Long id, @RequestBody @Valid DeviceDto deviceDto) {
         Device updDevice = deviceService.update(id, deviceDto);
@@ -104,6 +109,7 @@ public class DeviceController {
     @Operation(
     summary = "Удалить устройство",
     description = "Удаление устройства с указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:DELETE')")
     @DeleteMapping("/devices/{id}")
     public ResponseEntity <Void> deleteDevice(@PathVariable Long id) {
         if (deviceService.deleteById(id)) {
@@ -115,6 +121,7 @@ public class DeviceController {
     @Operation(
     summary = "Устройства по фильтру",
     description = "Заполните поля для вывода списка устройств, удовлетворяющих требованиям. Для Pageable в поле sort указать 1 поле устройства для порядка вывода")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/devices/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title,
     Double min_power, Double max_power, Boolean activity, DeviceType type, @PageableDefault(page=0, size=10, sort="id") Pageable pageable) {
@@ -124,6 +131,7 @@ public class DeviceController {
     @Operation(
     summary = "Включение устройств типа Х",
     description = "Включить все устройства с указанным типом устройства")
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/devices/turnOnType/{type}")
     public ResponseEntity<List<Device>> turnOnDevicesWithType(DeviceType type) {
         List<Device> updDeviceList = deviceService.turnOnDevicesWithType(type);
@@ -138,6 +146,7 @@ public class DeviceController {
     @Operation(
     summary = "Выключение устройств типа Х",
     description = "Выключить все устройства с указанным типом устройства")
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/devices/turnOffType/{type}")
     public ResponseEntity<List<Device>> turnOffDevicesWithType(DeviceType type) {
         List<Device> updDeviceList = deviceService.turnOffDevicesWithType(type);
@@ -152,6 +161,7 @@ public class DeviceController {
     @Operation(
     summary = "Экспорт устройств",
     description = "Экспортировать данные обо всех устройствах в файл в формате XML. Введите название конечного файла перед отправкой запроса")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/devices/export/{type}")
     public ResponseEntity<String> exportDevicesToXml(String filename) {
         String path = "exports/xml/devices";
@@ -180,6 +190,7 @@ public class DeviceController {
         \n  roomId>номер комнаты, где установлено устройство</roomId // Должно быть, соответствующее Id режима работы
         \n</device"
     """)
+    @PreAuthorize("hasAuthority('DEVICE:CREATE')")
     @PostMapping(path = "/devices/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<List<Device>> importDevicesFromXml(@RequestParam MultipartFile file) {
         List<Device> updDeviceList = deviceService.importDevicesListFromXmlFile(file);
@@ -194,6 +205,7 @@ public class DeviceController {
     @Operation(
     summary = "Отчёт об устройствах",
     description = "Сформировать отчёт обо всех устройствах в БД. Результатом будет pdf файл, который можно будет скачать по ссылке")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/devices/report/{type}")
     public ResponseEntity<ByteArrayResource> generateDevicesPdf() {
         byte[] pdfContent = deviceService.generateDevicePdfReport();

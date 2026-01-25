@@ -1,0 +1,15 @@
+<SmartHomeSystem-Modes exportDate="2026-01-25 22:58:05" version="1.0" totalCount="2">
+  <system>
+    <name>Smart Home System</name>
+    <exportedBy>reader</exportedBy>
+    <format>XML</format>
+  </system>
+  <mode>
+    <title>mode1</title>
+    <type>dinner</type>
+  </mode>
+  <mode>
+    <title>mode3</title>
+    <type>study</type>
+  </mode>
+</SmartHomeSystem-Modes>

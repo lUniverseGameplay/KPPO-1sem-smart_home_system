@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class ModeController {
     @Operation(
     summary = "Все режимы",
     description = "Получение списка всех режимов работ")
+    @PreAuthorize("hasAuthority('MODE:READ')")
     @GetMapping("/modes")
     public List<Mode> getModes() {
         return modeService.getAll();
@@ -57,6 +59,7 @@ public class ModeController {
     @Operation(
     summary = "Конкретный режим",
     description = "Получение режима с указанным ID")
+    @PreAuthorize("hasAuthority('MODE:READ')")
     @GetMapping("/modes/{id}")
     public ResponseEntity<Mode> getMode(@PathVariable Long id) {
         return ResponseEntity.ok().body(modeService.getById(id));
@@ -69,6 +72,7 @@ public class ModeController {
     \nTitle - название режима работы
     \nType - тип режима
     """)
+    @PreAuthorize("hasAuthority('MODE:CREATE')")
     @PostMapping("/modes")
     public ResponseEntity<Mode> addMode(@RequestBody @Valid ModeDto modeDto) {
        Mode newMode = modeService.create(modeDto);
@@ -82,6 +86,7 @@ public class ModeController {
     \nTitle - название режима работы
     \nType - тип режима
     """)
+    @PreAuthorize("hasAuthority('MODE:UPDATE')")
     @PutMapping("/modes/{id}")
     public ResponseEntity<Mode> editMode(@PathVariable Long id, @RequestBody @Valid ModeDto modeDto) {
         Mode updMode = modeService.update(id, modeDto);
@@ -96,6 +101,7 @@ public class ModeController {
     @Operation(
     summary = "Удаление режима",
     description = "Удалить режим с указанным ID")
+    @PreAuthorize("hasAuthority('MODE:DELETE')")
     @DeleteMapping("/modes/{id}")
     public ResponseEntity <Void> deleteMode(@PathVariable Long id) {
         if (modeService.deleteById(id)) {
@@ -107,6 +113,7 @@ public class ModeController {
     @Operation(
     summary = "Режимы по фильтру",
     description = "Заполните поля для вывода списка режима работ, удовлетворяющих требованиям. Для Pageable в поле sort указать 1 поле режима для порядка вывода")
+    @PreAuthorize("hasAuthority('MODE:READ')")
     @GetMapping("/modes/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title, ModeType type, @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
         return ResponseEntity.ok(modeService.getByFilter(title, type, pageable));
@@ -115,6 +122,7 @@ public class ModeController {
     @Operation(
     summary = "Устройства с режимом Х",
     description = "Получение всех устройств с режимом работы с указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/mode-devices/{id}")
     public List<Device> getDevicesOfMode(@PathVariable Long id) {
         return modeService.getDevicesOfMode(id);
@@ -123,6 +131,7 @@ public class ModeController {
     @Operation(
     summary = "Выключение режима Х",
     description = "Выключить все устройства с режимом работы c указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/mode/turnOff/{id}")
     public ResponseEntity<List<Device>> turnOffRoom(@PathVariable Long id) {
         List<Device> updDeviceList = modeService.turnOffDevicesOfMode(id);
@@ -137,6 +146,7 @@ public class ModeController {
     @Operation(
     summary = "Включение режима Х",
     description = "Включить все устройства с режимом работы c указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/mode/turnOn/{id}")
     public ResponseEntity<List<Device>> turnOnRoom(@PathVariable Long id) {
         List<Device> updDeviceList = modeService.turnOnDevicesOfMode(id);
@@ -151,6 +161,7 @@ public class ModeController {
     @Operation(
     summary = "Экспорт режимов",
     description = "Экспортировать данные обо всех режимах работы устройств в файл в формате XML. Введите название конечного файла перед отправкой запроса")
+    @PreAuthorize("hasAuthority('MODE:READ')")
     @GetMapping("/modes/export/{type}")
     public ResponseEntity<String> exportModesToXml(String filename) {
         String path = "exports/xml/modes";
@@ -175,6 +186,7 @@ public class ModeController {
         \n  type>Тип режима работы</type // Должен совпадать с ModeType
         \n</mode"
     """)
+    @PreAuthorize("hasAuthority('MODE:CREATE')")
     @PostMapping(path = "/modes/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<List<Mode>> importModesFromXml(@RequestParam MultipartFile file) {
         List<Mode> updModeList = modeService.importModesListFromXmlFile(file);
@@ -189,6 +201,7 @@ public class ModeController {
     @Operation(
     summary = "Отчёт об режимах",
     description = "Сформировать отчёт обо всех режимах работы устройствах (данные из БД). Результатом будет pdf файл, который можно будет скачать по ссылке")
+    @PreAuthorize("hasAuthority('MODE:READ')")
     @GetMapping("/modes/report/{type}")
     public ResponseEntity<ByteArrayResource> generateModesPdf() {
         byte[] pdfContent = modeService.generateModePdfReport();

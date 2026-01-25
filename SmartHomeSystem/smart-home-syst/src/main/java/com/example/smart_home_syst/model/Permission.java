@@ -24,10 +24,10 @@ public class Permission implements GrantedAuthority {
     private Long id;
 
     @Column(nullable = false)
-    private String resource;
+    private String resource; // Возможные варианты: "DEVICE", "ROOM", "MODE"
 
     @Column(nullable = false)
-    private String operation;
+    private String operation; // Возможные варианты: "READ", "CREATE", "UPDATE", "DELETE"
 
     @ManyToMany(mappedBy = "permissions")
     private Set<Role> roles;

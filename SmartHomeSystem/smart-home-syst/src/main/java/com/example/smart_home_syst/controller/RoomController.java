@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,6 +46,7 @@ public class RoomController {
     @Operation(
     summary = "Все комнаты",
     description = "Получение списка всех комнат")
+    @PreAuthorize("hasAuthority('ROOM:READ')")
     @GetMapping("/rooms")
     public List<Room> getRooms() {
         return roomService.getAll();
@@ -53,6 +55,7 @@ public class RoomController {
     @Operation(
     summary = "Конкретная комната",
     description = "Получение комнаты с указанным ID")
+    @PreAuthorize("hasAuthority('ROOM:READ')")
     @GetMapping("/rooms/{id}")
     public ResponseEntity<Room> getRoom(@PathVariable Long id) {
         return ResponseEntity.ok().body(roomService.getById(id));
@@ -67,6 +70,7 @@ public class RoomController {
     \nCapacity - максимальное количество устройств в комнате
     \nmanagerId - Id управляющего комнатой
     """)
+    @PreAuthorize("hasAuthority('ROOM:CREATE')")
     @PostMapping("/rooms")
     public ResponseEntity<Room> addRoom(@RequestBody @Valid RoomDto roomDto) {
        Room newRoom = roomService.create(roomDto);
@@ -82,6 +86,7 @@ public class RoomController {
     \nCapacity - максимальное количество устройств в комнате
     \nmanagerId - Id управляющего комнатой
     """)
+    @PreAuthorize("hasAuthority('ROOM:UPDATE')")
     @PutMapping("/rooms/{id}")
     public ResponseEntity<Room> editRoom(@PathVariable Long id, @RequestBody @Valid RoomDto roomDto) {
         Room updRoom = roomService.update(id, roomDto);
@@ -96,6 +101,7 @@ public class RoomController {
     @Operation(
     summary = "Удалить комнату",
     description = "Удаление комнаты с указанным ID")
+    @PreAuthorize("hasAuthority('ROOM:DELETE')")
     @DeleteMapping("/rooms/{id}")
     public ResponseEntity <Void> deleteRoom(@PathVariable Long id) {
         if (roomService.deleteById(id)) {
@@ -107,6 +113,7 @@ public class RoomController {
     @Operation(
     summary = "Комнаты по фильтру",
     description = "Заполните поля для вывода списка комнат, удовлетворяющих требованиям. Для Pageable в поле sort указать 1 поле комнаты для порядка вывода")
+    @PreAuthorize("hasAuthority('ROOM:READ')")
     @GetMapping("/rooms/filter")
     public ResponseEntity<Object> getByFilter(@RequestParam(required = false) String title, String location, Integer max_capacity, Integer min_capacity,
     @PageableDefault(page=0, size=10, sort="title") Pageable pageable) {
@@ -116,6 +123,7 @@ public class RoomController {
     @Operation(
     summary = "Устройства в комнате",
     description = "Получение всех устройств в комнате с указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:READ')")
     @GetMapping("/room-devices/{id}")
     public List<Device> getDevicesInRoom(@PathVariable Long id) {
         return roomService.getDevicesInRoom(id);
@@ -124,6 +132,7 @@ public class RoomController {
     @Operation(
     summary = "Выключение комнаты",
     description = "Выключить все устройства в комнате c указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/room/turnOff/{id}")
     public ResponseEntity<List<Device>> turnOffRoom(@PathVariable Long id) {
         List<Device> updDeviceList = roomService.turnOffDevicesInRoom(id);
@@ -138,6 +147,7 @@ public class RoomController {
     @Operation(
     summary = "Включение комнаты",
     description = "Включить все устройства в комнате c указанным ID")
+    @PreAuthorize("hasAuthority('DEVICE:UPDATE')")
     @PutMapping("/room/turnOn/{id}")
     public ResponseEntity<List<Device>> turnOnRoom(@PathVariable Long id) {
         List<Device> updDeviceList = roomService.turnOnDevicesInRoom(id);
@@ -152,6 +162,7 @@ public class RoomController {
     @Operation(
     summary = "Смена режима в комнате",
     description = "Перевести все устройства в комнате с указанным ID в режим работы с указанным ID")
+    @PreAuthorize("hasAuthority('MODE:UPDATE')")
     @PutMapping("/room/set-mode/{id}")
     public ResponseEntity<List<Device>> switchModeInRoom(Long roomId, Long modeId) {
         List<Device> updDeviceList = roomService.switchDevicesModeInRoom(roomId, modeId);
@@ -166,6 +177,7 @@ public class RoomController {
     @Operation(
     summary = "Экспорт комнат",
     description = "Экспортировать данные обо всех комнатах в файл в формате XML. Введите название конечного файла перед отправкой запроса")
+    @PreAuthorize("hasAuthority('ROOM:READ')")
     @GetMapping("/rooms/export/{type}")
     public ResponseEntity<String> exportRoomsToXml(String filename) {
         String path = "exports/xml/rooms";
@@ -192,6 +204,7 @@ public class RoomController {
         \n  managerId>Id пользователя, назначенного менеджером</managerId // Должно быть, соответствующее Id пользователя
         \n</room"
     """)
+    @PreAuthorize("hasAuthority('ROOM:CREATE')")
     @PostMapping(path = "/rooms/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<List<Room>> importRoomsFromXml(@RequestParam MultipartFile file) {
         List<Room> updRoomList = roomService.importRoomsListFromXmlFile(file);
@@ -206,6 +219,7 @@ public class RoomController {
     @Operation(
     summary = "Отчёт о комнатах",
     description = "Сформировать отчёт обо всех комнатах в доме (берётся из БД). Результатом будет pdf файл, который можно будет скачать по ссылке")
+    @PreAuthorize("hasAuthority('ROOM:READ')")
     @GetMapping("/rooms/report/{type}")
     public ResponseEntity<ByteArrayResource> generateRoomsPdf() {
         byte[] pdfContent = roomService.generateRoomPdfReport();
@@ -221,6 +235,7 @@ public class RoomController {
     @Operation(
     summary = "Уведомить менеджера комнаты",
     description = "Отправить сообщение менеджеру комнаты с указанным номером через бота")
+    @PreAuthorize("hasAuthority('ROOM:READ')")
     @GetMapping("/room/sendMessage/{id}")
     public ResponseEntity<String> sendMessageManager(Long roomId, String message) {
         return ResponseEntity.ok(roomService.notifyRoomManager(roomId, message));
