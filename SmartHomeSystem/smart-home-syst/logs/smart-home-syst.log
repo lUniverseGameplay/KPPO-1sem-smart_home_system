@@ -88,3 +88,300 @@
 2026-01-25 11:46:52 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.125 seconds (process running for 6.773)
 2026-01-25 11:46:53 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-01-25 11:46:54 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 397 ms
+2026-01-25 16:00:10 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 17992 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 16:00:10 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 16:00:10 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 16:00:12 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 16:00:12 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 16:00:13 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 16:00:13 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 16:00:13 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 16:00:13 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 16:00:13 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 16:00:13 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@329bee4e
+2026-01-25 16:00:13 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 16:00:13 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 16:00:13 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 16:00:14 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 16:00:15 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 16:00:16 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 16:00:17 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 7.044 seconds (process running for 7.624)
+2026-01-25 16:01:54 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 24180 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 16:01:54 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 16:01:54 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 16:01:56 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 16:01:56 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 16:01:56 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 16:01:57 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 16:01:57 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 16:01:57 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 16:01:57 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 16:01:57 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55d05e75
+2026-01-25 16:01:57 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 16:01:57 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 16:01:57 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 16:01:58 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 16:01:58 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - SQL Warning Code: 0, SQLState: 00000
+2026-01-25 16:01:58 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - ограничение "uk35b3am1uh08ufq62podj51469" в таблице "room" не существует, пропускается
+2026-01-25 16:01:58 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - SQL Warning Code: 0, SQLState: 00000
+2026-01-25 16:01:58 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - ограничение "ukbwtkrldtq09e4rghbofc1a3q" в таблице "room" не существует, пропускается
+2026-01-25 16:01:58 - o.h.t.s.i.ExceptionHandlerLoggedImpl - WARN - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists device add constraint FK8nnipnjiephps7atqdnvmfndp foreign key (room_id) references room" via JDBC [ОШИБКА: INSERT или UPDATE в таблице "device" нарушает ограничение внешнего ключа "fk8nnipnjiephps7atqdnvmfndp"
+  Подробности: Ключ (room_id)=(4) отсутствует в таблице "room".]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists device add constraint FK8nnipnjiephps7atqdnvmfndp foreign key (room_id) references room" via JDBC [ОШИБКА: INSERT или UPDATE в таблице "device" нарушает ограничение внешнего ключа "fk8nnipnjiephps7atqdnvmfndp"
+  Подробности: Ключ (room_id)=(4) отсутствует в таблице "room".]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:448)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:269)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4452)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1201)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1191)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:747)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:770)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1201)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1191)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:747)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:201)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:410)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:868)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:436)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.example.smart_home_syst.SmartHomeSystApplication.main(SmartHomeSystApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: INSERT или UPDATE в таблице "device" нарушает ограничение внешнего ключа "fk8nnipnjiephps7atqdnvmfndp"
+  Подробности: Ключ (room_id)=(4) отсутствует в таблице "room".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2736)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2421)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:525)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:435)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:357)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:342)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:318)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:313)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 125 common frames omitted
+2026-01-25 16:01:59 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 16:01:59 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 16:02:01 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.588 seconds (process running for 7.203)
+2026-01-25 16:02:37 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 3984 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-25 16:02:37 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-25 16:02:37 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-25 16:02:39 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-25 16:02:39 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-25 16:02:39 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-25 16:02:39 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-25 16:02:39 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-25 16:02:39 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-25 16:02:39 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-25 16:02:40 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@658285ca
+2026-01-25 16:02:40 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-25 16:02:40 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 16:02:40 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-25 16:02:41 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - SQL Warning Code: 0, SQLState: 00000
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - ограничение "uksvnes7gltehw56j19agm781yy" в таблице "device" не существует, пропускается
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - SQL Warning Code: 0, SQLState: 00000
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - ограничение "uk913vg667yomn4wa2e6ruw36oc" в таблице "mode" не существует, пропускается
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - SQL Warning Code: 0, SQLState: 00000
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - ограничение "uk35b3am1uh08ufq62podj51469" в таблице "room" не существует, пропускается
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - SQL Warning Code: 0, SQLState: 00000
+2026-01-25 16:02:41 - o.h.e.jdbc.spi.SqlExceptionHelper - WARN - ограничение "ukbwtkrldtq09e4rghbofc1a3q" в таблице "room" не существует, пропускается
+2026-01-25 16:02:41 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-25 16:02:42 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 16:02:43 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.137 seconds (process running for 6.721)
+2026-01-25 16:03:10 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 16:03:11 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 403 ms
+2026-01-25 16:03:24 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-25 16:03:25 - c.e.s.service.DeviceService - INFO - User with username string successfully found
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-25T16:08:25.304592500
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 68 saved
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-01T16:03:25.336599
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user string
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 69 saved
+2026-01-25 16:03:25 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
+2026-01-25 16:03:47 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - Start device importing from file operation
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - File copied with path: imports\devices\2026-01-25-16-04-02_1.xml
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Mode not found with id: 1
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Error to add Device dev1 to DB
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Mode not found with id: 1
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Error to add Device dev6 to DB
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Mode not found with id: 3
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Error to add Device dev3 to DB
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Mode not found with id: 3
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - WARN - Error to add Device dev7 to DB
+2026-01-25 16:04:02 - c.e.s.service.DeviceService - INFO - Devices data successfully imported from XML file imports\devices\2026-01-25-16-04-02_1.xml
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - Start mode importing from file operation
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - File copied with path: imports\modes\2026-01-25-16-04-46_2.xml
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - Start Create mode operation
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - Mode with Id null successfully created
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - DEBUG - Mode imported to DB: mode1
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - Start Create mode operation
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - Mode with Id null successfully created
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - DEBUG - Mode imported to DB: mode3
+2026-01-25 16:04:46 - c.e.s.service.DeviceService - INFO - Modes data successfully imported from XML file imports\modes\2026-01-25-16-04-46_2.xml
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Start device importing from file operation
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - File copied with path: imports\devices\2026-01-25-16-06-50_1-2.xml
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Devices in Room 1 less than room capacity 10. Device added
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Device imported to DB: dev1
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Devices in Room 1 less than room capacity 10. Device added
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Device imported to DB: dev6
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Devices in Room 2 less than room capacity 11. Device added
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Device imported to DB: dev3
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Devices in Room 2 less than room capacity 11. Device added
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Device imported to DB: dev7
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Devices in Room 1 less than room capacity 10. Device added
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - DEBUG - Device imported to DB: dev100
+2026-01-25 16:06:50 - c.e.s.service.DeviceService - INFO - Devices data successfully imported from XML file imports\devices\2026-01-25-16-06-50_1-2.xml
+2026-01-25 16:07:37 - c.e.s.service.DeviceService - DEBUG - Get all devices

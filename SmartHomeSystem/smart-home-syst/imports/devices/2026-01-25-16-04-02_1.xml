@@ -25,23 +25,15 @@
     <type>light</type>
     <power>12.0</power>
     <active>true</active>
-    <modeId>2</modeId>
-    <roomId>2</roomId>
+    <modeId>3</modeId>
+    <roomId>4</roomId>
   </device>
   <device>
     <title>dev7</title>
     <type>printer</type>
     <power>220.0</power>
     <active>true</active>
-    <modeId>2</modeId>
-    <roomId>2</roomId>
-  </device>
-  <device>
-    <title>dev100</title>
-    <type>printer</type>
-    <power>22.0</power>
-    <active>true</active>
-    <modeId>1</modeId>
-    <roomId>1</roomId>
+    <modeId>3</modeId>
+    <roomId>4</roomId>
   </device>
 </SmartHomeSystem-Devices>

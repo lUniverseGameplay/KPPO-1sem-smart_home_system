@@ -2,6 +2,7 @@ package com.example.smart_home_syst.model;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,6 +43,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private Set <Token> tokens;
+
+    @OneToMany(mappedBy="manager", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Room> rooms;
 
     private Long tgBotChatId;
 
