@@ -1,10 +1,15 @@
 package com.example.smart_home_syst.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.smart_home_syst.dto.RoomDto;
 import com.example.smart_home_syst.model.Device;
@@ -155,5 +161,60 @@ public class RoomController {
         else{
             return ResponseEntity.notFound().build();
         }
+    }
+ 
+    @Operation(
+    summary = "Экспорт комнат",
+    description = "Экспортировать данные обо всех комнатах в файл в формате XML. Введите название конечного файла перед отправкой запроса")
+    @GetMapping("/rooms/export/{type}")
+    public ResponseEntity<String> exportRoomsToXml(String filename) {
+        String path = "exports/xml/rooms";
+        String savedXml = roomService.exportRoomsListToXmlFile(path, filename);
+        if(savedXml != "" & savedXml != null) {
+            return ResponseEntity.ok(savedXml);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(
+    summary = "Импорт комнат",
+    description = """
+        Импортировать данные о комнатах из XML файла.
+        Требования к файлу: формат XML, размер не более 10Mb
+        Структура файла (текст за // писать не требуется - это комментарии):
+        \nsystem>Наименование системы, Имя пользователя экспортера, Формат (писать: '<format>XML</format>')</system
+        \nroom>
+        \n  title>Название комнаты</title
+        \n  location>Расположение комнаты в доме</location
+        \n  capacity>Максимальное количество устройств в комнате</capacity // Должно быть число
+        \n  managerId>Id пользователя, назначенного менеджером</managerId // Должно быть, соответствующее Id пользователя
+        \n</room"
+    """)
+    @PostMapping(path = "/rooms/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<List<Room>> importRoomsFromXml(@RequestParam MultipartFile file) {
+        List<Room> updRoomList = roomService.importRoomsListFromXmlFile(file);
+        if(updRoomList.size() != 0) {
+            return ResponseEntity.ok(updRoomList);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+        
+    @Operation(
+    summary = "Отчёт о комнатах",
+    description = "Сформировать отчёт обо всех комнатах в доме (берётся из БД). Результатом будет pdf файл, который можно будет скачать по ссылке")
+    @GetMapping("/rooms/report/{type}")
+    public ResponseEntity<ByteArrayResource> generateRoomsPdf() {
+        byte[] pdfContent = roomService.generateRoomPdfReport();
+        String filename = "rooms_report_" + 
+            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss")) + ".pdf";
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
+            .contentType(MediaType.APPLICATION_PDF)
+            .contentLength(pdfContent.length)
+            .body(new ByteArrayResource(pdfContent));
     }
 }

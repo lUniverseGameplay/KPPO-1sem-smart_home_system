@@ -40,7 +40,7 @@ public class Room {
 
     @NotBlank
     @Size(min=1, max=150)
-    @Column(nullable = false, unique = true, length = 150)
+    @Column(nullable = false, length = 150)
     private String location;
 
     @JsonIgnore

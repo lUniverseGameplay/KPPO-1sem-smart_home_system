@@ -10,7 +10,7 @@
     <power>5.0</power>
     <active>true</active>
     <modeId>1</modeId>
-    <roomId>3</roomId>
+    <roomId>1</roomId>
   </device>
   <device>
     <title>dev6</title>
@@ -18,7 +18,7 @@
     <power>0.1</power>
     <active>true</active>
     <modeId>1</modeId>
-    <roomId>3</roomId>
+    <roomId>1</roomId>
   </device>
   <device>
     <title>dev3</title>
@@ -42,6 +42,6 @@
     <power>22.0</power>
     <active>true</active>
     <modeId>1</modeId>
-    <roomId>3</roomId>
+    <roomId>1</roomId>
   </device>
 </SmartHomeSystem-Devices>

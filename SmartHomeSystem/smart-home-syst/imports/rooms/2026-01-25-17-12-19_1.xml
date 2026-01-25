@@ -1,0 +1,19 @@
+<SmartHomeSystem-Rooms exportDate="2026-01-25 16:47:29" version="1.0" totalCount="2">
+  <system>
+    <name>Smart Home System</name>
+    <exportedBy>string</exportedBy>
+    <format>XML</format>
+  </system>
+  <room>
+    <title>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAroom1</title>
+    <location>kitchen</location>
+    <capacity>10</capacity>
+    <managerId>1</managerId>
+  </room>
+  <room>
+    <title>room2</title>
+    <location>main room</location>
+    <capacity>12</capacity>
+    <managerId>1</managerId>
+  </room>
+</SmartHomeSystem-Rooms>
