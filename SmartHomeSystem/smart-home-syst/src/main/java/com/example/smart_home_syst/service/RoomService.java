@@ -195,7 +195,10 @@ public class RoomService {
     }
 
     @Transactional
-    @CacheEvict(value="devices", allEntries=true)
+    @Caching(evict = {
+        @CacheEvict(value="devices", allEntries=true),
+        @CacheEvict(value="modes", key="#id")
+    })
     public List<Device> switchDevicesModeInRoom(Long roomId, Long modeId) {
         logger.info("Start 'Switch devices mode in room' operation");
         List<Device> device_to_change = roomRepository.findById(roomId).orElse(null).getDevices();

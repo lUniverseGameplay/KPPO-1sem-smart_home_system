@@ -1,17 +1,17 @@
-2026-01-26 06:55:19 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 19768 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
-2026-01-26 06:55:19 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
-2026-01-26 06:55:19 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
-2026-01-26 06:55:21 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
-2026-01-26 06:55:21 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
-2026-01-26 06:55:22 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
-2026-01-26 06:55:22 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-01-26 06:55:22 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
-2026-01-26 06:55:22 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
-2026-01-26 06:55:22 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
-2026-01-26 06:55:22 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@989a05c
-2026-01-26 06:55:22 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
-2026-01-26 06:55:22 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-01-26 06:55:22 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
+2026-01-26 07:37:15 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 2028 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
+2026-01-26 07:37:15 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-01-26 07:37:15 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
+2026-01-26 07:37:17 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
+2026-01-26 07:37:17 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-01-26 07:37:17 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
+2026-01-26 07:37:17 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-26 07:37:17 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
+2026-01-26 07:37:18 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
+2026-01-26 07:37:18 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
+2026-01-26 07:37:18 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42c718d6
+2026-01-26 07:37:18 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
+2026-01-26 07:37:18 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-26 07:37:18 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.6
@@ -19,55 +19,370 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-01-26 06:55:23 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-26 06:55:24 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
-2026-01-26 06:55:24 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-01-26 06:55:26 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.891 seconds (process running for 7.476)
-2026-01-26 06:55:29 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-26 06:55:30 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 333 ms
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - INFO - Start login operation
-2026-01-26 06:55:42 - c.e.s.service.DeviceService - INFO - User with username string successfully found
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name string is founded and authentificated successfully
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - User's (name: string) tokens was revocated
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:00:42.521705
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user string
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 109 saved
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-02T06:55:42.579719100
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user string
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 110 saved
-2026-01-26 06:55:42 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user string
-2026-01-26 06:55:50 - c.e.s.service.DeviceService - DEBUG - Get all devices
-2026-01-26 06:55:56 - c.e.s.service.DeviceService - INFO - Start device report creating
-2026-01-26 06:55:56 - c.e.s.service.DeviceService - DEBUG - Pdf template loaded
-2026-01-26 06:55:57 - c.e.s.service.DeviceService - DEBUG - Pdf template compiled
-2026-01-26 06:55:57 - c.e.s.service.DeviceService - DEBUG - Data taken from DB and change to DeviceReportDto
-2026-01-26 06:55:57 - c.e.s.service.DeviceService - DEBUG - Data about devices converted for writing to pdf
-2026-01-26 06:55:57 - c.e.s.service.DeviceService - DEBUG - Pdf parametrs entered
-2026-01-26 06:55:58 - c.e.s.service.DeviceService - WARN - Device report creating error: Error evaluating expression for source text: $F{active} ? "Вкл" : "Выкл"
-net.sf.jasperreports.engine.fill.JRExpressionEvalException: Error evaluating expression for source text: $F{active} ? "Вкл" : "Выкл"
-	at net.sf.jasperreports.engine.fill.JREvaluator.handleEvaluationException(JREvaluator.java:294)
-	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:328)
-	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:673)
-	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:641)
-	at net.sf.jasperreports.engine.fill.JRFillElement.evaluateExpression(JRFillElement.java:1202)
-	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluateText(JRFillTextField.java:555)
-	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluate(JRFillTextField.java:540)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.evaluate(JRFillElementContainer.java:383)
-	at net.sf.jasperreports.engine.fill.JRFillBand.evaluate(JRFillBand.java:548)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2613)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:836)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:275)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:119)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:622)
-	at net.sf.jasperreports.engine.fill.BaseReportFiller.fill(BaseReportFiller.java:433)
-	at net.sf.jasperreports.engine.fill.JRFiller.fill(JRFiller.java:162)
-	at net.sf.jasperreports.engine.fill.JRFiller.fill(JRFiller.java:145)
-	at net.sf.jasperreports.engine.JasperFillManager.fill(JasperFillManager.java:758)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:1074)
-	at com.example.smart_home_syst.service.DeviceService.generateDevicePdfReport(DeviceService.java:388)
+2026-01-26 07:37:19 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-26 07:37:19 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
+2026-01-26 07:37:20 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-26 07:37:21 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.51 seconds (process running for 7.1)
+2026-01-26 07:37:31 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-26 07:37:32 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 310 ms
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:37:56 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded and authentificated successfully
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - true
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:42:56.548857900
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 111 saved
+2026-01-26 07:37:56 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user reader
+2026-01-26 07:38:13 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-26 07:38:34 - c.e.s.service.DeviceService - DEBUG - Get device with id: 4
+2026-01-26 07:39:23 - c.e.s.service.AuthenticationService - DEBUG - Get all rooms
+2026-01-26 07:39:34 - c.e.s.service.AuthenticationService - INFO - Get all devices in room with Id 4
+2026-01-26 07:39:42 - c.e.s.service.DeviceService - DEBUG - Get all modes
+2026-01-26 07:40:09 - c.e.s.service.DeviceService - INFO - Start device report creating
+2026-01-26 07:40:09 - c.e.s.service.DeviceService - DEBUG - Pdf template loaded
+2026-01-26 07:40:10 - c.e.s.service.DeviceService - DEBUG - Pdf template compiled
+2026-01-26 07:40:10 - c.e.s.service.DeviceService - DEBUG - Data taken from DB and change to DeviceReportDto
+2026-01-26 07:40:10 - c.e.s.service.DeviceService - DEBUG - Data about devices converted for writing to pdf
+2026-01-26 07:40:10 - c.e.s.service.DeviceService - DEBUG - Pdf parametrs entered
+2026-01-26 07:40:10 - c.e.s.service.DeviceService - INFO - Devices data report successfully created
+2026-01-26 07:41:36 - o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - WARN - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:43:26 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded and authentificated successfully
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - true
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:48:26.973923100
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 112 saved
+2026-01-26 07:43:26 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user reader
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - INFO - Start device exporting to file operation
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - DEBUG - Full path to file created: exports\xml\devices\device_test.xml
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - INFO - Start device exporting to string operation
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - DEBUG - 7 devices was founded
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - DEBUG - XML export to string successfully finished
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - DEBUG - Try to write XML string to file: exports\xml\devices\device_test.xml
+2026-01-26 07:44:18 - c.e.s.service.DeviceService - INFO - Devices data successfully exported to XML file exports\xml\devices\device_test.xml
+2026-01-26 07:44:54 - c.e.s.service.AuthenticationService - DEBUG - Get room with id: 4
+2026-01-26 07:46:09 - c.e.s.service.AuthenticationService - INFO - Get all devices in room with Id 2
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - INFO - Start room report creating
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - DEBUG - Pdf template loaded
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - DEBUG - Pdf template compiled
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - DEBUG - Data taken from DB and change to RoomReportDto
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - DEBUG - Data about rooms converted for writing to pdf
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - DEBUG - Pdf parametrs entered
+2026-01-26 07:47:02 - c.e.s.service.AuthenticationService - INFO - Rooms data report successfully created
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - INFO - Start rooms exporting to file operation
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - DEBUG - Full path to file created: exports\xml\rooms\room_test.xml
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - INFO - Start room exporting to string operation
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - DEBUG - 3 rooms was founded
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - DEBUG - XML export to string successfully finished
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - DEBUG - Try to write XML string to file: exports\xml\rooms\room_test.xml
+2026-01-26 07:47:28 - c.e.s.service.AuthenticationService - INFO - Rooms data successfully exported to XML file exports\xml\rooms\room_test.xml
+2026-01-26 07:47:36 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 07:47:36 - c.e.s.service.DeviceService - WARN - User with username string not found
+2026-01-26 07:47:36 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: com.example.smart_home_syst.exception.ResourceNotFoundException: User with username stringnot found] with root cause
+com.example.smart_home_syst.exception.ResourceNotFoundException: User with username stringnot found
+	at com.example.smart_home_syst.service.UserService.lambda$3(UserService.java:51)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.smart_home_syst.service.UserService.getUser(UserService.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724)
+	at com.example.smart_home_syst.service.UserService$$SpringCGLIB$$0.getUser(<generated>)
+	at com.example.smart_home_syst.service.AuthenticationService.refresh(AuthenticationService.java:133)
+	at com.example.smart_home_syst.controller.AuthentificationController.refresh(AuthentificationController.java:54)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.smart_home_syst.jwt.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:48:44 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded and authentificated successfully
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:53:44.482384
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 113 saved
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-02T07:48:44.486384600
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user reader
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 114 saved
+2026-01-26 07:48:44 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user reader
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 07:48:49 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded successfully
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:53:49.239746800, userId-3
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 115 saved
+2026-01-26 07:48:49 - c.e.s.service.AuthenticationService - INFO - Access token successfully refreshed
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - INFO - Start rooms exporting to file operation
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - DEBUG - Full path to file created: exports\xml\rooms\1.xml
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - INFO - Start room exporting to string operation
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - DEBUG - 3 rooms was founded
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - DEBUG - XML export to string successfully finished
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - DEBUG - Try to write XML string to file: exports\xml\rooms\1.xml
+2026-01-26 07:49:16 - c.e.s.service.AuthenticationService - INFO - Rooms data successfully exported to XML file exports\xml\rooms\1.xml
+2026-01-26 07:50:32 - c.e.s.service.AuthenticationService - INFO - Get all devices in room with Id 3
+2026-01-26 07:50:39 - c.e.s.service.DeviceService - DEBUG - Get mode with id: 3
+2026-01-26 07:50:43 - c.e.s.service.DeviceService - DEBUG - Get mode with id: 2
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - INFO - Start mode report creating
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - DEBUG - Pdf template loaded
+2026-01-26 07:50:59 - n.s.j.engine.xml.JRTextFieldFactory - WARN - The 'isStretchWithOverflow' attribute is deprecated. Use the 'textAdjust' attribute instead.
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - DEBUG - Pdf template compiled
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - DEBUG - Data taken from DB and change to ModeReportDto
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - DEBUG - Data about modes converted for writing to pdf
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - DEBUG - Pdf parametrs entered
+2026-01-26 07:50:59 - c.e.s.service.DeviceService - INFO - Modes data report successfully created
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - INFO - Start mode exporting to file operation
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - DEBUG - Full path to file created: exports\xml\modes\mode_test.xml
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - INFO - Start mode exporting to string operation
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - DEBUG - 2 modes was founded
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - DEBUG - XML export to string successfully finished
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - DEBUG - Try to write XML string to file: exports\xml\modes\mode_test.xml
+2026-01-26 07:51:29 - c.e.s.service.DeviceService - INFO - Modes data successfully exported to XML file exports\xml\modes\mode_test.xml
+2026-01-26 07:52:45 - c.e.s.service.AuthenticationService - INFO - Start get-info operation
+2026-01-26 07:52:45 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:52:45 - c.e.s.service.AuthenticationService - INFO - Info sended successfully about user reader
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 07:52:57 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded successfully
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:57:57.179934600, userId-3
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 116 saved
+2026-01-26 07:52:57 - c.e.s.service.AuthenticationService - INFO - Access token successfully refreshed
+2026-01-26 07:53:20 - c.e.s.service.DeviceService - INFO - Taken message /help from chat with Id 1021195063
+2026-01-26 07:53:20 - c.e.s.service.DeviceService - DEBUG - User ask '/help' bot chat with Id 1021195063
+2026-01-26 07:53:22 - c.e.s.service.DeviceService - INFO - Taken message /chat_id from chat with Id 1021195063
+2026-01-26 07:53:22 - c.e.s.service.DeviceService - DEBUG - User ask '/chat_id' bot chat with Id 1021195063
+2026-01-26 07:53:26 - c.e.s.service.DeviceService - INFO - Taken message /send_logs_to_admin from chat with Id 1021195063
+2026-01-26 07:53:26 - c.e.s.service.DeviceService - DEBUG - User ask '/send_logs_to_admin' bot chat with Id 1021195063
+2026-01-26 07:53:26 - c.e.s.service.DeviceService - INFO - Log file succesfully sended into chat: 1021195063
+2026-01-26 07:53:44 - c.e.s.service.AuthenticationService - INFO - Start change Telegram Bot chat Id operation
+2026-01-26 07:53:44 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:53:44 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded
+2026-01-26 07:53:44 - c.e.s.service.DeviceService - INFO - User with username reader successfully saved
+2026-01-26 07:53:44 - c.e.s.service.AuthenticationService - DEBUG - Chat Id changes saved for user reader
+2026-01-26 07:53:44 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:53:44 - c.e.s.service.AuthenticationService - INFO - Chat Id changed successfully for user reader
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:53:59 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded and authentificated successfully
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:58:59.845912800
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 117 saved
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-02T07:53:59.849913900
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user reader
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 118 saved
+2026-01-26 07:53:59 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user reader
+2026-01-26 07:54:24 - c.e.s.service.AuthenticationService - INFO - Start change-password operation
+2026-01-26 07:54:24 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:54:24 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded
+2026-01-26 07:54:24 - c.e.s.service.DeviceService - INFO - User with username reader successfully saved
+2026-01-26 07:54:24 - c.e.s.service.AuthenticationService - DEBUG - Password changes saved for user reader
+2026-01-26 07:54:25 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:54:25 - c.e.s.service.AuthenticationService - INFO - Password changed successfully for user reader
+2026-01-26 07:54:39 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:54:44 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - User with ID 3 and name reader is founded and authentificated successfully
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T07:59:44.452766200
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user reader
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 119 saved
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-02T07:54:44.456766100
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user reader
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 120 saved
+2026-01-26 07:54:44 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user reader
+2026-01-26 07:54:52 - c.e.s.service.AuthenticationService - INFO - Start get-info operation
+2026-01-26 07:54:52 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:54:52 - c.e.s.service.AuthenticationService - INFO - Info sended successfully about user reader
+2026-01-26 07:55:00 - c.e.s.service.AuthenticationService - INFO - Start logout operation
+2026-01-26 07:55:00 - c.e.s.service.DeviceService - INFO - User with username reader successfully found
+2026-01-26 07:55:00 - c.e.s.service.AuthenticationService - DEBUG - User's (name: reader) tokens was revocated
+2026-01-26 07:55:00 - c.e.s.service.AuthenticationService - INFO - Logout completed successfully for user reader
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 07:55:16 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - User with ID 2 and name user is founded and authentificated successfully
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - User's (name: user) tokens was revocated
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T08:00:16.614533
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user user
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 121 saved
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-02T07:55:16.617533100
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user user
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 122 saved
+2026-01-26 07:55:16 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user user
+2026-01-26 07:55:28 - c.e.s.service.AuthenticationService - INFO - Start get-info operation
+2026-01-26 07:55:28 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 07:55:28 - c.e.s.service.AuthenticationService - INFO - Info sended successfully about user user
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start device importing from file operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - File copied with path: imports\devices\2026-01-26-07-56-03_device_test.xml
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 3 less than room capacity 10. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 8
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: dev100
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 3 less than room capacity 10. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 9
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: string
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 3 less than room capacity 10. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 10
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: dev1
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 3 less than room capacity 10. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 7
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: dev6
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 3 less than room capacity 10. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 6
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: dev67
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 2 less than room capacity 12. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 4
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: dev7
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Devices in Room 2 less than room capacity 12. Device added
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 11
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - DEBUG - Device updated in DB: dev3
+2026-01-26 07:56:03 - c.e.s.service.DeviceService - INFO - Devices data successfully imported from XML file imports\devices\2026-01-26-07-56-03_device_test.xml
+2026-01-26 07:56:15 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-26 07:56:29 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same type' operation
+2026-01-26 07:56:29 - c.e.s.service.DeviceService - DEBUG - Founded 5 devices with type light
+2026-01-26 07:56:29 - c.e.s.service.DeviceService - INFO - All devices activity with type light was changed to true
+2026-01-26 07:56:38 - c.e.s.service.DeviceService - INFO - Start 'Turn off devices with same type' operation
+2026-01-26 07:56:38 - c.e.s.service.DeviceService - DEBUG - Founded 2 devices with type printer
+2026-01-26 07:56:38 - c.e.s.service.DeviceService - INFO - All devices activity with type printer was changed to false
+2026-01-26 07:58:00 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-26 07:58:00 - c.e.s.service.DeviceService - WARN - Room not found with id: 1
+2026-01-26 07:58:00 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: com.example.smart_home_syst.exception.ResourceNotFoundException: Room not found with id: 1] with root cause
+com.example.smart_home_syst.exception.ResourceNotFoundException: Room not found with id: 1
+	at com.example.smart_home_syst.service.DeviceService.lambda$4(DeviceService.java:184)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.smart_home_syst.service.DeviceService.create(DeviceService.java:182)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -78,9 +393,16 @@ net.sf.jasperreports.engine.fill.JRExpressionEvalException: Error evaluating exp
 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:55)
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:431)
+	at org.springframework.cache.interceptor.CacheAspectSupport.evaluate(CacheAspectSupport.java:601)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:448)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:410)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:65)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at com.example.smart_home_syst.service.DeviceService$$SpringCGLIB$$0.generateDevicePdfReport(<generated>)
-	at com.example.smart_home_syst.controller.DeviceController.generateDevicesPdf(DeviceController.java:211)
+	at com.example.smart_home_syst.service.DeviceService$$SpringCGLIB$$0.create(<generated>)
+	at com.example.smart_home_syst.controller.DeviceController.addDevice(DeviceController.java:82)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -94,7 +416,172 @@ net.sf.jasperreports.engine.fill.JRExpressionEvalException: Error evaluating exp
 	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at com.example.smart_home_syst.controller.DeviceController$$SpringCGLIB$$0.generateDevicesPdf(<generated>)
+	at com.example.smart_home_syst.controller.DeviceController$$SpringCGLIB$$0.addDevice(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.smart_home_syst.jwt.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-01-26 07:58:23 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-26 07:58:23 - c.e.s.service.DeviceService - DEBUG - Devices in Room 4 less than room capacity 1. Device added
+2026-01-26 07:58:23 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-26 07:58:49 - c.e.s.service.DeviceService - INFO - Start Create device operation
+2026-01-26 07:58:49 - c.e.s.service.DeviceService - DEBUG - Too many devices in Room 4 (room capacity 1). Set null room in device
+2026-01-26 07:58:49 - c.e.s.service.DeviceService - INFO - Device with Id null successfully created
+2026-01-26 07:59:03 - c.e.s.service.AuthenticationService - INFO - Get all devices in room with Id 4
+2026-01-26 07:59:30 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-26 07:59:45 - c.e.s.service.DeviceService - INFO - Start Update device operation
+2026-01-26 07:59:45 - c.e.s.service.DeviceService - DEBUG - Devices in Room 3 less than room capacity 10. Device added
+2026-01-26 07:59:45 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Device 13
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 07:59:54 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - DEBUG - User with ID 2 and name user is founded successfully
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T08:04:54.865277500, userId-2
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user user
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 123 saved
+2026-01-26 07:59:54 - c.e.s.service.AuthenticationService - INFO - Access token successfully refreshed
+2026-01-26 08:00:07 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-26 08:00:21 - c.e.s.service.DeviceService - INFO - Start Delete device operation
+2026-01-26 08:00:21 - c.e.s.service.DeviceService - DEBUG - Try to find device with Id 13
+2026-01-26 08:00:21 - c.e.s.service.DeviceService - INFO - Delete device with Id 13 completed successfully
+2026-01-26 08:00:26 - c.e.s.service.DeviceService - DEBUG - Get all devices
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 08:00:40 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - DEBUG - User with ID 2 and name user is founded successfully
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T08:05:40.907297800, userId-2
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user user
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 124 saved
+2026-01-26 08:00:40 - c.e.s.service.AuthenticationService - INFO - Access token successfully refreshed
+2026-01-26 08:00:58 - c.e.s.service.AuthenticationService - INFO - Start 'Turn on devices in room' operation
+2026-01-26 08:00:58 - c.e.s.service.AuthenticationService - DEBUG - Founded 5 devices in room with Id 3
+2026-01-26 08:00:58 - c.e.s.service.AuthenticationService - INFO - All devices activity in room 3 was changed to true
+2026-01-26 08:01:08 - c.e.s.service.AuthenticationService - INFO - Start 'Turn off devices in room' operation
+2026-01-26 08:01:08 - c.e.s.service.AuthenticationService - DEBUG - Founded 5 devices in room with Id 3
+2026-01-26 08:01:08 - c.e.s.service.AuthenticationService - INFO - All devices activity in room 3 was changed to false
+2026-01-26 08:01:21 - c.e.s.service.AuthenticationService - INFO - Start 'Switch devices mode in room' operation
+2026-01-26 08:01:21 - c.e.s.service.AuthenticationService - DEBUG - Founded 5 devices in room with Id 3
+2026-01-26 08:01:21 - c.e.s.service.AuthenticationService - INFO - All devices mode in room 3 was changed to mode mode3 with Id 2
+2026-01-26 08:01:38 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.ClassCastException: class com.example.smart_home_syst.model.Mode cannot be cast to class java.util.List (com.example.smart_home_syst.model.Mode is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @12ca584a; java.util.List is in module java.base of loader 'bootstrap')] with root cause
+java.lang.ClassCastException: class com.example.smart_home_syst.model.Mode cannot be cast to class java.util.List (com.example.smart_home_syst.model.Mode is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @12ca584a; java.util.List is in module java.base of loader 'bootstrap')
+	at com.example.smart_home_syst.service.ModeService$$SpringCGLIB$$0.getDevicesOfMode(<generated>)
+	at com.example.smart_home_syst.controller.ModeController.getDevicesOfMode(ModeController.java:128)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196)
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.smart_home_syst.controller.ModeController$$SpringCGLIB$$0.getDevicesOfMode(<generated>)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -201,45 +688,10 @@ net.sf.jasperreports.engine.fill.JRExpressionEvalException: Error evaluating exp
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: java.lang.ClassCastException: class java.lang.String cannot be cast to class java.lang.Boolean (java.lang.String and java.lang.Boolean are in module java.base of loader 'bootstrap')
-	at DeviceReport_1769399757433_759332.evaluate(DeviceReport_1769399757433_759332:95)
-	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:313)
-	... 151 common frames omitted
-2026-01-26 06:55:58 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Error to create report about devices] with root cause
-java.lang.ClassCastException: class java.lang.String cannot be cast to class java.lang.Boolean (java.lang.String and java.lang.Boolean are in module java.base of loader 'bootstrap')
-	at DeviceReport_1769399757433_759332.evaluate(DeviceReport_1769399757433_759332:95)
-	at net.sf.jasperreports.engine.fill.JREvaluator.evaluate(JREvaluator.java:313)
-	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:673)
-	at net.sf.jasperreports.engine.fill.JRCalculator.evaluate(JRCalculator.java:641)
-	at net.sf.jasperreports.engine.fill.JRFillElement.evaluateExpression(JRFillElement.java:1202)
-	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluateText(JRFillTextField.java:555)
-	at net.sf.jasperreports.engine.fill.JRFillTextField.evaluate(JRFillTextField.java:540)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.evaluate(JRFillElementContainer.java:383)
-	at net.sf.jasperreports.engine.fill.JRFillBand.evaluate(JRFillBand.java:548)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2613)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:836)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:275)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:119)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:622)
-	at net.sf.jasperreports.engine.fill.BaseReportFiller.fill(BaseReportFiller.java:433)
-	at net.sf.jasperreports.engine.fill.JRFiller.fill(JRFiller.java:162)
-	at net.sf.jasperreports.engine.fill.JRFiller.fill(JRFiller.java:145)
-	at net.sf.jasperreports.engine.JasperFillManager.fill(JasperFillManager.java:758)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:1074)
-	at com.example.smart_home_syst.service.DeviceService.generateDevicePdfReport(DeviceService.java:388)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at com.example.smart_home_syst.service.DeviceService$$SpringCGLIB$$0.generateDevicePdfReport(<generated>)
-	at com.example.smart_home_syst.controller.DeviceController.generateDevicesPdf(DeviceController.java:211)
+2026-01-26 08:02:17 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.ClassCastException: class com.example.smart_home_syst.model.Mode cannot be cast to class java.util.List (com.example.smart_home_syst.model.Mode is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @12ca584a; java.util.List is in module java.base of loader 'bootstrap')] with root cause
+java.lang.ClassCastException: class com.example.smart_home_syst.model.Mode cannot be cast to class java.util.List (com.example.smart_home_syst.model.Mode is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @12ca584a; java.util.List is in module java.base of loader 'bootstrap')
+	at com.example.smart_home_syst.service.ModeService$$SpringCGLIB$$0.getDevicesOfMode(<generated>)
+	at com.example.smart_home_syst.controller.ModeController.getDevicesOfMode(ModeController.java:128)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -253,7 +705,7 @@ java.lang.ClassCastException: class java.lang.String cannot be cast to class jav
 	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at com.example.smart_home_syst.controller.DeviceController$$SpringCGLIB$$0.generateDevicesPdf(<generated>)
+	at com.example.smart_home_syst.controller.ModeController$$SpringCGLIB$$0.getDevicesOfMode(<generated>)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -360,37 +812,364 @@ java.lang.ClassCastException: class java.lang.String cannot be cast to class jav
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-2026-01-26 06:57:34 - c.e.s.SmartHomeSystApplication - INFO - Starting SmartHomeSystApplication using Java 17.0.12 with PID 24012 (L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst\target\classes started by Legion in L:\VUZ_programms\3k-1s\KPPO\KPPO-1sem-smart_home_system\SmartHomeSystem\smart-home-syst)
-2026-01-26 06:57:34 - c.e.s.SmartHomeSystApplication - DEBUG - Running with Spring Boot v3.5.7, Spring v6.2.12
-2026-01-26 06:57:34 - c.e.s.SmartHomeSystApplication - INFO - The following 1 profile is active: "dev"
-2026-01-26 06:57:36 - o.a.catalina.core.StandardService - INFO - Starting service [Tomcat]
-2026-01-26 06:57:36 - o.a.catalina.core.StandardEngine - INFO - Starting Servlet engine: [Apache Tomcat/10.1.48]
-2026-01-26 06:57:36 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring embedded WebApplicationContext
-2026-01-26 06:57:36 - o.h.jpa.internal.util.LogHelper - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-01-26 06:57:36 - org.hibernate.Version - INFO - HHH000412: Hibernate ORM core version 6.6.33.Final
-2026-01-26 06:57:36 - o.h.c.i.RegionFactoryInitiator - INFO - HHH000026: Second-level cache disabled
-2026-01-26 06:57:36 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Starting...
-2026-01-26 06:57:36 - com.zaxxer.hikari.pool.HikariPool - INFO - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7569a63a
-2026-01-26 06:57:36 - com.zaxxer.hikari.HikariDataSource - INFO - HikariPool-1 - Start completed.
-2026-01-26 06:57:36 - org.hibernate.orm.deprecation - WARN - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-01-26 06:57:36 - o.hibernate.orm.connections.pooling - INFO - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.6
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-01-26 06:57:37 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-26 06:57:38 - c.e.s.jwt.JwtAuthFilter - DEBUG - Filter 'jwtAuthFilter' configured for use
-2026-01-26 06:57:38 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-01-26 06:57:39 - c.e.s.SmartHomeSystApplication - INFO - Started SmartHomeSystApplication in 6.044 seconds (process running for 6.607)
-2026-01-26 06:57:45 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-26 06:57:46 - o.s.api.AbstractOpenApiResource - INFO - Init duration for springdoc-openapi is: 305 ms
-2026-01-26 06:57:54 - c.e.s.service.DeviceService - INFO - Start device report creating
-2026-01-26 06:57:54 - c.e.s.service.DeviceService - DEBUG - Pdf template loaded
-2026-01-26 06:57:55 - c.e.s.service.DeviceService - DEBUG - Pdf template compiled
-2026-01-26 06:57:55 - c.e.s.service.DeviceService - DEBUG - Data taken from DB and change to DeviceReportDto
-2026-01-26 06:57:55 - c.e.s.service.DeviceService - DEBUG - Data about devices converted for writing to pdf
-2026-01-26 06:57:55 - c.e.s.service.DeviceService - DEBUG - Pdf parametrs entered
-2026-01-26 06:57:55 - c.e.s.service.DeviceService - INFO - Devices data report successfully created
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 08:03:05 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - DEBUG - User with ID 2 and name user is founded successfully
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T08:08:05.472737300, userId-2
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user user
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 125 saved
+2026-01-26 08:03:05 - c.e.s.service.AuthenticationService - INFO - Access token successfully refreshed
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Start room importing from file operation
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - File copied with path: imports\rooms\2026-01-26-08-03-25_1.xml
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Start Update room operation
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - DEBUG - New room manager 2 entered
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Update comleted successfully for Room 2
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - DEBUG - Room updated in DB: room2
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Start Create room operation
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Update comleted successfully for Room null
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - DEBUG - Room imported to DB: room100
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Start Update room operation
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - DEBUG - New room manager 1 entered
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Update comleted successfully for Room 4
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - DEBUG - Room updated in DB: room3
+2026-01-26 08:03:25 - c.e.s.service.AuthenticationService - INFO - Rooms data successfully imported from XML file imports\rooms\2026-01-26-08-03-25_1.xml
+2026-01-26 08:03:53 - c.e.s.service.AuthenticationService - DEBUG - Get all rooms
+2026-01-26 08:04:38 - c.e.s.service.DeviceService - INFO - Start Create mode operation
+2026-01-26 08:04:38 - c.e.s.service.DeviceService - INFO - Mode with Id null successfully created
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Start mode importing from file operation
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - File copied with path: imports\modes\2026-01-26-08-04-52_mode_test.xml
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Start Update mode operation
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Mode 1
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - DEBUG - Mode updated in DB: mode1
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Start Update mode operation
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Update comleted successfully for Mode 2
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - DEBUG - Mode updated in DB: mode3
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Start Create mode operation
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Mode with Id null successfully created
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - DEBUG - Mode imported to DB: mode4
+2026-01-26 08:04:52 - c.e.s.service.DeviceService - INFO - Modes data successfully imported from XML file imports\modes\2026-01-26-08-04-52_mode_test.xml
+2026-01-26 08:05:06 - c.e.s.service.DeviceService - DEBUG - Get all modes
+2026-01-26 08:05:18 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.ClassCastException: class com.example.smart_home_syst.model.Mode cannot be cast to class java.util.List (com.example.smart_home_syst.model.Mode is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @12ca584a; java.util.List is in module java.base of loader 'bootstrap')] with root cause
+java.lang.ClassCastException: class com.example.smart_home_syst.model.Mode cannot be cast to class java.util.List (com.example.smart_home_syst.model.Mode is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @12ca584a; java.util.List is in module java.base of loader 'bootstrap')
+	at com.example.smart_home_syst.service.ModeService$$SpringCGLIB$$0.getDevicesOfMode(<generated>)
+	at com.example.smart_home_syst.controller.ModeController.getDevicesOfMode(ModeController.java:128)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196)
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.smart_home_syst.controller.ModeController$$SpringCGLIB$$0.getDevicesOfMode(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.smart_home_syst.jwt.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-01-26 08:05:45 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same mode' operation
+2026-01-26 08:05:45 - c.e.s.service.DeviceService - DEBUG - Founded 0 devices with mode mode1
+2026-01-26 08:05:45 - c.e.s.service.DeviceService - INFO - All devices activity with mode mode1 was changed to true
+2026-01-26 08:06:15 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same mode' operation
+2026-01-26 08:06:15 - c.e.s.service.DeviceService - DEBUG - Founded 0 devices with mode mode1
+2026-01-26 08:06:15 - c.e.s.service.DeviceService - INFO - All devices activity with mode mode1 was changed to true
+2026-01-26 08:06:17 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same mode' operation
+2026-01-26 08:06:17 - c.e.s.service.DeviceService - DEBUG - Founded 0 devices with mode modeX
+2026-01-26 08:06:17 - c.e.s.service.DeviceService - INFO - All devices activity with mode modeX was changed to true
+2026-01-26 08:06:21 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same mode' operation
+2026-01-26 08:06:21 - o.a.c.c.C.[.[.[.[dispatcherServlet] - ERROR - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.example.smart_home_syst.model.Mode.getDevices()" because the return value of "java.util.Optional.orElse(Object)" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.example.smart_home_syst.model.Mode.getDevices()" because the return value of "java.util.Optional.orElse(Object)" is null
+	at com.example.smart_home_syst.service.ModeService.turnOnDevicesOfMode(ModeService.java:158)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:55)
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:431)
+	at org.springframework.cache.interceptor.CacheAspectSupport.evaluate(CacheAspectSupport.java:601)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:448)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:410)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:65)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.smart_home_syst.service.ModeService$$SpringCGLIB$$0.turnOnDevicesOfMode(<generated>)
+	at com.example.smart_home_syst.controller.ModeController.turnOnRoom(ModeController.java:152)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196)
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.smart_home_syst.controller.ModeController$$SpringCGLIB$$0.turnOnRoom(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.smart_home_syst.jwt.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - INFO - Start refresh operation
+2026-01-26 08:06:25 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - DEBUG - User with ID 2 and name user is founded successfully
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T08:11:25.730061300, userId-2
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user user
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 126 saved
+2026-01-26 08:06:25 - c.e.s.service.AuthenticationService - INFO - Access token successfully refreshed
+2026-01-26 08:06:30 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same mode' operation
+2026-01-26 08:06:30 - c.e.s.service.DeviceService - DEBUG - Founded 8 devices with mode mode3
+2026-01-26 08:06:30 - c.e.s.service.DeviceService - INFO - All devices activity with mode mode3 was changed to true
+2026-01-26 08:06:36 - c.e.s.service.DeviceService - INFO - Start 'Turn on devices with same mode' operation
+2026-01-26 08:06:36 - c.e.s.service.DeviceService - DEBUG - Founded 0 devices with mode mode1
+2026-01-26 08:06:36 - c.e.s.service.DeviceService - INFO - All devices activity with mode mode1 was changed to true
+2026-01-26 08:07:13 - c.e.s.service.DeviceService - INFO - Start 'Turn off devices with same mode' operation
+2026-01-26 08:07:13 - c.e.s.service.DeviceService - DEBUG - Founded 8 devices with mode mode3
+2026-01-26 08:07:13 - c.e.s.service.DeviceService - INFO - All devices activity with mode mode3 was changed to false
+2026-01-26 08:07:38 - c.e.s.service.AuthenticationService - INFO - Start logout operation
+2026-01-26 08:07:38 - c.e.s.service.DeviceService - INFO - User with username user successfully found
+2026-01-26 08:07:38 - c.e.s.service.AuthenticationService - DEBUG - User's (name: user) tokens was revocated
+2026-01-26 08:07:38 - c.e.s.service.AuthenticationService - INFO - Logout completed successfully for user user
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - INFO - Start login operation
+2026-01-26 08:07:52 - c.e.s.service.DeviceService - INFO - User with username root successfully found
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - User with ID 1 and name root is founded and authentificated successfully
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Tokens validity: Access - false, Refresh - false
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - User's (name: root) tokens was revocated
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - New Access token created with parametrs: token type-ACCESS, expiring date-2026-01-26T08:12:52.899298600
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Access token recorded to user root
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Adding Access token cookie
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Access token with ID 127 saved
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - New Refresh token created with parametrs: token type-REFRESH, expiring date-2026-02-02T08:07:52.903299200
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Refresh token recorded to user root
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Adding Refresh token cookie
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - DEBUG - Refresh token with ID 128 saved
+2026-01-26 08:07:52 - c.e.s.service.AuthenticationService - INFO - Login completed successfully for user root
+2026-01-26 08:07:57 - c.e.s.service.AuthenticationService - INFO - Start get-info operation
+2026-01-26 08:07:57 - c.e.s.service.DeviceService - INFO - User with username root successfully found
+2026-01-26 08:07:57 - c.e.s.service.AuthenticationService - INFO - Info sended successfully about user root
+2026-01-26 08:08:07 - c.e.s.service.DeviceService - INFO - Start Delete mode operation
+2026-01-26 08:08:07 - c.e.s.service.DeviceService - DEBUG - Try to find mode with Id 5
+2026-01-26 08:08:07 - c.e.s.service.DeviceService - INFO - Delete mode with Id 5 completed successfully
+2026-01-26 08:08:11 - c.e.s.service.DeviceService - DEBUG - Get all modes
+2026-01-26 08:08:21 - c.e.s.service.AuthenticationService - INFO - Start Delete room operation
+2026-01-26 08:08:21 - c.e.s.service.AuthenticationService - DEBUG - Try to find room with Id 4
+2026-01-26 08:08:21 - c.e.s.service.AuthenticationService - INFO - Delete room with Id 4 completed successfully
+2026-01-26 08:08:25 - c.e.s.service.AuthenticationService - DEBUG - Get all rooms
