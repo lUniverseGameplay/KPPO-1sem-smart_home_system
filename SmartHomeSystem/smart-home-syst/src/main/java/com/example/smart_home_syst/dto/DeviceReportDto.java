@@ -1,7 +1,5 @@
 package com.example.smart_home_syst.dto;
 
-import com.example.smart_home_syst.enumerator.DeviceType;
-
 public class DeviceReportDto {
     private String title;
     private String type;
